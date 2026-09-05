@@ -268,20 +268,31 @@
         Account &amp; Data Deletion Request
       </h1>
       <p style="color: var(--color-text-secondary); font-size: 15px; line-height: 1.6;">
-        Use this official form to request permanent deletion of data associated with an application developed by <strong>Karmakar Developers</strong>. You can request deletion of data from <strong>Expense Insights</strong> or all application data linked to your account.
+        Use this official form to request permanent deletion of data associated with <strong>Expense Insights</strong> developed by <strong>Karmakar Developers</strong>. Please provide accurate information so that we can identify and process your request.
       </p>
 
-      <!-- Self-Service Notice -->
+      <!-- Data Center Self-Service Portal Notice -->
       <div class="self-service-box" style="margin-top: 24px;">
-        <span class="material-symbols-outlined" style="color: var(--color-brand); font-size: 28px; flex-shrink: 0;">info</span>
-        <div style="font-size: 14px; line-height: 1.6; color: var(--color-text-primary);">
-          <strong style="font-family: var(--font-heading); font-size: 15px; color: var(--color-brand);">Quick In-App Self-Service Deletion</strong>
-          <p style="margin-top: 4px; color: var(--color-text-secondary);">
-            If you have the <strong>Expense Insights</strong> application installed, you can instantly wipe all local records directly inside the app:
-            Navigate to <strong>Settings &gt; Data &amp; Storage &gt; Clear All Records / Delete Account</strong>.
+        <span class="material-symbols-outlined" style="color: var(--color-brand); font-size: 32px; flex-shrink: 0; margin-top: 2px;">manage_accounts</span>
+        <div style="font-size: 14px; line-height: 1.6; color: var(--color-text-primary); flex: 1;">
+          <strong style="font-family: var(--font-heading); font-size: 16px; color: var(--color-brand); display: block; margin-bottom: 4px;">
+            Self-Service Deletion &amp; Data Center Portal
+          </strong>
+          <p style="color: var(--color-text-secondary); margin-bottom: 12px;">
+            If you want to view your account information, inspect data records, or delete your account and associated data yourself, you can use the official <strong>Karmakar Developers Data Center</strong>:
           </p>
-          <p style="margin-top: 6px; font-size: 13px; color: var(--color-text-muted);">
-            If you uninstalled the app or prefer an official deletion request processed by Karmakar Developers, please complete the form below.
+          <a
+            href="https://karmakar-developers.netlify.app/#data-center"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-secondary"
+            style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; padding: 8px 16px; font-size: 13.5px; border-color: var(--color-brand); color: var(--color-brand); background-color: #ffffff; text-decoration: none;"
+          >
+            <span>Visit Karmakar Developers Data Center</span>
+            <span class="material-symbols-outlined" style="font-size: 16px;">open_in_new</span>
+          </a>
+          <p style="margin-top: 10px; font-size: 13px; color: var(--color-text-muted);">
+            If you are unable to complete the deletion through the Data Center or prefer an official deletion request processed by our developer team, please complete the form below.
           </p>
         </div>
       </div>
@@ -303,9 +314,31 @@
           target="hidden_iframe"
           novalidate
         >
-          <!-- Hidden Google Form Metadata -->
+          <!-- Hidden Google Form Metadata & Hardcoded Application Target -->
           <input type="hidden" name="fvv" value="1" />
           <input type="hidden" name="pageHistory" value="0,1,2" />
+          <!-- Deletion Scope: Data from a specific app (entry.498496194) -->
+          <input type="hidden" name="entry.498496194" value="Data from a specific app" />
+          <!-- Selected Application: Expense Insights (entry.1841398095) -->
+          <input type="hidden" name="entry.1841398095" value="Expense Insights" />
+
+          <!-- Target Application Context Badge -->
+          <div style="background-color: var(--color-bg-page); border: 1.5px solid var(--color-border); border-radius: var(--radius-md); padding: 14px 16px; margin-bottom: 24px; display: flex; align-items: center; gap: 14px;">
+            <div style="width: 40px; height: 40px; border-radius: var(--radius-sm); background-color: var(--color-accent-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <span class="material-symbols-outlined" style="color: var(--color-brand); font-size: 22px;">query_stats</span>
+            </div>
+            <div style="flex: 1;">
+              <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted);">
+                Target Application
+              </div>
+              <div style="font-size: 15px; font-weight: 700; color: var(--color-text-primary);">
+                Expense Insights <span style="font-size: 13px; font-weight: normal; color: var(--color-text-muted);">(com.karmakardevelopers.expenseinsights)</span>
+              </div>
+            </div>
+            <span class="badge-pill" style="background-color: var(--color-accent-light); color: var(--color-brand); font-size: 12px; font-weight: 600; padding: 4px 10px;">
+              Pre-Selected
+            </span>
+          </div>
 
           <!-- Field 1: Email Address (entry.1376920632) -->
           <div class="form-group">
@@ -330,61 +363,7 @@
             </div>
           </div>
 
-          <!-- Field 2: Deletion Scope (entry.498496194) -->
-          <div class="form-group">
-            <label class="form-label">
-              What would you like to delete?
-              <span class="required-star">*</span>
-            </label>
-            <div class="form-hint">
-              Choose whether you want data purged specifically from Expense Insights or all applications.
-            </div>
-
-            <label class="radio-option-card">
-              <input
-                type="radio"
-                name="entry.498496194"
-                value="Data from a specific app"
-                checked
-                id="scope-specific"
-              />
-              <div>
-                <strong style="font-size: 14px; color: var(--color-text-primary);">Data from a specific app</strong>
-                <div style="font-size: 13px; color: var(--color-text-muted);">
-                  Delete records and account info from Expense Insights only.
-                </div>
-              </div>
-            </label>
-
-            <label class="radio-option-card">
-              <input
-                type="radio"
-                name="entry.498496194"
-                value="Data from all Karmakar Developers apps"
-                id="scope-all"
-              />
-              <div>
-                <strong style="font-size: 14px; color: var(--color-text-primary);">Data from all Karmakar Developers apps</strong>
-                <div style="font-size: 13px; color: var(--color-text-muted);">
-                  Purge all account records across the entire developer suite.
-                </div>
-              </div>
-            </label>
-          </div>
-
-          <!-- Field 3: Application Selection (entry.1841398095) -->
-          <div class="form-group" id="app-selection-group">
-            <label class="form-label" for="app-select">
-              Select the application
-              <span class="required-star">*</span>
-            </label>
-            <select id="app-select" name="entry.1841398095" class="form-select" required>
-              <option value="Expense Insights" selected>Expense Insights (com.karmakardevelopers.expenseinsights)</option>
-              <option value="Other / Not listed">Other / Not listed</option>
-            </select>
-          </div>
-
-          <!-- Field 4: Reason for Deletion (entry.1809672499) -->
+          <!-- Field 2: Reason for Deletion (entry.1809672499) -->
           <div class="form-group">
             <label class="form-label" for="deletion-reason">
               Reason for deletion
@@ -405,7 +384,7 @@
             </div>
           </div>
 
-          <!-- Field 5: Legal Confirmation Checkbox (entry.54173755) -->
+          <!-- Field 3: Legal Confirmation Checkbox (entry.54173755) -->
           <div class="form-group">
             <label class="checkbox-container">
               <input
@@ -460,7 +439,8 @@
         </p>
 
         <div style="background-color: var(--color-neutral-bg); border-radius: var(--radius-md); padding: 18px; text-align: left; max-width: 480px; margin: 0 auto 28px auto; border: 1px solid var(--color-border); font-size: 14px; line-height: 1.6;">
-          <div><strong>Target Account:</strong> <span id="submitted-email" style="color: var(--color-brand); font-weight: 600;"></span></div>
+          <div><strong>Application:</strong> Expense Insights (com.karmakardevelopers.expenseinsights)</div>
+          <div style="margin-top: 6px;"><strong>Target Account:</strong> <span id="submitted-email" style="color: var(--color-brand); font-weight: 600;"></span></div>
           <div style="margin-top: 6px;"><strong>Processing SLA:</strong> Within 30 calendar days</div>
           <div style="margin-top: 6px;"><strong>Status:</strong> Pending deletion &amp; data wipe</div>
           <div style="margin-top: 6px; font-size: 13px; color: var(--color-text-muted);">
@@ -520,21 +500,7 @@
         var reasonError = document.getElementById('reason-error');
         var confirmError = document.getElementById('confirm-error');
 
-        var scopeSpecific = document.getElementById('scope-specific');
-        var scopeAll = document.getElementById('scope-all');
-        var appSelectionGroup = document.getElementById('app-selection-group');
-
         var isSubmitting = false;
-
-        // Toggle app select visibility when scope changes
-        if (scopeSpecific && scopeAll && appSelectionGroup) {
-          scopeSpecific.addEventListener('change', function () {
-            appSelectionGroup.style.display = 'block';
-          });
-          scopeAll.addEventListener('change', function () {
-            appSelectionGroup.style.display = 'none';
-          });
-        }
 
         function validateForm() {
           var isValid = true;
