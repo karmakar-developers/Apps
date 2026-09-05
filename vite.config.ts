@@ -10,6 +10,7 @@ export default defineConfig(() => {
           app: path.resolve(__dirname, 'expense-insights-app.html'),
           privacy: path.resolve(__dirname, 'expense-insights-privacy.html'),
           terms: path.resolve(__dirname, 'expense-insights-terms.html'),
+          deletion: path.resolve(__dirname, 'expense-insights-account-deletion.html'),
         },
       },
     },

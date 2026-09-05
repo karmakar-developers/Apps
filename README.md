@@ -36,13 +36,13 @@ The site is organized hierarchically with clear cross-linking, back-navigation f
                   ┌────────────────────────────────────────┐
                   │       expense-insights-app.html        │
                   │    (Expense Insights App Showcase)     │
-                  └─────────────┬───────────────────┬──────┘
-                                │                   │
-           ┌────────────────────▼─────┐       ┌─────▼────────────────────┐
-           │expense-insights-privacy  │       │ expense-insights-terms   │
-           │         .html            │◄─────►│         .html            │
-           │     (Privacy Policy)     │       │   (Terms of Service)     │
-           └──────────────────────────┘       └──────────────────────────┘
+                  └───────┬──────────────┬───────────────┬─┘
+                          │              │               │
+     ┌────────────────────▼─────┐ ┌──────▼─────────────┐ ┌▼─────────────────────────┐
+     │expense-insights-privacy  │ │expense-insights-   │ │expense-insights-        │
+     │         .html            │ │   terms.html       │ │ account-deletion.html   │
+     │     (Privacy Policy)     │ │(Terms of Service)  │ │ (Google Form Backend)   │
+     └──────────────────────────┘ └────────────────────┘ └─────────────────────────┘
 ```
 
 ### Detailed Breakdown of Every HTML File:
@@ -50,9 +50,10 @@ The site is organized hierarchically with clear cross-linking, back-navigation f
 | File | Primary Role & Purpose | Key Components & Contents | Navigation & Links |
 | :--- | :--- | :--- | :--- |
 | **`index.html`** | **Developer Portal & Applications Hub**<br>The primary entry point for Karmakar Developers showcasing all current and upcoming software releases. | • Sticky brand header with official Karmakar Developers logo.<br>• Verified Developer Portfolio hero card.<br>• App Directory grid highlighting **Expense Insights** with Play Store badge, version tag, and live feature highlights.<br>• Platform security & zero-ad guarantees.<br>• Directory footer with developer contact link.<br>*(Note: Contains no generic privacy or terms links; legal policies are app-specific)* | • Link to `expense-insights-app.html` (View Showcase)<br>• Email mailto link (`developers.karmakar@gmail.com`) |
-| **`expense-insights-app.html`** | **Application Showcase & Feature Hub**<br>Dedicated landing page and visual tour of Expense Insights for potential users and testers. | • Product branding with back-to-home directory link.<br>• Value-proposition hero banner with call-to-action buttons.<br>• High-definition screenshot gallery (8 curated showcase features: Smart Analytics, Ad-Free Design, Unlimited Accounts, Theme Engine, Voice Input, Data Import, Icon Styles, Premium Features).<br>• Core capabilities & privacy-first principles overview.<br>• Quick-access legal footer. | • Return navigation to `index.html`<br>• Deep-links to `expense-insights-privacy.html` and `expense-insights-terms.html` |
-| **`expense-insights-privacy.html`** | **Official Google Play Privacy Policy**<br>Legally compliant data privacy declaration satisfying Google Play Developer Distribution Agreement and global privacy laws (GDPR/CCPA). | • Multi-tier return navigation: Header back button, logo link, and in-document banner button leading back to `expense-insights-app.html`.<br>• Metadata overview card with Package ID (`com.karmakardevelopers.expenseinsights`), Effective Date, and compliance version.<br>• Core Privacy Principles (100% Local Storage, No Silent Telemetry, Zero Third-Party Trackers).<br>• Exhaustive Android Permissions table with specific functional justifications.<br>• Data Safety disclosure table.<br>• Account & data deletion procedures.<br>• Direct developer contact details with verified logo.<br>• Print-ready CSS for generating compliance PDF copies. | • Back buttons returning to `expense-insights-app.html`<br>• Cross-link to `expense-insights-terms.html`<br>• Root link to `index.html` |
-| **`expense-insights-terms.html`** | **Official Terms of Service**<br>Standard end-user terms of service outlining agreement, permitted usage, intellectual property, disclaimers, and liability. | • Header and in-document return buttons to navigate back to `expense-insights-app.html`.<br>• Document header with Effective Date and Package identifier.<br>• Acceptance of terms, license grant, user responsibilities, and financial disclaimer.<br>• Intellectual property protection terms for Karmakar Developers.<br>• Developer contact card with official brand logo.<br>• Formatted with print stylesheet support. | • Back buttons returning to `expense-insights-app.html`<br>• Cross-link to `expense-insights-privacy.html`<br>• Root link to `index.html` |
+| **`expense-insights-app.html`** | **Application Showcase & Feature Hub**<br>Dedicated landing page and visual tour of Expense Insights for potential users and testers. | • Product branding with back-to-home directory link.<br>• Header & hero quick-action links to Privacy Policy, Terms of Service, and Account Deletion.<br>• High-definition screenshot gallery (8 curated showcase features: Smart Analytics, Ad-Free Design, Unlimited Accounts, Theme Engine, Voice Input, Data Import, Icon Styles, Premium Features).<br>• Core capabilities & privacy-first principles overview.<br>• Quick-access legal footer. | • Return navigation to `index.html`<br>• Links to `expense-insights-privacy.html`, `expense-insights-terms.html`, and `expense-insights-account-deletion.html` |
+| **`expense-insights-privacy.html`** | **Official Google Play Privacy Policy**<br>Legally compliant data privacy declaration satisfying Google Play Developer Distribution Agreement and global privacy laws (GDPR/CCPA). | • Multi-tier return navigation: Header back button, logo link, and in-document banner button leading back to `expense-insights-app.html`.<br>• Metadata overview card with Package ID (`com.karmakardevelopers.expenseinsights`), Effective Date, and compliance version.<br>• Core Privacy Principles (100% Local Storage, No Silent Telemetry, Zero Third-Party Trackers).<br>• Exhaustive Android Permissions table with specific functional justifications.<br>• Data Safety disclosure table.<br>• Account & data deletion procedures with direct link to online request form.<br>• Direct developer contact details with verified logo.<br>• Print-ready CSS for generating compliance PDF copies. | • Back buttons returning to `expense-insights-app.html`<br>• Cross-link to `expense-insights-terms.html` & `expense-insights-account-deletion.html`<br>• Root link to `index.html` |
+| **`expense-insights-terms.html`** | **Official Terms of Service**<br>Standard end-user terms of service outlining agreement, permitted usage, intellectual property, disclaimers, and liability. | • Header and in-document return buttons to navigate back to `expense-insights-app.html`.<br>• Document header with Effective Date and Package identifier.<br>• Acceptance of terms, license grant, user responsibilities, and financial disclaimer.<br>• Intellectual property protection terms for Karmakar Developers.<br>• Developer contact card with official brand logo.<br>• Formatted with print stylesheet support. | • Back buttons returning to `expense-insights-app.html`<br>• Cross-link to `expense-insights-privacy.html` & `expense-insights-account-deletion.html`<br>• Root link to `index.html` |
+| **`expense-insights-account-deletion.html`** | **Account & Data Deletion Portal (Google Play Compliant)**<br>Static, styled HTML form that transparently submits deletion requests to the Google Form backend (`https://forms.gle/JgHo6AVp9nMwT4i28`). | • App-branded form matching the Karmakar Developers design system.<br>• In-app self-service instructions for instant local database resets.<br>• Form fields for target account email, deletion scope (specific app vs. all apps), application selector, deletion reason, and legal confirmation checkbox.<br>• Dual submission pipeline: hidden iframe capture plus non-blocking fetch dispatch.<br>• Polished inline success confirmation card with SLA timeline (30 days) and reference summary.<br>• Direct fallback link to Google Form. | • Back navigation to `expense-insights-app.html`<br>• Cross-links to `expense-insights-privacy.html` and `index.html`<br>• External link to Google Form |
 
 ---
 
@@ -64,6 +65,7 @@ The site is organized hierarchically with clear cross-linking, back-navigation f
 ├── expense-insights-app.html         # Expense Insights Application Showcase
 ├── expense-insights-privacy.html     # Expense Insights Privacy Policy (Play Console compliant)
 ├── expense-insights-terms.html       # Expense Insights Terms of Service
+├── expense-insights-account-deletion.html # Account & Data Deletion form (Google Form backend)
 ├── css/
 │   └── style.css                     # Centralized Design System stylesheet
 ├── images/
@@ -112,5 +114,6 @@ This site is built with pure static assets with zero build steps required for Gi
    - **Expense Insights App**: `https://<username>.github.io/<repository-name>/expense-insights-app.html`
    - **Privacy Policy URL**: `https://<username>.github.io/<repository-name>/expense-insights-privacy.html`
    - **Terms of Service URL**: `https://<username>.github.io/<repository-name>/expense-insights-terms.html`
+   - **Account Deletion URL**: `https://<username>.github.io/<repository-name>/expense-insights-account-deletion.html`
 
-*Note: The Privacy Policy URL above can be pasted directly into the **Google Play Console** under **Policy & Programs** > **App Content** > **Privacy Policy**.*
+*Note: The Privacy Policy and Account Deletion URLs above can be pasted directly into the **Google Play Console** under **Policy & Programs** > **App Content** > **Privacy Policy** and **Account Deletion URL**.*
