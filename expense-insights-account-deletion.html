@@ -316,7 +316,7 @@
         >
           <!-- Hidden Google Form Metadata & Hardcoded Application Target -->
           <input type="hidden" name="fvv" value="1" />
-          <input type="hidden" name="pageHistory" value="0,1,2" />
+          <input type="hidden" name="pageHistory" value="0,1,2,3,4" />
           <!-- Deletion Scope: Data from a specific app (entry.498496194) -->
           <input type="hidden" name="entry.498496194" value="Data from a specific app" />
           <!-- Selected Application: Expense Insights (entry.1841398095) -->
@@ -377,10 +377,11 @@
               name="entry.1809672499"
               class="form-textarea"
               placeholder="e.g., No longer using the app, testing, privacy preferences, creating a new account..."
+              minlength="10"
               required
             ></textarea>
             <div id="reason-error" style="color: var(--color-danger); font-size: 13px; margin-top: 4px; display: none;">
-              Please provide a reason for the deletion request.
+              Please provide a reason of at least 10 characters for the deletion request.
             </div>
           </div>
 
@@ -414,7 +415,7 @@
           <div style="margin-top: 18px; text-align: center; font-size: 13px; color: var(--color-text-muted);">
             Prefer to use the Google Form interface directly?
             <a
-              href="https://forms.gle/JgHo6AVp9nMwT4i28"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdQEqQ4nRQ7tXcyDhqXxk4dpAlyxqXTme0UOPmFvxti0QCQxw/viewform?usp=pp_url&entry.498496194=Data+from+a+specific+app&entry.1841398095=Expense+Insights"
               target="_blank"
               rel="noopener noreferrer"
               style="color: var(--color-brand); font-weight: 600; text-decoration: underline; margin-left: 4px;"
@@ -515,9 +516,9 @@
             emailError.style.display = 'none';
           }
 
-          // Reason validation
+          // Reason validation (Google Form enforces minimum 10 characters)
           var reasonVal = reasonInput.value.trim();
-          if (!reasonVal) {
+          if (!reasonVal || reasonVal.length < 10) {
             reasonError.style.display = 'block';
             isValid = false;
           } else {
@@ -550,15 +551,26 @@
           submitBtn.disabled = true;
           btnText.textContent = 'Submitting deletion request...';
 
-          // As backup, also dispatch via fetch (no-cors) to guarantee transmission
+          // As backup, also dispatch url-encoded payload via fetch (no-cors)
           try {
-            var formData = new FormData(form);
+            var params = new URLSearchParams();
+            params.append('fvv', '1');
+            params.append('pageHistory', '0,1,2,3,4');
+            params.append('entry.1376920632', emailInput.value.trim());
+            params.append('entry.498496194', 'Data from a specific app');
+            params.append('entry.1841398095', 'Expense Insights');
+            params.append('entry.1809672499', reasonInput.value.trim());
+            params.append('entry.54173755', 'I confirm that I am requesting deletion of the data described above and understand that deleted data may not be recoverable.');
+
             fetch(form.action, {
               method: 'POST',
               mode: 'no-cors',
-              body: formData
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+              },
+              body: params.toString()
             }).catch(function () {
-              // Ignore cross-origin error, iframe will also submit
+              // Ignore cross-origin error, iframe handles submit
             });
           } catch (err) {
             // Ignore fetch error
