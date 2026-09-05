@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy — Expense Insights</title>
+    <meta name="description" content="Privacy Policy for Expense Insights Android Application by Karmakar Developers." />
+    <link rel="icon" type="image/png" href="images/karmakar-developers-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0" rel="stylesheet">
+    <style>
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background-color: #f8faf8;
+        color: #191c1b;
+        line-height: 1.65;
+        font-size: 15px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid #dfe5df;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      }
+
+      .header-container {
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .brand-title {
+        font-family: 'Hanken Grotesk', sans-serif;
+        font-weight: 800;
+        font-size: 16px;
+        color: #00450d;
+        letter-spacing: -0.01em;
+      }
+
+      .brand-subtitle {
+        font-size: 12px;
+        color: #596158;
+      }
+
+      .print-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border-radius: 9999px;
+        border: 1px solid #dfe5df;
+        background-color: #ffffff;
+        color: #191c1b;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .print-btn:hover {
+        background-color: #f0f3f0;
+        border-color: #cfd8cf;
+      }
+
+      main {
+        width: min(900px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 40px 0 64px 0;
+      }
+
+      .card {
+        background-color: #ffffff;
+        border-radius: 24px;
+        padding: 32px;
+        border: 1px solid #dfe5df;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+        margin-bottom: 32px;
+      }
+
+      @media (min-width: 640px) {
+        .card {
+          padding: 40px;
+        }
+      }
+
+      h1 {
+        font-family: 'Hanken Grotesk', sans-serif;
+        font-size: 32px;
+        font-weight: 800;
+        color: #191c1b;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        margin-bottom: 8px;
+      }
+
+      @media (min-width: 640px) {
+        h1 {
+          font-size: 38px;
+        }
+      }
+
+      .app-heading-sub {
+        font-family: 'Hanken Grotesk', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: #00450d;
+        margin-bottom: 14px;
+      }
+
+      .meta-details {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 12px;
+        font-size: 13px;
+        color: #596158;
+        padding: 12px 16px;
+        background-color: #f8faf8;
+        border-radius: 12px;
+        border: 1px solid #dfe5df;
+        margin-bottom: 20px;
+      }
+
+      .meta-item strong {
+        color: #191c1b;
+      }
+
+      .meta-divider {
+        color: #cfd8cf;
+      }
+
+      .privacy-commitment {
+        background-color: rgba(0, 69, 13, 0.04);
+        border: 1px solid rgba(0, 69, 13, 0.15);
+        border-radius: 16px;
+        padding: 18px 20px;
+        color: #191c1b;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .privacy-commitment strong {
+        color: #00450d;
+      }
+
+      .sections-card {
+        background-color: #ffffff;
+        border-radius: 24px;
+        padding: 32px;
+        border: 1px solid #dfe5df;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      }
+
+      @media (min-width: 640px) {
+        .sections-card {
+          padding: 40px;
+        }
+      }
+
+      section {
+        padding-top: 28px;
+        padding-bottom: 28px;
+        border-top: 1px solid #f0f3f0;
+      }
+
+      section:first-child {
+        padding-top: 0;
+        border-top: none;
+      }
+
+      section:last-child {
+        padding-bottom: 0;
+      }
+
+      h2 {
+        font-family: 'Hanken Grotesk', sans-serif;
+        font-size: 19px;
+        font-weight: 700;
+        color: #191c1b;
+        letter-spacing: -0.01em;
+        margin-bottom: 12px;
+      }
+
+      p {
+        color: #404941;
+        margin-bottom: 12px;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      ul {
+        list-style-type: disc;
+        padding-left: 24px;
+        margin-top: 8px;
+        margin-bottom: 12px;
+        color: #404941;
+      }
+
+      li {
+        margin-bottom: 8px;
+        line-height: 1.6;
+      }
+
+      li:last-child {
+        margin-bottom: 0;
+      }
+
+      li strong {
+        color: #191c1b;
+      }
+
+      /* Responsive Permissions Table */
+      .table-wrapper {
+        overflow-x: auto;
+        margin-top: 16px;
+        margin-bottom: 8px;
+        border-radius: 16px;
+        border: 1px solid #dfe5df;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        font-size: 13.5px;
+        background-color: #ffffff;
+      }
+
+      thead {
+        background-color: #f4f6f4;
+        border-bottom: 1px solid #dfe5df;
+      }
+
+      th {
+        padding: 12px 16px;
+        font-family: 'Hanken Grotesk', sans-serif;
+        font-weight: 700;
+        color: #191c1b;
+        white-space: nowrap;
+      }
+
+      td {
+        padding: 14px 16px;
+        border-bottom: 1px solid #f0f3f0;
+        vertical-align: top;
+        color: #404941;
+        line-height: 1.55;
+      }
+
+      tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      tbody tr:hover {
+        background-color: #fafbfa;
+      }
+
+      code {
+        background-color: #f0f3f0;
+        color: #00450d;
+        padding: 2px 6px;
+        border-radius: 6px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 12px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 9999px;
+        font-size: 11.5px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .badge-runtime {
+        background-color: #fff4e5;
+        color: #9a4c00;
+        border: 1px solid #fed7aa;
+      }
+
+      .badge-normal {
+        background-color: #e8f5e9;
+        color: #006015;
+        border: 1px solid #c8e6c9;
+      }
+
+      .badge-optional {
+        background-color: #f0f3f0;
+        color: #404941;
+        border: 1px solid #dfe5df;
+      }
+
+      a {
+        color: #007324;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        word-break: break-all;
+      }
+
+      a:hover {
+        color: #00450d;
+      }
+
+      .info-box {
+        background-color: #f8faf8;
+        border: 1px solid #dfe5df;
+        border-radius: 16px;
+        padding: 16px 20px;
+        margin-top: 14px;
+        font-size: 14px;
+      }
+
+      .info-box div {
+        margin-bottom: 6px;
+        color: #404941;
+      }
+
+      .info-box div:last-child {
+        margin-bottom: 0;
+      }
+
+      .info-box strong {
+        color: #191c1b;
+      }
+
+      .back-nav-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: inherit;
+        transition: opacity 0.2s ease;
+      }
+
+      .back-nav-link:hover {
+        opacity: 0.8;
+      }
+
+      .back-pill-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border-radius: 9999px;
+        border: 1px solid #dfe5df;
+        background-color: #ffffff;
+        color: #00450d;
+        font-size: 12.5px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .back-pill-btn:hover {
+        background-color: #dff5df;
+        border-color: #c4eec4;
+        color: #00450d;
+      }
+
+      .back-banner {
+        margin-bottom: 20px;
+      }
+
+      .main-back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 18px;
+        border-radius: 9999px;
+        background-color: #ffffff;
+        border: 1px solid #dfe5df;
+        color: #00450d;
+        font-size: 13.5px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+        transition: all 0.2s ease;
+      }
+
+      .main-back-btn:hover {
+        background-color: #f0f6f0;
+        border-color: #c4eec4;
+        transform: translateX(-2px);
+      }
+
+      footer {
+        border-top: 1px solid #dfe5df;
+        background-color: #e9edeb;
+        padding: 24px 0;
+        text-align: center;
+        font-size: 12px;
+        color: #626b64;
+      }
+
+      @media print {
+        header, footer, .print-btn, .back-banner, .back-pill-btn {
+          display: none !important;
+        }
+        body {
+          background-color: #ffffff;
+        }
+        .card, .sections-card, .table-wrapper {
+          border: none;
+          box-shadow: none;
+          padding: 0;
+        }
+        main {
+          width: 100%;
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Header with Back Button to App Showcase -->
+    <header>
+      <div class="header-container">
+        <a href="expense-insights-app.html" class="back-nav-link" id="header-back-btn" title="Back to Expense Insights Showcase">
+          <span class="material-symbols-outlined" style="font-size: 20px; color: #00450d;">arrow_back</span>
+          <img src="images/karmakar-developers-logo.png" alt="Karmakar Developers Logo" style="width: 28px; height: 28px; border-radius: 6px; object-fit: cover; flex-shrink: 0;" />
+          <div class="brand">
+            <span class="brand-title">Expense Insights</span>
+            <span class="brand-subtitle">• Privacy Policy</span>
+          </div>
+        </a>
+
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <a href="expense-insights-app.html" class="back-pill-btn" id="nav-back-to-app" title="Return to Expense Insights App">
+            <span class="material-symbols-outlined" style="font-size: 16px;">arrow_back</span>
+            <span>Back to App</span>
+          </a>
+          <button class="print-btn" onclick="window.print()">
+            <span class="material-symbols-outlined" style="font-size: 16px;">print</span>
+            <span>Print / Save PDF</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main>
+      <!-- Back Button Banner -->
+      <div class="back-banner">
+        <a href="expense-insights-app.html" class="main-back-btn" id="main-back-btn" title="Return to Expense Insights App Showcase">
+          <span class="material-symbols-outlined" style="font-size: 18px;">arrow_back</span>
+          <span>Back to Expense Insights Showcase</span>
+        </a>
+      </div>
+
+      <!-- Document Header Card -->
+      <div class="card">
+        <h1>Privacy Policy</h1>
+        <div class="app-heading-sub">Privacy Policy for Expense Insights Android Application</div>
+
+        <div class="meta-details">
+          <span class="meta-item"><strong>Application:</strong> Expense Insights (Android)</span>
+          <span class="meta-divider">•</span>
+          <span class="meta-item"><strong>Package:</strong> <code>com.karmakardevelopers.expenseinsights</code></span>
+          <span class="meta-divider">•</span>
+          <span class="meta-item"><strong>Last Updated:</strong> September 5, 2026</span>
+        </div>
+
+        <div class="privacy-commitment">
+          <strong>Privacy Commitment:</strong> At Expense Insights, built by Karmakar Developers, protecting your personal and financial information is our highest priority. This Privacy Policy details our practices in strict adherence to Google Play Developer Program Policies (including the User Data and Data Safety requirements).
+        </div>
+      </div>
+
+      <!-- Sections Container Card -->
+      <div class="sections-card">
+        <!-- 1. Overview and Core Philosophy -->
+        <section>
+          <h2>1. Overview and Core Philosophy</h2>
+          <p>
+            Expense Insights is a personal financial management application designed to help individuals and families track expenditures, categorize income, manage account balances, set budgets, and derive meaningful analytics.
+          </p>
+          <p>
+            We operate on a Privacy-First architecture. Your financial records, transaction entries, bank/account names, notes, and budgets are stored locally on your device in an encrypted local database. We do not sell, rent, monetize, or broker your personal or financial data to third parties under any circumstances.
+          </p>
+        </section>
+
+        <!-- 2. Information We Collect and Process -->
+        <section>
+          <h2>2. Information We Collect and Process</h2>
+          <p>
+            In accordance with Google Play's User Data policy, we provide clear disclosure of all data collected, accessed, or processed:
+          </p>
+          <ul>
+            <li>
+              <strong>Financial Information (Local Storage):</strong> Transaction amounts, dates, notes, categories, payment methods, account titles, and budget thresholds entered by you. This data remains on your local device.
+            </li>
+            <li>
+              <strong>Authentication Data (Optional):</strong> If you choose to sign in via Google Sign-In, we receive your basic profile credentials (name, email address, and profile photo URL) via Firebase Authentication to authenticate your identity.
+            </li>
+            <li>
+              <strong>Audio Data (Optional &amp; Ephemeral):</strong> If you utilize our voice input feature (Maya Voice Assistant) to record a transaction by voice, speech is processed in real time via the Android system Speech Recognizer. Audio data is not retained, stored on external servers, or repurposed.
+            </li>
+            <li>
+              <strong>Device &amp; App Performance Data:</strong> Standard anonymous diagnostics, crash logs, and non-identifiable app interaction statistics to maintain stability and prevent crashes.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 3. Android System Permissions & Purpose -->
+        <section>
+          <h2>3. Android System Permissions &amp; Purpose</h2>
+          <p>
+            Expense Insights requests only the minimal permissions required to deliver its core features:
+          </p>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Permission</th>
+                  <th>Type</th>
+                  <th>Justification &amp; User Benefit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>RECORD_AUDIO</code></td>
+                  <td><span class="badge badge-runtime">Runtime (Dangerous)</span></td>
+                  <td>Enables voice-to-text input for hands-free transaction logging when you tap the microphone button. Audio is processed ephemerally and never saved.</td>
+                </tr>
+                <tr>
+                  <td><code>POST_NOTIFICATIONS</code></td>
+                  <td><span class="badge badge-runtime">Runtime (Dangerous)</span></td>
+                  <td>Allows daily expense reminder notifications and budget threshold alerts configured by you.</td>
+                </tr>
+                <tr>
+                  <td><code>USE_BIOMETRIC</code> / <code>USE_FINGERPRINT</code></td>
+                  <td><span class="badge badge-normal">Normal</span></td>
+                  <td>Allows optional App Lock biometric authentication using your device's secure hardware enclave. Biometric data never leaves your device.</td>
+                </tr>
+                <tr>
+                  <td><code>INTERNET</code> &amp; <code>ACCESS_NETWORK_STATE</code></td>
+                  <td><span class="badge badge-normal">Normal</span></td>
+                  <td>Enables Google Sign-In, Firebase services, and AI assistance features.</td>
+                </tr>
+                <tr>
+                  <td><code>SCHEDULE_EXACT_ALARM</code> &amp; <code>RECEIVE_BOOT_COMPLETED</code></td>
+                  <td><span class="badge badge-normal">Normal</span></td>
+                  <td>Restores your custom reminder schedule after device restarts.</td>
+                </tr>
+                <tr>
+                  <td><code>CAMERA</code></td>
+                  <td><span class="badge badge-optional">Optional Feature</span></td>
+                  <td>Used strictly if you capture receipt photos for transaction attachments. Never used in the background.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 4. How We Use Your Information -->
+        <section>
+          <h2>4. How We Use Your Information</h2>
+          <p>
+            We process collected information exclusively for the following specified purposes:
+          </p>
+          <ul>
+            <li>Providing personal financial analytics, monthly cash flow summaries, and category charts.</li>
+            <li>Sending scheduled reminder notifications according to your customized settings.</li>
+            <li>Facilitating secure CSV export and import backups initiated by you.</li>
+            <li>Authenticating your account via Google Identity Services if you choose to sign in.</li>
+            <li>Troubleshooting bugs, app crashes, and improving application responsiveness.</li>
+          </ul>
+          <p>
+            We do not use your financial data for advertising, behavioural targeting, or credit profiling.
+          </p>
+        </section>
+
+        <!-- 5. Third-Party Service Providers -->
+        <section>
+          <h2>5. Third-Party Service Providers</h2>
+          <p>
+            We partner only with industry-standard, secure infrastructure providers that comply with Google Play Developer policies:
+          </p>
+          <ul>
+            <li>
+              <strong>Google Play Services:</strong> Used for in-app updates, licensing, and device framework integration.
+            </li>
+            <li>
+              <strong>Google Identity / Firebase Authentication:</strong> Provides token-based authentication when using Google Sign-In. Governed by Google's Privacy Policy.
+            </li>
+            <li>
+              <strong>Google Gemini API:</strong> Provides natural-language financial queries, automated categorization, and intelligent budgeting suggestions. Queries do not train foundation models on user-specific personal data without consent.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 6. Google Play Data Safety Declarations -->
+        <section>
+          <h2>6. Google Play Data Safety Declarations</h2>
+          <p>
+            For complete transparency in the Google Play Store Data Safety section:
+          </p>
+          <ul>
+            <li>
+              <strong>Data Shared:</strong> We do NOT share your personal or financial data with any third-party advertisers, data brokers, or external commercial entities.
+            </li>
+            <li>
+              <strong>Data Encrypted in Transit:</strong> All communications between the app and external services (e.g., Firebase or Gemini API) use industry-standard HTTPS / TLS 1.3 encryption.
+            </li>
+            <li>
+              <strong>Data Encrypted at Rest:</strong> Application database storage is sandboxed within your Android OS user partition.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 7. Data Retention & Your Deletion Rights -->
+        <section>
+          <h2>7. Data Retention &amp; Your Deletion Rights</h2>
+          <p>
+            In accordance with Google Play's Account and Data Deletion Policy, you maintain complete ownership and control over your data:
+          </p>
+          <ul>
+            <li>
+              <strong>In-App Data Reset:</strong> You can wipe all accounts, transactions, and categories at any time by navigating to Settings &gt; Reset App &amp; Restart Setup.
+            </li>
+            <li>
+              <strong>Account Deletion:</strong> You can request permanent account and remote data deletion directly within the application via Settings &gt; Delete Account, or online at our dedicated portal: <a href="https://karmakar-developers.netlify.app/#data-center" target="_blank" rel="noopener noreferrer">https://karmakar-developers.netlify.app/#data-center</a>.
+            </li>
+            <li>
+              <strong>Email Deletion Request:</strong> You may also email <a href="mailto:developers.karmakar@gmail.com">developers.karmakar@gmail.com</a> with the subject line "Data Deletion Request". All associated authentication records and cloud-linked data will be permanently purged within 30 days.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 8. Children's Privacy (COPPA Compliance) -->
+        <section>
+          <h2>8. Children's Privacy (COPPA Compliance)</h2>
+          <p>
+            Expense Insights is intended for general audiences aged 13 and above (or 16 and above in the European Economic Area). We do not knowingly collect, solicit, or store personal information from children under 13. If we discover that a child under 13 has provided us with personal data, we will take immediate steps to delete that data from our records.
+          </p>
+        </section>
+
+        <!-- 9. Security Measures -->
+        <section>
+          <h2>9. Security Measures</h2>
+          <p>
+            We employ comprehensive technical and organizational measures to safeguard your information:
+          </p>
+          <ul>
+            <li>Biometric lock security integration (Fingerprint and Face Unlock) via Android BiometricPrompt API.</li>
+            <li>Encrypted transport protocols (TLS/SSL) for all network endpoints.</li>
+            <li>Strict app sandboxing preventing unauthorized third-party apps on your device from reading database contents.</li>
+          </ul>
+        </section>
+
+        <!-- 10. Changes to This Privacy Policy -->
+        <section>
+          <h2>10. Changes to This Privacy Policy</h2>
+          <p>
+            We may update this Privacy Policy periodically to reflect changes in our legal obligations, features, or Google Play store policy updates. When changes are made, we will update the "Last Updated" date at the top of this document. We encourage you to review this Privacy Policy periodically.
+          </p>
+        </section>
+
+        <!-- 11. Contact Us -->
+        <section>
+          <h2>11. Contact Us</h2>
+          <p>
+            If you have any questions, suggestions, or concerns regarding this Privacy Policy, your personal data, or data deletion requests, please contact us:
+          </p>
+          <div class="info-box" style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+            <img src="images/karmakar-developers-logo.png" alt="Karmakar Developers" style="width: 52px; height: 52px; border-radius: 12px; object-fit: cover; border: 1px solid #c4eec4;" />
+            <div>
+              <div><strong>Developer Name:</strong> Karmakar Developers</div>
+              <div><strong>Email:</strong> <a href="mailto:developers.karmakar@gmail.com">developers.karmakar@gmail.com</a></div>
+              <div><strong>App Name:</strong> Expense Insights</div>
+              <div><strong>Package Name:</strong> <code>com.karmakardevelopers.expenseinsights</code></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div style="margin-bottom: 8px;">
+        <a href="index.html" style="color: #4c554e; margin: 0 10px; font-weight: 500; text-decoration: none;">All Apps</a> • 
+        <a href="expense-insights-app.html" style="color: #4c554e; margin: 0 10px; font-weight: 500; text-decoration: none;">App Showcase</a> • 
+        <a href="expense-insights-terms.html" style="color: #4c554e; margin: 0 10px; font-weight: 500; text-decoration: none;">Terms of Service</a>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
+        <img src="images/karmakar-developers-logo.png" alt="Karmakar Developers" style="width: 18px; height: 18px; border-radius: 4px; vertical-align: middle;" />
+        <span>Karmakar Developers • © 2026 Karmakar Developers. All rights reserved.</span>
+      </div>
+    </footer>
+  </body>
+</html>

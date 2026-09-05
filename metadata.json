@@ -1,0 +1,6 @@
+{
+  "name": "Expense Insights",
+  "description": "Showcase, privacy policy, and terms of service portal for Expense Insights and applications by Karmakar Developers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

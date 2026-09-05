@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Insights — Simple, Private & Ad-Free</title>
+    <meta name="description" content="Expense Insights — simple, private and ad-free expense tracking and analytics platform." />
+    <meta property="og:title" content="Expense Insights" />
+    <meta property="og:description" content="Simple money tracking. Clearer insights. 100% Ad-Free, No User Data Taken." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/png" href="images/karmakar-developers-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      /* Page-specific styling for App Showcase */
+      .showcase-container {
+        width: min(1280px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 32px 0 56px 0;
+      }
+
+      @media (min-width: 768px) {
+        .showcase-container {
+          padding: 48px 0 64px 0;
+        }
+      }
+
+      .top-intro {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto 40px auto;
+      }
+
+      .top-intro h1 {
+        font-size: 32px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin-top: 12px;
+        margin-bottom: 12px;
+      }
+
+      @media (min-width: 640px) {
+        .top-intro h1 {
+          font-size: 44px;
+        }
+      }
+
+      .top-intro p {
+        font-size: 17px;
+        color: var(--color-text-muted);
+        font-weight: 500;
+      }
+
+      /* Tabs */
+      .tabs-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 36px;
+      }
+
+      .tab-btn {
+        padding: 9px 18px;
+        border-radius: 9999px;
+        font-size: 13.5px;
+        font-weight: 700;
+        border: 1px solid var(--color-border);
+        background-color: #ffffff;
+        color: var(--color-text-muted);
+        cursor: pointer;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        user-select: none;
+      }
+
+      .tab-btn:hover {
+        background-color: var(--color-bg-subtle);
+        color: var(--color-text-main);
+        border-color: #cfd8cf;
+      }
+
+      .tab-btn.active {
+        background-color: var(--color-brand);
+        color: #ffffff;
+        border-color: var(--color-brand);
+        box-shadow: 0 2px 8px rgba(0, 69, 13, 0.25);
+        transform: scale(1.02);
+      }
+
+      /* Focused Showcase Card */
+      .focused-card {
+        background-color: #ffffff;
+        border-radius: 28px;
+        padding: 24px;
+        border: 1px solid var(--color-border);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+        margin-bottom: 48px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      @media (min-width: 640px) {
+        .focused-card {
+          padding: 40px;
+        }
+      }
+
+      .focused-info {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 24px auto;
+      }
+
+      .focused-tag {
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--color-accent);
+        background-color: var(--color-accent-light);
+        padding: 4px 14px;
+        border-radius: 9999px;
+        display: inline-block;
+        margin-bottom: 8px;
+      }
+
+      .focused-headline {
+        font-size: 26px;
+        font-weight: 800;
+        letter-spacing: -0.015em;
+        margin-bottom: 6px;
+      }
+
+      @media (min-width: 640px) {
+        .focused-headline {
+          font-size: 30px;
+        }
+      }
+
+      .focused-subtext {
+        font-size: 14.5px;
+        color: var(--color-text-muted);
+        font-weight: 500;
+      }
+
+      .image-stage {
+        position: relative;
+        max-width: 580px;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      .image-stage img {
+        width: 100%;
+        height: auto;
+        border-radius: 18px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        display: block;
+      }
+
+      .image-stage:hover img {
+        transform: scale(1.015);
+      }
+
+      .enlarge-overlay-badge {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        color: #ffffff;
+        padding: 6px 12px;
+        border-radius: 9999px;
+        font-size: 12px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        opacity: 0.9;
+        transition: opacity 0.2s ease;
+      }
+
+      .image-stage:hover .enlarge-overlay-badge {
+        opacity: 1;
+      }
+
+      /* Grid of 8 screens */
+      .grid-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .grid-header h2 {
+        font-size: 22px;
+        font-weight: 800;
+      }
+
+      .grid-header p {
+        font-size: 13.5px;
+        color: var(--color-text-muted);
+        margin-top: 2px;
+      }
+
+      .screens-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+      }
+
+      @media (min-width: 540px) {
+        .screens-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 820px) {
+        .screens-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (min-width: 1080px) {
+        .screens-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .screen-card {
+        background-color: #ffffff;
+        border-radius: 18px;
+        padding: 12px;
+        border: 1px solid var(--color-border);
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .screen-card:hover {
+        border-color: rgba(0, 115, 36, 0.4);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+        transform: translateY(-2px);
+      }
+
+      .screen-card.selected {
+        border-color: var(--color-accent);
+        box-shadow: 0 0 0 2px rgba(0, 115, 36, 0.25), 0 4px 14px rgba(0, 0, 0, 0.06);
+        transform: scale(1.02);
+      }
+
+      .screen-card-img-wrap {
+        border-radius: 12px;
+        background-color: var(--color-bg-page);
+        overflow: hidden;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .screen-card-img-wrap img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+        display: block;
+      }
+
+      .screen-card:hover .screen-card-img-wrap img {
+        transform: scale(1.04);
+      }
+
+      .screen-card-tag {
+        font-size: 10px;
+        font-weight: 800;
+        color: var(--color-accent);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        display: block;
+        margin-bottom: 2px;
+      }
+
+      .screen-card-title {
+        font-family: var(--font-heading);
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--color-text-main);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* Lightbox Modal */
+      .lightbox-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 999;
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+      }
+
+      .lightbox-modal.open {
+        display: flex;
+      }
+
+      .lightbox-content {
+        position: relative;
+        max-width: 900px;
+        max-height: 94vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .lightbox-content img {
+        max-height: 84vh;
+        max-width: 100%;
+        object-fit: contain;
+        border-radius: 14px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .lightbox-caption {
+        margin-top: 14px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .lightbox-close-btn {
+        position: absolute;
+        top: -48px;
+        right: 0;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        width: 38px;
+        height: 38px;
+        border-radius: 9999px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s ease;
+      }
+
+      .lightbox-close-btn:hover {
+        background: rgba(255, 255, 255, 0.35);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Site Header -->
+    <header class="site-header">
+      <div class="header-container">
+        <!-- Brand logo -->
+        <a href="index.html" class="brand-link" id="brand-logo" title="Back to All Apps">
+          <span class="material-symbols-outlined" style="color: var(--color-brand); font-size: 20px;">arrow_back</span>
+          <img src="images/karmakar-developers-logo.png" alt="Karmakar Developers Logo" class="brand-logo-img" />
+          <span class="brand-logo-text">Expense Insights</span>
+        </a>
+
+        <!-- Header right navigation -->
+        <div class="header-right">
+          <span class="header-subtitle">Smart expense management &amp; financial insights</span>
+          <a href="index.html" class="nav-pill-link">
+            <span class="material-symbols-outlined" style="font-size: 16px;">apps</span>
+            <span>All Apps</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Body -->
+    <main>
+      <div class="showcase-container">
+        <!-- Top Intro -->
+        <div class="top-intro">
+          <div class="badge-pill badge-brand">
+            <span class="material-symbols-outlined" style="font-size: 16px;">photo_library</span>
+            <span>Official Application Showcase</span>
+          </div>
+
+          <h1>Expense Insights</h1>
+          <p>
+            Smart personal finance, offline-first privacy, and powerful visual analytics.
+          </p>
+        </div>
+
+        <!-- Feature Tabs -->
+        <div class="tabs-wrapper" id="feature-tabs">
+          <!-- Populated dynamically via JS for state retention -->
+        </div>
+
+        <!-- Focused Image Display Card -->
+        <div class="focused-card">
+          <div class="focused-info">
+            <span class="focused-tag" id="focused-tag">Analytics &amp; Trends</span>
+            <h2 class="focused-headline" id="focused-headline">Smart Analytics</h2>
+            <p class="focused-subtext" id="focused-subtext">
+              Understand your spending, track trends, and plan better with real-time visual charts.
+            </p>
+          </div>
+
+          <div class="image-stage" id="focused-image-stage" title="Click to view full resolution">
+            <img
+              id="focused-image"
+              src="images/expense-insights/smart_analytics_hd.png"
+              alt="Smart Analytics - Understand your spending, track trends, plan better"
+            />
+            <div class="enlarge-overlay-badge">
+              <span class="material-symbols-outlined" style="font-size: 15px;">fullscreen</span>
+              <span>Click to view full size</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- All 8 Feature Screens Grid -->
+        <div>
+          <div class="grid-header">
+            <div>
+              <h2>All 8 Feature Screens</h2>
+              <p>Click any screen to view in full resolution</p>
+            </div>
+            <span class="badge-pill badge-neutral">8 Screens</span>
+          </div>
+
+          <div class="screens-grid" id="screens-grid">
+            <!-- Grid cards populated by JS -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Fullscreen Lightbox Modal -->
+    <div class="lightbox-modal" id="lightbox-modal">
+      <div class="lightbox-content">
+        <button class="lightbox-close-btn" id="lightbox-close" aria-label="Close modal">
+          <span class="material-symbols-outlined" style="font-size: 22px;">close</span>
+        </button>
+        <img id="lightbox-image" src="" alt="" />
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+      </div>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- Legal & Directory Links -->
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">All Apps</a>
+          <a href="expense-insights-terms.html" class="footer-link">Terms of Service</a>
+          <a href="expense-insights-privacy.html" class="footer-link">Privacy Policy</a>
+        </div>
+
+        <!-- Brand & Copyright -->
+        <div class="footer-copyright" style="display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
+          <img src="images/karmakar-developers-logo.png" alt="Karmakar Developers" class="footer-brand-logo" />
+          <span class="footer-brand">Karmakar Developers</span>
+          <span style="color: #94a3b8;">•</span>
+          <span>© 2026 Karmakar Developers. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Interactive Logic (Tabs, Lightbox, Selection) -->
+    <script>
+      const SHOWCASE_DATA = [
+        {
+          id: 'smart-analytics',
+          src: 'images/expense-insights/smart_analytics_hd.png',
+          alt: 'Smart Analytics - Understand your spending, track trends, plan better',
+          title: 'Smart Analytics',
+          tag: 'Analytics & Trends',
+          headline: 'Smart Analytics',
+          subtext: 'Understand your spending, track trends, and plan better with real-time visual charts.'
+        },
+        {
+          id: 'unlimited-accounts',
+          src: 'images/expense-insights/unlimited_accounts_hd.png',
+          alt: 'Unlimited Accounts - Add and manage as many accounts as you need',
+          title: 'Unlimited Accounts',
+          tag: 'Free of Cost',
+          headline: 'Unlimited Accounts',
+          subtext: 'Add and manage as many bank, investment, wallet, and cash accounts as you need.'
+        },
+        {
+          id: 'ad-free-design',
+          src: 'images/expense-insights/ad_free_design_hd.png',
+          alt: 'Ad Free Design - Focus On What Matters',
+          title: '100% Ad-Free Design',
+          tag: 'Distraction Free',
+          headline: 'AD Free Design',
+          subtext: 'Enjoy a clean, distraction-free interface without ads, popups, or tracking.'
+        },
+        {
+          id: 'voice-assistant',
+          src: 'images/expense-insights/voice_assistant_hd.png',
+          alt: 'Voice Assistant - Speak Naturally, Get Things Done',
+          title: 'Voice Assistant',
+          tag: 'Smart Voice',
+          headline: 'Voice Assistant',
+          subtext: 'Speak naturally to quickly add expenses and log transactions on the go.'
+        },
+        {
+          id: 'import-data',
+          src: 'images/expense-insights/import_data_hd.png',
+          alt: 'Import Old Financial Data - Easily import your existing transactions',
+          title: 'Import Old Financial Data',
+          tag: 'CSV Import',
+          headline: 'Import Old Financial Data',
+          subtext: 'Easily import your existing CSV transactions and bring your financial history in.'
+        },
+        {
+          id: 'premium-features',
+          src: 'images/expense-insights/premium_features_hd.png',
+          alt: 'Premium Features at Zero Cost',
+          title: 'Premium Features',
+          tag: 'Zero Cost',
+          headline: 'Premium Features at Zero Cost',
+          subtext: 'Get PDF exports, unlimited accounts, recurring transactions, budget tools, and more for free.'
+        },
+        {
+          id: 'multiple-themes',
+          src: 'images/expense-insights/multiple_themes_hd.png',
+          alt: 'Multiple Themes - Personalize your experience with beautiful themes',
+          title: 'Multiple Themes',
+          tag: 'Themes & UI',
+          headline: 'Multiple Themes',
+          subtext: 'Personalize your experience with beautiful themes like Light, Dark, Pink, and Cyan.'
+        },
+        {
+          id: 'icon-styles',
+          src: 'images/expense-insights/multiple_icon_styles_hd.png',
+          alt: 'Multiple Icon style - Personalize your experience with multiple icon styles',
+          title: 'Multiple Icon Styles',
+          tag: 'Custom Icons',
+          headline: 'Multiple Icon Style',
+          subtext: 'Personalize category icons with multiple visual styling options.'
+        }
+      ];
+
+      let currentIndex = 0;
+
+      const tabsContainer = document.getElementById('feature-tabs');
+      const gridContainer = document.getElementById('screens-grid');
+      const focusedTag = document.getElementById('focused-tag');
+      const focusedHeadline = document.getElementById('focused-headline');
+      const focusedSubtext = document.getElementById('focused-subtext');
+      const focusedImage = document.getElementById('focused-image');
+      const focusedStage = document.getElementById('focused-image-stage');
+      const lightbox = document.getElementById('lightbox-modal');
+      const lightboxImg = document.getElementById('lightbox-image');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const lightboxClose = document.getElementById('lightbox-close');
+
+      function updateActiveScreen(index, scrollToStage = false) {
+        currentIndex = index;
+        const item = SHOWCASE_DATA[index];
+
+        focusedTag.textContent = item.tag;
+        focusedHeadline.textContent = item.headline;
+        focusedSubtext.textContent = item.subtext;
+        focusedImage.src = item.src;
+        focusedImage.alt = item.alt;
+
+        // Update tab buttons
+        document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
+          if (idx === index) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+
+        // Update grid cards
+        document.querySelectorAll('.screen-card').forEach((card, idx) => {
+          if (idx === index) {
+            card.classList.add('selected');
+          } else {
+            card.classList.remove('selected');
+          }
+        });
+
+        if (scrollToStage) {
+          const stageRect = focusedStage.getBoundingClientRect();
+          const targetY = window.pageYOffset + stageRect.top - 100;
+          window.scrollTo({ top: targetY, behavior: 'smooth' });
+        }
+      }
+
+      // Build Tab buttons
+      SHOWCASE_DATA.forEach((item, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'tab-btn' + (index === 0 ? ' active' : '');
+        btn.id = 'tab-' + item.id;
+        btn.textContent = item.title;
+        btn.addEventListener('click', () => updateActiveScreen(index, false));
+        tabsContainer.appendChild(btn);
+      });
+
+      // Build Grid cards
+      SHOWCASE_DATA.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'screen-card' + (index === 0 ? ' selected' : '');
+        card.id = 'card-' + item.id;
+
+        card.innerHTML = `
+          <div class="screen-card-img-wrap">
+            <img src="${item.src}" alt="${item.alt}" loading="lazy" />
+          </div>
+          <div style="margin-top: auto; padding-top: 4px;">
+            <span class="screen-card-tag">${item.tag}</span>
+            <div class="screen-card-title">${item.title}</div>
+          </div>
+        `;
+
+        card.addEventListener('click', () => updateActiveScreen(index, true));
+        gridContainer.appendChild(card);
+      });
+
+      // Lightbox open
+      function openLightbox() {
+        const item = SHOWCASE_DATA[currentIndex];
+        lightboxImg.src = item.src;
+        lightboxImg.alt = item.alt;
+        lightboxCaption.textContent = item.title;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      focusedStage.addEventListener('click', openLightbox);
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+          closeLightbox();
+        }
+      });
+    </script>
+  </body>
+</html>

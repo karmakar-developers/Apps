@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karmakar Developers — Applications &amp; Legal Directory</title>
+    <meta name="description" content="Discover applications built by Karmakar Developers, including Expense Insights — private, ad-free personal finance and analytics." />
+    <meta property="og:title" content="Karmakar Developers — Applications" />
+    <meta property="og:description" content="Official applications directory, showcases, privacy policies, and terms of service." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/png" href="images/karmakar-developers-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      .portal-container {
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 40px 0 64px 0;
+      }
+
+      @media (min-width: 768px) {
+        .portal-container {
+          padding: 56px 0 80px 0;
+        }
+      }
+
+      .hero-banner {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto 48px auto;
+      }
+
+      .hero-banner h1 {
+        font-size: 34px;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        line-height: 1.15;
+        margin-top: 14px;
+        margin-bottom: 12px;
+      }
+
+      @media (min-width: 640px) {
+        .hero-banner h1 {
+          font-size: 46px;
+        }
+      }
+
+      .hero-banner p {
+        font-size: 17px;
+        color: var(--color-text-muted);
+        line-height: 1.6;
+        font-weight: 500;
+      }
+
+      /* Apps Section */
+      .section-heading-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .section-heading-wrap h2 {
+        font-size: 22px;
+        font-weight: 800;
+      }
+
+      .apps-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 56px;
+      }
+
+      /* App Card Component */
+      .app-card {
+        background-color: #ffffff;
+        border-radius: 24px;
+        border: 1px solid var(--color-border);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+      }
+
+      @media (min-width: 860px) {
+        .app-card {
+          flex-direction: row;
+          align-items: stretch;
+        }
+      }
+
+      .app-card:hover {
+        border-color: rgba(0, 115, 36, 0.35);
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+        transform: translateY(-2px);
+      }
+
+      .app-card-preview {
+        background: linear-gradient(135deg, #f0f6f0 0%, #e5eee5 100%);
+        padding: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      @media (min-width: 860px) {
+        .app-card-preview {
+          width: 44%;
+          min-width: 320px;
+          padding: 32px;
+        }
+      }
+
+      .app-card-preview img {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        display: block;
+      }
+
+      .app-card:hover .app-card-preview img {
+        transform: scale(1.03);
+      }
+
+      .app-card-body {
+        padding: 28px 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+      }
+
+      @media (min-width: 640px) {
+        .app-card-body {
+          padding: 36px 32px;
+        }
+      }
+
+      .app-badges-row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .app-title-group {
+        margin-bottom: 12px;
+      }
+
+      .app-title-group h3 {
+        font-size: 26px;
+        font-weight: 800;
+        letter-spacing: -0.015em;
+        margin-bottom: 4px;
+        color: var(--color-text-main);
+      }
+
+      .app-package {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 12px;
+        color: var(--color-brand);
+        background-color: var(--color-accent-light);
+        padding: 2px 8px;
+        border-radius: 6px;
+        display: inline-block;
+      }
+
+      .app-description {
+        font-size: 15px;
+        color: var(--color-text-body);
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .features-chip-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 24px;
+      }
+
+      .feature-chip {
+        font-size: 12px;
+        font-weight: 600;
+        background-color: var(--color-bg-page);
+        color: var(--color-text-body);
+        border: 1px solid var(--color-border);
+        padding: 4px 10px;
+        border-radius: 9999px;
+      }
+
+      /* Card Action Buttons (App Link, Privacy Policy, Terms of Service) */
+      .card-actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding-top: 20px;
+        border-top: 1px solid var(--color-border);
+      }
+
+      .action-app-link {
+        flex: 1 1 200px;
+      }
+
+      .action-legal-link {
+        flex: 1 1 140px;
+      }
+
+      /* Trust Statement Banner */
+      .trust-banner {
+        background-color: #ffffff;
+        border-radius: 20px;
+        border: 1px solid var(--color-border);
+        padding: 28px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      @media (min-width: 720px) {
+        .trust-banner {
+          grid-template-columns: repeat(3, 1fr);
+          padding: 32px;
+        }
+      }
+
+      .trust-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .trust-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background-color: var(--color-accent-light);
+        color: var(--color-brand);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .trust-text h4 {
+        font-size: 14.5px;
+        font-weight: 700;
+        margin-bottom: 2px;
+      }
+
+      .trust-text p {
+        font-size: 13px;
+        color: var(--color-text-muted);
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Site Header -->
+    <header class="site-header">
+      <div class="header-container">
+        <!-- Brand logo -->
+        <a href="index.html" class="brand-link" id="site-logo">
+          <img src="images/karmakar-developers-logo.png" alt="Karmakar Developers Logo" class="brand-logo-img" />
+          <span class="brand-logo-text">Karmakar Developers</span>
+          <span class="brand-badge">App Directory</span>
+        </a>
+
+        <!-- Header right subtitle -->
+        <div class="header-right">
+          <span class="header-subtitle">Official Applications &amp; Policy Center</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <div class="portal-container">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+          <img src="images/karmakar-developers-logo.png" alt="Karmakar Developers" class="hero-brand-logo" />
+          <div class="badge-pill badge-brand">
+            <span class="material-symbols-outlined" style="font-size: 16px;">verified</span>
+            <span>Karmakar Developers • Portfolio</span>
+          </div>
+
+          <h1>Applications &amp; Products</h1>
+          <p>
+            Explore our privacy-first, beautifully crafted applications designed for simplicity, productivity, and peace of mind.
+          </p>
+        </div>
+
+        <!-- Published Applications Section -->
+        <section>
+          <div class="section-heading-wrap">
+            <h2>Published Applications</h2>
+            <span class="badge-pill badge-neutral">1 Application</span>
+          </div>
+
+          <div class="apps-grid">
+            <!-- App Card: Expense Insights -->
+            <article class="app-card" id="app-card-expense-insights">
+              <!-- Left Preview Image -->
+              <div class="app-card-preview">
+                <a href="expense-insights-app.html" title="View Expense Insights Showcase">
+                  <img
+                    src="images/expense-insights/smart_analytics_hd.png"
+                    alt="Expense Insights App Preview - Smart Analytics"
+                  />
+                </a>
+              </div>
+
+              <!-- Right Card Content -->
+              <div class="app-card-body">
+                <div>
+                  <div class="app-badges-row">
+                    <span class="badge-pill badge-brand">Android App</span>
+                    <span class="badge-pill badge-neutral">100% Ad-Free</span>
+                    <span class="badge-pill badge-neutral">Offline-First</span>
+                  </div>
+
+                  <div class="app-title-group">
+                    <h3>Expense Insights</h3>
+                    <span class="app-package">com.karmakardevelopers.expenseinsights</span>
+                  </div>
+
+                  <p class="app-description">
+                    Smart personal finance, offline-first privacy, and powerful visual analytics. Track daily expenses, manage unlimited bank and cash accounts, view category trends, scan receipts, and log transactions using voice commands without any advertisements or data tracking.
+                  </p>
+
+                  <div class="features-chip-list">
+                    <span class="feature-chip">📊 Smart Analytics &amp; Trends</span>
+                    <span class="feature-chip">💳 Unlimited Accounts</span>
+                    <span class="feature-chip">🎙️ Voice Assistant</span>
+                    <span class="feature-chip">🛡️ 100% Ad-Free Design</span>
+                    <span class="feature-chip">📂 CSV Data Import</span>
+                    <span class="feature-chip">🎨 Themes &amp; Custom Icons</span>
+                  </div>
+                </div>
+
+                <!-- 3 Explicit Links: App Link, Privacy Policy, Terms of Service -->
+                <div class="card-actions">
+                  <a
+                    href="expense-insights-app.html"
+                    class="btn btn-primary action-app-link"
+                    id="btn-expense-insights-app"
+                  >
+                    <span>View App Showcase</span>
+                    <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+                  </a>
+
+                  <a
+                    href="expense-insights-privacy.html"
+                    class="btn btn-secondary action-legal-link"
+                    id="btn-expense-insights-privacy"
+                  >
+                    <span class="material-symbols-outlined" style="font-size: 16px; color: var(--color-accent);">policy</span>
+                    <span>Privacy Policy</span>
+                  </a>
+
+                  <a
+                    href="expense-insights-terms.html"
+                    class="btn btn-secondary action-legal-link"
+                    id="btn-expense-insights-terms"
+                  >
+                    <span class="material-symbols-outlined" style="font-size: 16px; color: var(--color-text-muted);">description</span>
+                    <span>Terms of Service</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Trust & Compliance Banner -->
+        <div class="trust-banner">
+          <div class="trust-item">
+            <div class="trust-icon">
+              <span class="material-symbols-outlined">security</span>
+            </div>
+            <div class="trust-text">
+              <h4>Privacy by Design</h4>
+              <p>Your financial and personal records remain strictly on your local device. We never sell or broker user data.</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">
+              <span class="material-symbols-outlined">block</span>
+            </div>
+            <div class="trust-text">
+              <h4>Zero Advertising</h4>
+              <p>Distraction-free interface with no third-party trackers, sponsored ads, or commercial popups.</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">
+              <span class="material-symbols-outlined">verified_user</span>
+            </div>
+            <div class="trust-text">
+              <h4>Google Play Compliant</h4>
+              <p>Fully compliant with Google Play Store User Data, Data Safety, and Account Deletion policies.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- Footer Links -->
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">All Apps</a>
+          <a href="expense-insights-app.html" class="footer-link">Expense Insights</a>
+          <a href="expense-insights-privacy.html" class="footer-link">Privacy Policy</a>
+          <a href="expense-insights-terms.html" class="footer-link">Terms of Service</a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-copyright" style="display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
+          <img src="images/karmakar-developers-logo.png" alt="Karmakar Developers" class="footer-brand-logo" />
+          <span class="footer-brand">Karmakar Developers</span>
+          <span style="color: #94a3b8;">•</span>
+          <span>© 2026 Karmakar Developers. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

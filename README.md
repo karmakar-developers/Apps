@@ -1,11 +1,115 @@
-<div align="center">
+# Karmakar Developers — Applications & Legal Directory
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Official showcase and legal directory for applications published by **Karmakar Developers**, featuring **Expense Insights** (`com.karmakardevelopers.expenseinsights`).
 
-  <h1>Built with AI Studio</h2>
+---
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## 🏛️ Architectural Overview
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+This project is architected as an **ultra-lightweight, zero-dependency, static-first web ecosystem**. It serves as both the public product showcase and the official compliance & legal documentation required by Google Play Console policies, privacy regulators, and end-users.
 
-</div>
+### Architecture Highlights:
+- **Pure Static Delivery**: 100% standards-compliant semantic HTML5, CSS3, and modern vanilla JavaScript. No complex client-side build pipeline or heavy frameworks are required for production hosting.
+- **Zero-Latency & High Reliability**: All assets, images, stylesheets, and pages are directly servable via standard static HTTP servers or edge CDN networks (e.g., GitHub Pages, Netlify, Cloudflare Pages).
+- **Universal Google Play & Compliance Readiness**:
+  - Distinct canonical URLs for legal disclosures (Privacy Policy and Terms of Service).
+  - Explicit disclosures of required Android runtime permissions (`RECORD_AUDIO`, `POST_NOTIFICATIONS`, `USE_BIOMETRIC`, `INTERNET`, `SCHEDULE_EXACT_ALARM`, `CAMERA`).
+  - Standardized Data Safety table aligned with Google Play Data Safety declaration standards.
+  - Dedicated Account & Data Deletion instructions and verified support contact points.
+- **Unified Design System**: Centralized design tokens in `css/style.css` driving consistent visual identity (Google Material 3 / Modern Clean aesthetics, responsive layouts, print media stylesheets, typography pairing with Hanken Grotesk and Inter).
+- **Embedded Security & Privacy**: No tracking pixels, zero analytics scripts, no third-party cookies, and strict absence of any embedded secret keys or database credentials.
+
+---
+
+## 📄 HTML Files & Organization
+
+The site is organized hierarchically with clear cross-linking, back-navigation flows, and responsive UI components:
+
+```
+                  ┌────────────────────────────────────────┐
+                  │               index.html               │
+                  │     (Developer Portal / All Apps)      │
+                  └───────────────────┬────────────────────┘
+                                      │
+                                      ▼
+                  ┌────────────────────────────────────────┐
+                  │       expense-insights-app.html        │
+                  │    (Expense Insights App Showcase)     │
+                  └─────────────┬───────────────────┬──────┘
+                                │                   │
+           ┌────────────────────▼─────┐       ┌─────▼────────────────────┐
+           │expense-insights-privacy  │       │ expense-insights-terms   │
+           │         .html            │◄─────►│         .html            │
+           │     (Privacy Policy)     │       │   (Terms of Service)     │
+           └──────────────────────────┘       └──────────────────────────┘
+```
+
+### Detailed Breakdown of Every HTML File:
+
+| File | Primary Role & Purpose | Key Components & Contents | Navigation & Links |
+| :--- | :--- | :--- | :--- |
+| **`index.html`** | **Developer Portal & Applications Hub**<br>The primary entry point for Karmakar Developers showcasing all current and upcoming software releases. | • Sticky brand header with official Karmakar Developers logo.<br>• Verified Developer Portfolio hero card.<br>• App Directory grid highlighting **Expense Insights** with Play Store badge, version tag, and live feature highlights.<br>• Platform security & zero-ad guarantees.<br>• Comprehensive directory footer with fast links. | • Links to `expense-insights-app.html`<br>• Direct links to `expense-insights-privacy.html` & `expense-insights-terms.html`<br>• Email mailto link (`developers.karmakar@gmail.com`) |
+| **`expense-insights-app.html`** | **Application Showcase & Feature Hub**<br>Dedicated landing page and visual tour of Expense Insights for potential users and testers. | • Product branding with back-to-home directory link.<br>• Value-proposition hero banner with call-to-action buttons.<br>• High-definition screenshot gallery (8 curated showcase features: Smart Analytics, Ad-Free Design, Unlimited Accounts, Theme Engine, Voice Input, Data Import, Icon Styles, Premium Features).<br>• Core capabilities & privacy-first principles overview.<br>• Quick-access legal footer. | • Return navigation to `index.html`<br>• Deep-links to `expense-insights-privacy.html` and `expense-insights-terms.html` |
+| **`expense-insights-privacy.html`** | **Official Google Play Privacy Policy**<br>Legally compliant data privacy declaration satisfying Google Play Developer Distribution Agreement and global privacy laws (GDPR/CCPA). | • Multi-tier return navigation: Header back button, logo link, and in-document banner button leading back to `expense-insights-app.html`.<br>• Metadata overview card with Package ID (`com.karmakardevelopers.expenseinsights`), Effective Date, and compliance version.<br>• Core Privacy Principles (100% Local Storage, No Silent Telemetry, Zero Third-Party Trackers).<br>• Exhaustive Android Permissions table with specific functional justifications.<br>• Data Safety disclosure table.<br>• Account & data deletion procedures.<br>• Direct developer contact details with verified logo.<br>• Print-ready CSS for generating compliance PDF copies. | • Back buttons returning to `expense-insights-app.html`<br>• Cross-link to `expense-insights-terms.html`<br>• Root link to `index.html` |
+| **`expense-insights-terms.html`** | **Official Terms of Service**<br>Standard end-user terms of service outlining agreement, permitted usage, intellectual property, disclaimers, and liability. | • Header and in-document return buttons to navigate back to `expense-insights-app.html`.<br>• Document header with Effective Date and Package identifier.<br>• Acceptance of terms, license grant, user responsibilities, and financial disclaimer.<br>• Intellectual property protection terms for Karmakar Developers.<br>• Developer contact card with official brand logo.<br>• Formatted with print stylesheet support. | • Back buttons returning to `expense-insights-app.html`<br>• Cross-link to `expense-insights-privacy.html`<br>• Root link to `index.html` |
+
+---
+
+## 📁 Repository Structure
+
+```
+.
+├── index.html                        # Developer Portal / Applications Directory
+├── expense-insights-app.html         # Expense Insights Application Showcase
+├── expense-insights-privacy.html     # Expense Insights Privacy Policy (Play Console compliant)
+├── expense-insights-terms.html       # Expense Insights Terms of Service
+├── css/
+│   └── style.css                     # Centralized Design System stylesheet
+├── images/
+│   ├── karmakar-developers-logo.png  # Official Karmakar Developers brand logo (1254x1254)
+│   └── expense-insights/             # Application screenshots & visual assets
+│       ├── ad_free_design_hd.png
+│       ├── import_data_hd.png
+│       ├── multiple_icon_styles_hd.png
+│       ├── multiple_themes_hd.png
+│       ├── premium_features_hd.png
+│       ├── smart_analytics_hd.png
+│       ├── unlimited_accounts_hd.png
+│       └── voice_assistant_hd.png
+├── README.md                         # Architecture, structure & deployment documentation
+└── metadata.json                     # Application platform metadata
+```
+
+---
+
+## 🎨 Design System & Styling Architecture
+
+The shared stylesheet in `css/style.css` standardizes the visual appearance across all HTML documents:
+
+- **CSS Variables & Theming**:
+  - `--color-brand`: `#00450d` (Deep forest green representing financial clarity and trust)
+  - `--color-brand-light`: `#006d19`
+  - `--color-brand-surface`: `#eef5ee`
+  - `--color-neutral-bg`: `#f8faf8`
+  - `--color-text-primary`: `#191c1b`
+  - `--color-text-secondary`: `#404943`
+- **Typography**: Google Fonts pairing using **Hanken Grotesk** (display headings) and **Inter** (high-legibility body content).
+- **Print Optimization**: Embedded `@media print` rules hide navigation bars, print buttons, and back banners, rendering clean, page-break-optimized legal documentation for offline filing or PDF export.
+
+---
+
+## 🚀 Publishing to GitHub Pages
+
+This site is built with pure static assets with zero build steps required for GitHub Pages:
+
+1. Push this repository to your GitHub repository (e.g., `https://github.com/<username>/<repository-name>`).
+2. Navigate to **Settings** → **Pages**.
+3. Under **Build and deployment** → **Source**, select **Deploy from a branch**.
+4. Under **Branch**, select `main` (or `master`) and directory `/(root)`.
+5. Click **Save**. Your site will be live at:
+   - **Homepage**: `https://<username>.github.io/<repository-name>/`
+   - **Expense Insights App**: `https://<username>.github.io/<repository-name>/expense-insights-app.html`
+   - **Privacy Policy URL**: `https://<username>.github.io/<repository-name>/expense-insights-privacy.html`
+   - **Terms of Service URL**: `https://<username>.github.io/<repository-name>/expense-insights-terms.html`
+
+*Note: The Privacy Policy URL above can be pasted directly into the **Google Play Console** under **Policy & Programs** > **App Content** > **Privacy Policy**.*
