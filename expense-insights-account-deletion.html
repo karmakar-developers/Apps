@@ -53,14 +53,135 @@
       }
 
       .self-service-box {
-        background-color: var(--color-brand-surface);
-        border: 1px solid var(--color-accent-border);
-        border-radius: var(--radius-md);
-        padding: 20px;
+        background: linear-gradient(135deg, #ffffff 0%, #f4fbf5 100%);
+        border: 1.5px solid var(--color-accent-border);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 4px 18px rgba(0, 69, 13, 0.08);
+        padding: 24px;
+        margin-top: 24px;
         margin-bottom: 28px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .self-service-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--color-brand) 0%, var(--color-accent) 100%);
+      }
+
+      .datacenter-header {
         display: flex;
-        gap: 16px;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 14px;
+      }
+
+      .datacenter-logo-wrap {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: #ffffff;
+        border: 1.5px solid var(--color-accent-border);
+        box-shadow: 0 2px 8px rgba(0, 69, 13, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+
+      .datacenter-logo-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .datacenter-title-wrap {
+        flex: 1;
+      }
+
+      .datacenter-title {
+        font-family: var(--font-heading);
+        font-size: 17px;
+        font-weight: 800;
+        color: var(--color-brand);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .datacenter-badge {
+        font-size: 10.5px;
+        font-weight: 700;
+        background-color: var(--color-accent-light);
+        color: var(--color-brand);
+        border: 1px solid var(--color-accent-border);
+        padding: 2px 8px;
+        border-radius: 9999px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .datacenter-subtitle {
+        font-size: 13px;
+        color: var(--color-text-muted);
+        margin-top: 2px;
+      }
+
+      .datacenter-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 10px;
+        margin: 14px 0 16px 0;
+      }
+
+      .datacenter-feature-item {
+        display: flex;
         align-items: flex-start;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(0, 69, 13, 0.1);
+        border-radius: var(--radius-md);
+        padding: 10px 12px;
+      }
+
+      .datacenter-feature-icon {
+        color: var(--color-brand);
+        font-size: 18px;
+        margin-top: 1px;
+        flex-shrink: 0;
+      }
+
+      .datacenter-feature-text {
+        font-size: 13px;
+        line-height: 1.45;
+        color: var(--color-text-main);
+      }
+
+      .datacenter-note {
+        font-size: 12.5px;
+        color: var(--color-text-muted);
+        line-height: 1.5;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .datacenter-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
       }
 
       .form-group {
@@ -268,32 +389,60 @@
         Account &amp; Data Deletion Request
       </h1>
       <p style="color: var(--color-text-secondary); font-size: 15px; line-height: 1.6;">
-        Use this official form to request permanent deletion of data associated with <strong>Expense Insights</strong> developed by <strong>Karmakar Developers</strong>. Please provide accurate information so that we can identify and process your request.
+        Submit a request to permanently delete your account and associated data for <strong>Expense Insights</strong>.
       </p>
 
       <!-- Data Center Self-Service Portal Notice -->
-      <div class="self-service-box" style="margin-top: 24px;">
-        <span class="material-symbols-outlined" style="color: var(--color-brand); font-size: 32px; flex-shrink: 0; margin-top: 2px;">manage_accounts</span>
-        <div style="font-size: 14px; line-height: 1.6; color: var(--color-text-primary); flex: 1;">
-          <strong style="font-family: var(--font-heading); font-size: 16px; color: var(--color-brand); display: block; margin-bottom: 4px;">
-            Self-Service Deletion &amp; Data Center Portal
-          </strong>
-          <p style="color: var(--color-text-secondary); margin-bottom: 12px;">
-            If you want to view your account information, inspect data records, or delete your account and associated data yourself, you can use the official <strong>Karmakar Developers Data Center</strong>:
-          </p>
+      <div class="self-service-box">
+        <div class="datacenter-header">
+          <div class="datacenter-logo-wrap">
+            <img src="images/karmakar-developers-logo.png" alt="Karmakar Developers Logo" />
+          </div>
+          <div class="datacenter-title-wrap">
+            <div class="datacenter-title">
+              <span>Karmakar Developers Data Center</span>
+              <span class="datacenter-badge">
+                <span class="material-symbols-outlined" style="font-size: 13px;">bolt</span>
+                Instant &amp; Recommended
+              </span>
+            </div>
+            <div class="datacenter-subtitle">
+              Official self-service privacy &amp; instant account deletion portal
+            </div>
+          </div>
+        </div>
+
+        <div class="datacenter-features">
+          <div class="datacenter-feature-item">
+            <span class="material-symbols-outlined datacenter-feature-icon">visibility</span>
+            <div class="datacenter-feature-text">
+              <strong>See Collected Data:</strong> Inspect account details and records collected by the app.
+            </div>
+          </div>
+          <div class="datacenter-feature-item">
+            <span class="material-symbols-outlined datacenter-feature-icon">delete_forever</span>
+            <div class="datacenter-feature-text">
+              <strong>Instant Deletion:</strong> Delete your own data yourself in real-time without waiting.
+            </div>
+          </div>
+        </div>
+
+        <div class="datacenter-note">
+          <span class="material-symbols-outlined" style="font-size: 16px; color: var(--color-brand); margin-top: 1px; flex-shrink: 0;">lightbulb</span>
+          <span><strong>Recommendation:</strong> Try the Data Center portal first for immediate deletion. If you encounter any issue, submit the request form below.</span>
+        </div>
+
+        <div class="datacenter-actions">
           <a
             href="https://karmakar-developers.netlify.app/#data-center"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-secondary"
-            style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; padding: 8px 16px; font-size: 13.5px; border-color: var(--color-brand); color: var(--color-brand); background-color: #ffffff; text-decoration: none;"
+            class="btn btn-primary"
+            style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700; padding: 10px 22px; font-size: 14px; text-decoration: none; box-shadow: 0 2px 10px rgba(0, 69, 13, 0.22);"
           >
-            <span>Visit Karmakar Developers Data Center</span>
-            <span class="material-symbols-outlined" style="font-size: 16px;">open_in_new</span>
+            <span>Launch Data Center</span>
+            <span class="material-symbols-outlined" style="font-size: 17px;">open_in_new</span>
           </a>
-          <p style="margin-top: 10px; font-size: 13px; color: var(--color-text-muted);">
-            If you are unable to complete the deletion through the Data Center or prefer an official deletion request processed by our developer team, please complete the form below.
-          </p>
         </div>
       </div>
 
@@ -314,12 +463,10 @@
           target="hidden_iframe"
           novalidate
         >
-          <!-- Hidden Google Form Metadata & Hardcoded Application Target -->
+          <!-- Hidden Google Form Metadata & Pre-Configured Application Parameters -->
           <input type="hidden" name="fvv" value="1" />
           <input type="hidden" name="pageHistory" value="0,1,2,3,4" />
-          <!-- Deletion Scope: Data from a specific app (entry.498496194) -->
           <input type="hidden" name="entry.498496194" value="Data from a specific app" />
-          <!-- Selected Application: Expense Insights (entry.1841398095) -->
           <input type="hidden" name="entry.1841398095" value="Expense Insights" />
 
           <!-- Target Application Context Badge -->
@@ -328,26 +475,23 @@
               <span class="material-symbols-outlined" style="color: var(--color-brand); font-size: 22px;">query_stats</span>
             </div>
             <div style="flex: 1;">
-              <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted);">
-                Target Application
+              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted);">
+                Application
               </div>
               <div style="font-size: 15px; font-weight: 700; color: var(--color-text-primary);">
                 Expense Insights <span style="font-size: 13px; font-weight: normal; color: var(--color-text-muted);">(com.karmakardevelopers.expenseinsights)</span>
               </div>
             </div>
-            <span class="badge-pill" style="background-color: var(--color-accent-light); color: var(--color-brand); font-size: 12px; font-weight: 600; padding: 4px 10px;">
-              Pre-Selected
-            </span>
           </div>
 
           <!-- Field 1: Email Address (entry.1376920632) -->
           <div class="form-group">
             <label class="form-label" for="user-email">
-              Email address associated with your account
+              Account Email
               <span class="required-star">*</span>
             </label>
             <div class="form-hint">
-              Enter the exact Google or email account you used to sign into or register the application.
+              Enter the email address associated with your Expense Insights account.
             </div>
             <input
               type="email"
@@ -366,22 +510,22 @@
           <!-- Field 2: Reason for Deletion (entry.1809672499) -->
           <div class="form-group">
             <label class="form-label" for="deletion-reason">
-              Reason for deletion
+              Reason for Deletion
               <span class="required-star">*</span>
             </label>
             <div class="form-hint">
-              Please let us know why you would like to delete your account or data. Your feedback helps us improve our applications.
+              Briefly describe why you are requesting deletion (minimum 10 characters).
             </div>
             <textarea
               id="deletion-reason"
               name="entry.1809672499"
               class="form-textarea"
-              placeholder="e.g., No longer using the app, testing, privacy preferences, creating a new account..."
+              placeholder="Please provide your reason..."
               minlength="10"
               required
             ></textarea>
             <div id="reason-error" style="color: var(--color-danger); font-size: 13px; margin-top: 4px; display: none;">
-              Please provide a reason of at least 10 characters for the deletion request.
+              Please provide at least 10 characters explaining your request.
             </div>
           </div>
 
@@ -396,31 +540,31 @@
                 required
               />
               <span style="font-size: 14px; line-height: 1.5; color: var(--color-text-primary);">
-                <strong>Confirmation:</strong> I confirm that I am requesting deletion of the data described above and understand that deleted data may not be recoverable.
+                I confirm this deletion request and understand that deleted data cannot be recovered.
                 <span class="required-star">*</span>
               </span>
             </label>
             <div id="confirm-error" style="color: var(--color-danger); font-size: 13px; margin-top: 4px; display: none;">
-              You must confirm the deletion request before submitting.
+              Please confirm the statement above to proceed.
             </div>
           </div>
 
           <!-- Submit Button -->
           <button type="submit" class="btn-submit-delete" id="submit-btn">
             <span class="material-symbols-outlined" style="font-size: 20px;">delete_forever</span>
-            <span id="btn-text">Submit Deletion Request</span>
+            <span id="btn-text">Submit Request</span>
           </button>
 
           <!-- Alternative / Fallback direct Google Form link -->
           <div style="margin-top: 18px; text-align: center; font-size: 13px; color: var(--color-text-muted);">
-            Prefer to use the Google Form interface directly?
+            Alternatively, you can
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSdQEqQ4nRQ7tXcyDhqXxk4dpAlyxqXTme0UOPmFvxti0QCQxw/viewform?usp=pp_url&entry.498496194=Data+from+a+specific+app&entry.1841398095=Expense+Insights"
               target="_blank"
               rel="noopener noreferrer"
-              style="color: var(--color-brand); font-weight: 600; text-decoration: underline; margin-left: 4px;"
+              style="color: var(--color-brand); font-weight: 600; text-decoration: underline; margin-left: 2px;"
             >
-              Open Google Form in new tab
+              open the Google Form directly
               <span class="material-symbols-outlined" style="font-size: 14px; vertical-align: middle;">open_in_new</span>
             </a>
           </div>
@@ -547,39 +691,16 @@
             return false;
           }
 
+          // Mark submitting and disable submit button to prevent double submission
           isSubmitting = true;
           submitBtn.disabled = true;
           btnText.textContent = 'Submitting deletion request...';
 
-          // As backup, also dispatch url-encoded payload via fetch (no-cors)
-          try {
-            var params = new URLSearchParams();
-            params.append('fvv', '1');
-            params.append('pageHistory', '0,1,2,3,4');
-            params.append('entry.1376920632', emailInput.value.trim());
-            params.append('entry.498496194', 'Data from a specific app');
-            params.append('entry.1841398095', 'Expense Insights');
-            params.append('entry.1809672499', reasonInput.value.trim());
-            params.append('entry.54173755', 'I confirm that I am requesting deletion of the data described above and understand that deleted data may not be recoverable.');
-
-            fetch(form.action, {
-              method: 'POST',
-              mode: 'no-cors',
-              headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-              },
-              body: params.toString()
-            }).catch(function () {
-              // Ignore cross-origin error, iframe handles submit
-            });
-          } catch (err) {
-            // Ignore fetch error
-          }
-
-          // Show success state after a brief delay to allow backend submission
+          // The form submits exactly ONCE via native HTML post to hidden_iframe.
+          // Show success state on iframe response or via timeout fallback.
           setTimeout(function () {
             showSuccessState();
-          }, 1400);
+          }, 1500);
         });
 
         // Also trigger on iframe load if it loads earlier
