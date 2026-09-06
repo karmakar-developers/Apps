@@ -13,11 +13,19 @@ async function startServer() {
     res.json({ status: "ok", timestamp: new Date().toISOString() });
   });
 
+  // Redirect /expense-insights to /expense-insights/ for canonical directory routing
+  app.get("/expense-insights", (req, res, next) => {
+    if (req.path === "/expense-insights") {
+      return res.redirect(301, "/expense-insights/");
+    }
+    next();
+  });
+
   // Vite middleware for development vs static serving in production
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
       server: { middlewareMode: true },
-      appType: "spa",
+      appType: "mpa",
     });
     app.use(vite.middlewares);
   } else {

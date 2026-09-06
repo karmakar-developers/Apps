@@ -7,10 +7,10 @@ export default defineConfig(() => {
       rollupOptions: {
         input: {
           main: path.resolve(__dirname, 'index.html'),
-          app: path.resolve(__dirname, 'expense-insights-app.html'),
-          privacy: path.resolve(__dirname, 'expense-insights-privacy.html'),
-          terms: path.resolve(__dirname, 'expense-insights-terms.html'),
-          deletion: path.resolve(__dirname, 'expense-insights-account-deletion.html'),
+          app: path.resolve(__dirname, 'expense-insights/index.html'),
+          privacy: path.resolve(__dirname, 'expense-insights/expense-insights-privacy.html'),
+          terms: path.resolve(__dirname, 'expense-insights/expense-insights-terms.html'),
+          deletion: path.resolve(__dirname, 'expense-insights/expense-insights-account-deletion.html'),
         },
       },
     },
