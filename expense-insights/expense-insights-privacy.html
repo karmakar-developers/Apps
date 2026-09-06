@@ -17,6 +17,11 @@
         padding: 0;
       }
 
+      html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+      }
+
       body {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         background-color: #f8faf8;
@@ -24,6 +29,21 @@
         line-height: 1.65;
         font-size: 15px;
         -webkit-font-smoothing: antialiased;
+      }
+
+      @media (max-width: 580px) {
+        .brand-subtitle {
+          display: none;
+        }
+        .header-container {
+          width: calc(100% - 24px);
+        }
+        .print-btn span:not(.material-symbols-outlined) {
+          display: none;
+        }
+        .print-btn {
+          padding: 6px 8px;
+        }
       }
 
       header {
