@@ -44,6 +44,25 @@
         .print-btn {
           padding: 6px 8px;
         }
+        main {
+          width: calc(100% - 24px);
+          padding: 20px 0 40px 0;
+        }
+        .card, .sections-card {
+          padding: 20px 16px;
+          border-radius: 18px;
+        }
+        .meta-details {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+        .meta-divider {
+          display: none;
+        }
+        .info-box {
+          padding: 14px 14px;
+        }
       }
 
       header {
@@ -162,6 +181,14 @@
         border-radius: 12px;
         border: 1px solid #dfe5df;
         margin-bottom: 20px;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+      }
+
+      .meta-item {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
       }
 
       .meta-item strong {
@@ -309,7 +336,11 @@
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
         font-size: 12px;
         font-weight: 600;
-        white-space: nowrap;
+        word-break: break-all;
+        overflow-wrap: anywhere;
+        white-space: normal;
+        display: inline;
+        max-width: 100%;
       }
 
       .badge {
@@ -473,11 +504,7 @@
           </div>
         </a>
 
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <a href="index.html" class="back-pill-btn" id="nav-back-to-app" title="Return to Expense Insights App">
-            <span class="material-symbols-outlined" style="font-size: 16px;">arrow_back</span>
-            <span>Back to App</span>
-          </a>
+        <div>
           <button class="print-btn" onclick="window.print()">
             <span class="material-symbols-outlined" style="font-size: 16px;">print</span>
             <span>Print / Save PDF</span>
@@ -712,8 +739,8 @@
             If you have any questions, suggestions, or concerns regarding this Privacy Policy, your personal data, or data deletion requests, please contact us:
           </p>
           <div class="info-box" style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
-            <img src="../images/karmakar-developers-logo.png" alt="Karmakar Developers" style="width: 52px; height: 52px; border-radius: 12px; object-fit: cover; border: 1px solid #c4eec4;" />
-            <div>
+            <img src="../images/karmakar-developers-logo.png" alt="Karmakar Developers" style="width: 52px; height: 52px; border-radius: 12px; object-fit: cover; border: 1px solid #c4eec4; flex-shrink: 0;" />
+            <div style="min-width: 0; max-width: 100%; flex: 1 1 200px; overflow-wrap: anywhere; word-break: break-word;">
               <div><strong>Developer Name:</strong> Karmakar Developers</div>
               <div><strong>Email:</strong> <a href="mailto:developers.karmakar@gmail.com">developers.karmakar@gmail.com</a></div>
               <div><strong>App Name:</strong> Expense Insights</div>
