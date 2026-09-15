@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Expense Insights — Simple, Private & Ad-Free</title>
-    <meta name="description" content="Expense Insights — simple, private and ad-free expense tracking and analytics platform." />
-    <meta property="og:title" content="Expense Insights" />
-    <meta property="og:description" content="Simple money tracking. Clearer insights. 100% Ad-Free, No User Data Taken." />
+    <title>Expense Insights — Application Showcase & Features</title>
+    <meta name="description" content="Explore Expense Insights features: Summary of Expenses, Multi Chart Analysis, Log Expenses, Transactions, Budget, Accounts, and Voice Assistant." />
+    <meta property="og:title" content="Expense Insights — Application Showcase" />
+    <meta property="og:description" content="Explore Expense Insights features: Summary of Expenses, Multi Chart Analysis, Log Expenses, Transactions, Budget, Accounts, and Voice Assistant." />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/png" href="../images/karmakar-developers-logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -154,16 +154,21 @@
 
       .image-stage {
         position: relative;
-        max-width: 580px;
+        max-width: 640px;
         width: 100%;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .image-stage img {
-        width: 100%;
+        max-width: 100%;
+        max-height: 560px;
+        width: auto;
         height: auto;
         border-radius: 18px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         display: block;
       }
@@ -271,11 +276,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        height: 240px;
       }
 
       .screen-card-img-wrap img {
         width: 100%;
-        height: auto;
+        height: 100%;
         object-fit: contain;
         transition: transform 0.3s ease;
         display: block;
@@ -422,18 +428,18 @@
         <!-- Focused Image Display Card -->
         <div class="focused-card">
           <div class="focused-info">
-            <span class="focused-tag" id="focused-tag">Analytics &amp; Trends</span>
-            <h2 class="focused-headline" id="focused-headline">Smart Analytics</h2>
+            <span class="focused-tag" id="focused-tag">Dashboard &amp; Summary</span>
+            <h2 class="focused-headline" id="focused-headline">Summary of Expenses</h2>
             <p class="focused-subtext" id="focused-subtext">
-              Understand your spending, track trends, and plan better with real-time visual charts.
+              Comprehensive financial dashboard displaying total balance, monthly income, expenses, and quick-access account breakdowns.
             </p>
           </div>
 
           <div class="image-stage" id="focused-image-stage" title="Click to view full resolution">
             <img
               id="focused-image"
-              src="../images/expense-insights/smart_analytics_hd.png"
-              alt="Smart Analytics - Understand your spending, track trends, plan better"
+              src="../images/expense-insights/summary_of_expenses.jpg"
+              alt="Summary of Expenses - Dashboard with Income, Expense and Account Balances"
             />
             <div class="enlarge-overlay-badge">
               <span class="material-symbols-outlined" style="font-size: 15px;">fullscreen</span>
@@ -495,76 +501,76 @@
     <script>
       const SHOWCASE_DATA = [
         {
-          id: 'smart-analytics',
-          src: '../images/expense-insights/smart_analytics_hd.png',
-          alt: 'Smart Analytics - Understand your spending, track trends, plan better',
-          title: 'Smart Analytics',
-          tag: 'Analytics & Trends',
-          headline: 'Smart Analytics',
-          subtext: 'Understand your spending, track trends, and plan better with real-time visual charts.'
+          id: 'summary-of-expenses',
+          src: '../images/expense-insights/summary_of_expenses.jpg',
+          alt: 'Summary of Expenses - Dashboard with Income, Expense and Account Balances',
+          title: 'Summary of Expenses',
+          tag: 'Dashboard & Summary',
+          headline: 'Summary of Expenses',
+          subtext: 'Comprehensive financial dashboard displaying total balance, monthly income, expenses, and quick-access account breakdowns.'
         },
         {
-          id: 'unlimited-accounts',
-          src: '../images/expense-insights/unlimited_accounts_hd.png',
-          alt: 'Unlimited Accounts - Add and manage as many accounts as you need',
-          title: 'Unlimited Accounts',
-          tag: 'Free of Cost',
-          headline: 'Unlimited Accounts',
-          subtext: 'Add and manage as many bank, investment, wallet, and cash accounts as you need.'
+          id: 'multi-chart-analysis',
+          src: '../images/expense-insights/multi_chart_analysis.jpg',
+          alt: 'Multi Chart Analysis - Financial Trends and Visual Category Distribution',
+          title: 'Multi Chart Analysis',
+          tag: 'Visual Analytics',
+          headline: 'Multi Chart Analysis',
+          subtext: 'Understand your spending habits with intuitive visual breakdowns, trends, and category distribution charts.'
         },
         {
-          id: 'ad-free-design',
-          src: '../images/expense-insights/ad_free_design_hd.png',
-          alt: 'Ad Free Design - Focus On What Matters',
-          title: '100% Ad-Free Design',
-          tag: 'Distraction Free',
-          headline: 'AD Free Design',
-          subtext: 'Enjoy a clean, distraction-free interface without ads, popups, or tracking.'
+          id: 'log-expenses',
+          src: '../images/expense-insights/log_expenses.png',
+          alt: 'Log Expenses - Add and Record Financial Transactions Effortlessly',
+          title: 'Log Expenses',
+          tag: 'Fast Tracking',
+          headline: 'Log Expenses & Income',
+          subtext: 'Quickly record daily transactions with customizable categories, payment methods, date picking, notes, and attachments.'
+        },
+        {
+          id: 'transactions',
+          src: '../images/expense-insights/transactions.jpg',
+          alt: 'Transactions - Detailed Financial Records and Past Activity',
+          title: 'Transactions',
+          tag: 'History & Records',
+          headline: 'Transactions History',
+          subtext: 'Browse, search, and filter your complete transaction history with date filters and category tags for effortless tracking.'
+        },
+        {
+          id: 'budget',
+          src: '../images/expense-insights/budget.jpg',
+          alt: 'Budget - Category Limits and Spending Control',
+          title: 'Budget',
+          tag: 'Budgeting & Goals',
+          headline: 'Smart Budget Planning',
+          subtext: 'Set realistic monthly category budget caps, monitor percentage spent in real time, and avoid overspending.'
+        },
+        {
+          id: 'accounts',
+          src: '../images/expense-insights/accounts.jpg',
+          alt: 'Accounts - Manage Bank Accounts, Wallets, and Balances',
+          title: 'Accounts',
+          tag: 'Multi-Account',
+          headline: 'Manage All Accounts',
+          subtext: 'Track multiple accounts in one place — banks, credit cards, digital wallets, and cash, with real-time balance totals.'
         },
         {
           id: 'voice-assistant',
-          src: '../images/expense-insights/voice_assistant_hd.png',
-          alt: 'Voice Assistant - Speak Naturally, Get Things Done',
+          src: '../images/expense-insights/voice_assistant.jpg',
+          alt: 'Voice Assistant - Hands-Free Voice Logging with Maya',
           title: 'Voice Assistant',
           tag: 'Smart Voice',
-          headline: 'Voice Assistant',
-          subtext: 'Speak naturally to quickly add expenses and log transactions on the go.'
+          headline: 'Maya Voice Assistant',
+          subtext: 'Log transactions hands-free on the go using natural speech commands powered by on-device speech recognition.'
         },
         {
-          id: 'import-data',
-          src: '../images/expense-insights/import_data_hd.png',
-          alt: 'Import Old Financial Data - Easily import your existing transactions',
-          title: 'Import Old Financial Data',
-          tag: 'CSV Import',
-          headline: 'Import Old Financial Data',
-          subtext: 'Easily import your existing CSV transactions and bring your financial history in.'
-        },
-        {
-          id: 'premium-features',
-          src: '../images/expense-insights/premium_features_hd.png',
-          alt: 'Premium Features at Zero Cost',
-          title: 'Premium Features',
-          tag: 'Zero Cost',
-          headline: 'Premium Features at Zero Cost',
-          subtext: 'Get PDF exports, unlimited accounts, recurring transactions, budget tools, and more for free.'
-        },
-        {
-          id: 'multiple-themes',
-          src: '../images/expense-insights/multiple_themes_hd.png',
-          alt: 'Multiple Themes - Personalize your experience with beautiful themes',
-          title: 'Multiple Themes',
-          tag: 'Themes & UI',
-          headline: 'Multiple Themes',
-          subtext: 'Personalize your experience with beautiful themes like Light, Dark, Pink, and Cyan.'
-        },
-        {
-          id: 'icon-styles',
-          src: '../images/expense-insights/multiple_icon_styles_hd.png',
-          alt: 'Multiple Icon style - Personalize your experience with multiple icon styles',
-          title: 'Multiple Icon Styles',
-          tag: 'Custom Icons',
-          headline: 'Multiple Icon Style',
-          subtext: 'Personalize category icons with multiple visual styling options.'
+          id: 'feature-graphics',
+          src: '../images/expense-insights/feature_graphics.jpg',
+          alt: 'Feature Graphics - Expense Insights Feature Overview',
+          title: 'Feature Graphics',
+          tag: 'App Overview',
+          headline: 'Feature Graphics',
+          subtext: 'Official feature graphic showcasing Expense Insights — simple, private, offline-first personal finance management.'
         }
       ];
 

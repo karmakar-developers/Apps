@@ -73,14 +73,14 @@ The site is organized hierarchically with clear cross-linking, back-navigation f
 ├── images/
 │   ├── karmakar-developers-logo.png            # Official Karmakar Developers brand logo (1254x1254)
 │   └── expense-insights/                       # Application screenshots & visual assets
-│       ├── ad_free_design_hd.png
-│       ├── import_data_hd.png
-│       ├── multiple_icon_styles_hd.png
-│       ├── multiple_themes_hd.png
-│       ├── premium_features_hd.png
-│       ├── smart_analytics_hd.png
-│       ├── unlimited_accounts_hd.png
-│       └── voice_assistant_hd.png
+│       ├── accounts.jpg
+│       ├── budget.jpg
+│       ├── feature_graphics.jpg
+│       ├── log_expenses.png
+│       ├── multi_chart_analysis.jpg
+│       ├── summary_of_expenses.jpg
+│       ├── transactions.jpg
+│       └── voice_assistant.jpg
 ├── README.md                                   # Architecture, structure & deployment documentation
 └── metadata.json                               # Application platform metadata
 ```
