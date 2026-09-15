@@ -251,6 +251,16 @@
         margin-bottom: 12px;
       }
 
+      h3 {
+        font-family: 'Hanken Grotesk', sans-serif;
+        font-size: 15.5px;
+        font-weight: 700;
+        color: #00450d;
+        letter-spacing: -0.01em;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+
       p {
         color: #404941;
         margin-bottom: 12px;
@@ -529,58 +539,72 @@
         <div class="app-heading-sub">Privacy Policy for Expense Insights Android Application</div>
 
         <div class="meta-details">
-          <span class="meta-item"><strong>Application:</strong> Expense Insights (Android)</span>
+          <span class="meta-item"><strong>Developer:</strong> Karmakar Developers</span>
           <span class="meta-divider">•</span>
           <span class="meta-item"><strong>Package:</strong> <code>com.karmakardevelopers.expenseinsights</code></span>
           <span class="meta-divider">•</span>
-          <span class="meta-item"><strong>Last Updated:</strong> September 5, 2026</span>
+          <span class="meta-item"><strong>Effective Date:</strong> September 15, 2026</span>
+          <span class="meta-divider">•</span>
+          <span class="meta-item"><strong>Last Updated:</strong> September 15, 2026</span>
         </div>
 
         <div class="privacy-commitment">
-          <strong>Privacy Commitment:</strong> At Expense Insights, built by Karmakar Developers, protecting your personal and financial information is our highest priority. This Privacy Policy details our practices in strict adherence to Google Play Developer Program Policies (including the User Data and Data Safety requirements).
+          <strong>Privacy Commitment:</strong> At Expense Insights ("we", "our", or "the App"), developed by Karmakar Developers, protecting your personal and financial information is our highest priority. We believe that your personal finances are your private business. This Privacy Policy explains how our Android application collects, uses, stores, and protects your information, as well as your rights regarding your data.
         </div>
       </div>
 
       <!-- Sections Container Card -->
       <div class="sections-card">
-        <!-- 1. Overview and Core Philosophy -->
-        <section>
-          <h2>1. Overview and Core Philosophy</h2>
+        <!-- 1. Introduction -->
+        <section id="introduction">
+          <h2>1. Introduction</h2>
           <p>
-            Expense Insights is a personal financial management application designed to help individuals and families track expenditures, categorize income, manage account balances, set budgets, and derive meaningful analytics.
+            <strong>Expense Insights</strong> ("we", "our", or "the App"), developed by <strong>Karmakar Developers</strong>, is committed to protecting your privacy. We believe that your personal finances are your private business.
           </p>
           <p>
-            We operate on a Privacy-First architecture. Your financial records, transaction entries, bank/account names, notes, and budgets are stored locally on your device in an encrypted local database. We do not sell, rent, monetize, or broker your personal or financial data to third parties under any circumstances.
+            This Privacy Policy explains how our Android application collects, uses, stores, and protects your information, as well as your rights regarding your data. By downloading, accessing, or using Expense Insights, you agree to the practices described in this policy.
           </p>
         </section>
 
-        <!-- 2. Information We Collect and Process -->
-        <section>
-          <h2>2. Information We Collect and Process</h2>
+        <!-- 2. Privacy-First Architecture -->
+        <section id="privacy-first-architecture">
+          <h2>2. Privacy-First Architecture</h2>
           <p>
-            In accordance with Google Play's User Data policy, we provide clear disclosure of all data collected, accessed, or processed:
+            Expense Insights is built around a <strong>Privacy-First, Offline-First</strong> philosophy:
           </p>
           <ul>
             <li>
-              <strong>Financial Information (Local Storage):</strong> Transaction amounts, dates, notes, categories, payment methods, account titles, and budget thresholds entered by you. This data remains on your local device.
+              <strong>Local Storage by Default:</strong> Your transactions, account balances, budgets, categories, and financial notes are saved locally on your device in a secure, sandboxed SQLite Room database.
             </li>
             <li>
-              <strong>Authentication Data (Optional):</strong> If you choose to sign in via Google Sign-In, we receive your basic profile credentials (name, email address, and profile photo URL) via Firebase Authentication to authenticate your identity.
+              <strong>No Unsolicited Tracking:</strong> We do not track your activity across third-party websites or services.
             </li>
             <li>
-              <strong>Audio Data (Optional &amp; Ephemeral):</strong> If you utilize our voice input feature (Maya Voice Assistant) to record a transaction by voice, speech is processed in real time via the Android system Speech Recognizer. Audio data is not retained, stored on external servers, or repurposed.
-            </li>
-            <li>
-              <strong>Device &amp; App Performance Data:</strong> Standard anonymous diagnostics, crash logs, and non-identifiable app interaction statistics to maintain stability and prevent crashes.
+              <strong>Zero Data Selling:</strong> We do not sell, rent, monetise, or distribute your personal or financial data to data brokers, advertisers, or third-party marketers.
             </li>
           </ul>
         </section>
 
-        <!-- 3. Android System Permissions & Purpose -->
-        <section>
-          <h2>3. Android System Permissions &amp; Purpose</h2>
+        <!-- 3. Information We Collect and How We Use It -->
+        <section id="information-we-collect">
+          <h2>3. Information We Collect and How We Use It</h2>
+          
+          <h3>A. Financial Information (User-Provided)</h3>
+          <ul>
+            <li>
+              <strong>What We Collect:</strong> Transaction amounts, dates, notes, category tags, account names, starting balances, and budget thresholds entered by you.
+            </li>
+            <li>
+              <strong>Purpose:</strong> To calculate account balances, generate expense/income analytics, track budget limits, and display cashflow trends within the App.
+            </li>
+            <li>
+              <strong>Storage:</strong> Stored locally on your device. If you explicitly use cloud backup or sync features, this data is transmitted securely via HTTPS/TLS to our cloud infrastructure.
+            </li>
+          </ul>
+
+          <h3>B. Device Permissions &amp; Hardware Features</h3>
           <p>
-            Expense Insights requests only the minimal permissions required to deliver its core features:
+            Expense Insights requests only the permissions strictly required to deliver requested features:
           </p>
 
           <div class="table-wrapper">
@@ -588,162 +612,179 @@
               <thead>
                 <tr>
                   <th>Permission</th>
-                  <th>Type</th>
-                  <th>Justification &amp; User Benefit</th>
+                  <th>Technical Name</th>
+                  <th>Purpose &amp; Usage</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><code>RECORD_AUDIO</code></td>
-                  <td><span class="badge badge-runtime">Runtime (Dangerous)</span></td>
-                  <td>Enables voice-to-text input for hands-free transaction logging when you tap the microphone button. Audio is processed ephemerally and never saved.</td>
+                  <td><strong>Camera</strong></td>
+                  <td><code>android.permission.CAMERA</code></td>
+                  <td>Used exclusively when you choose to take a photo of a physical receipt or invoice to attach to an expense record. Photos are saved in your app's private storage and are not uploaded to public servers.</td>
                 </tr>
                 <tr>
-                  <td><code>POST_NOTIFICATIONS</code></td>
-                  <td><span class="badge badge-runtime">Runtime (Dangerous)</span></td>
-                  <td>Allows daily expense reminder notifications and budget threshold alerts configured by you.</td>
+                  <td><strong>Audio / Microphone</strong></td>
+                  <td><code>android.permission.RECORD_AUDIO</code></td>
+                  <td>Used solely for the optional voice assistant / speech-to-text input in the Maya Help Assistant. Speech is processed through Android's system speech recognition services in real time and is never recorded or stored remotely.</td>
                 </tr>
                 <tr>
-                  <td><code>USE_BIOMETRIC</code> / <code>USE_FINGERPRINT</code></td>
-                  <td><span class="badge badge-normal">Normal</span></td>
-                  <td>Allows optional App Lock biometric authentication using your device's secure hardware enclave. Biometric data never leaves your device.</td>
+                  <td><strong>Notifications</strong></td>
+                  <td><code>android.permission.POST_NOTIFICATIONS</code></td>
+                  <td>Used to deliver user-configured reminders (such as daily transaction logging reminders at your preferred time) and budget warning alerts. You can disable notifications anytime in the App or Android system settings.</td>
                 </tr>
                 <tr>
-                  <td><code>INTERNET</code> &amp; <code>ACCESS_NETWORK_STATE</code></td>
-                  <td><span class="badge badge-normal">Normal</span></td>
-                  <td>Enables Google Sign-In, Firebase services, and AI assistance features.</td>
+                  <td><strong>Alarms &amp; Reminders</strong></td>
+                  <td><code>android.permission.SCHEDULE_EXACT_ALARM</code></td>
+                  <td>Used to trigger the scheduled daily transaction reminder precisely at the time you configured in Settings.</td>
                 </tr>
                 <tr>
-                  <td><code>SCHEDULE_EXACT_ALARM</code> &amp; <code>RECEIVE_BOOT_COMPLETED</code></td>
-                  <td><span class="badge badge-normal">Normal</span></td>
-                  <td>Restores your custom reminder schedule after device restarts.</td>
+                  <td><strong>Biometrics</strong></td>
+                  <td><code>android.permission.USE_BIOMETRIC</code>,<br><code>USE_FINGERPRINT</code></td>
+                  <td>Used to authenticate your identity when App Lock is enabled. Biometric data is verified by Android's hardware security module (KeyStore); the App never has access to your raw biometric credentials.</td>
                 </tr>
                 <tr>
-                  <td><code>CAMERA</code></td>
-                  <td><span class="badge badge-optional">Optional Feature</span></td>
-                  <td>Used strictly if you capture receipt photos for transaction attachments. Never used in the background.</td>
+                  <td><strong>Network Access</strong></td>
+                  <td><code>android.permission.INTERNET</code>,<br><code>ACCESS_NETWORK_STATE</code></td>
+                  <td>Used to verify network connectivity, handle optional cloud sign-in/sync, and load web-based documentation or support resources.</td>
                 </tr>
               </tbody>
             </table>
           </div>
-        </section>
 
-        <!-- 4. How We Use Your Information -->
-        <section>
-          <h2>4. How We Use Your Information</h2>
-          <p>
-            We process collected information exclusively for the following specified purposes:
-          </p>
-          <ul>
-            <li>Providing personal financial analytics, monthly cash flow summaries, and category charts.</li>
-            <li>Sending scheduled reminder notifications according to your customized settings.</li>
-            <li>Facilitating secure CSV export and import backups initiated by you.</li>
-            <li>Authenticating your account via Google Identity Services if you choose to sign in.</li>
-            <li>Troubleshooting bugs, app crashes, and improving application responsiveness.</li>
-          </ul>
-          <p>
-            We do not use your financial data for advertising, behavioural targeting, or credit profiling.
-          </p>
-        </section>
-
-        <!-- 5. Third-Party Service Providers -->
-        <section>
-          <h2>5. Third-Party Service Providers</h2>
-          <p>
-            We partner only with industry-standard, secure infrastructure providers that comply with Google Play Developer policies:
-          </p>
+          <h3>C. Optional Account &amp; Authentication Information</h3>
           <ul>
             <li>
-              <strong>Google Play Services:</strong> Used for in-app updates, licensing, and device framework integration.
+              <strong>Google Sign-In:</strong> You may optionally choose to link your Google Account for profile management, support communication, or cloud backup.
             </li>
             <li>
-              <strong>Google Identity / Firebase Authentication:</strong> Provides token-based authentication when using Google Sign-In. Governed by Google's Privacy Policy.
+              <strong>Information Received:</strong> When signing in with Google, we receive basic profile information provided by Google Identity Services (such as your display name, email address, and account identifier).
             </li>
             <li>
-              <strong>Google Gemini API:</strong> Provides natural-language financial queries, automated categorization, and intelligent budgeting suggestions. Queries do not train foundation models on user-specific personal data without consent.
+              <strong>Usage:</strong> Used solely to identify your session and link your optional cloud backup records.
             </li>
           </ul>
         </section>
 
-        <!-- 6. Google Play Data Safety Declarations -->
-        <section>
-          <h2>6. Google Play Data Safety Declarations</h2>
-          <p>
-            For complete transparency in the Google Play Store Data Safety section:
-          </p>
+        <!-- 3.1 Authentication & Announcement Notifications -->
+        <section id="authentication-announcements">
+          <h2>3.1 Authentication &amp; Announcement Notifications</h2>
           <ul>
             <li>
-              <strong>Data Shared:</strong> We do NOT share your personal or financial data with any third-party advertisers, data brokers, or external commercial entities.
+              <strong>Google Sign-In Information:</strong> If you choose to sign in with Google, Firebase Authentication may provide and store your basic account information, such as your name and email address, along with an authentication/account identifier and relevant login or activity timestamps.
             </li>
             <li>
-              <strong>Data Encrypted in Transit:</strong> All communications between the app and external services (e.g., Firebase or Gemini API) use industry-standard HTTPS / TLS 1.3 encryption.
+              <strong>Purpose:</strong> This information is used to authenticate your account, maintain your signed-in session, and associate your account with optional cloud-related features.
             </li>
             <li>
-              <strong>Data Encrypted at Rest:</strong> Application database storage is sandboxed within your Android OS user partition.
+              <strong>Announcements:</strong> The App periodically checks Firestore for App announcements. When an announcement is available, the App may send a notification to inform you about it. These checks and notifications are used only to deliver App-related announcements and updates.
             </li>
           </ul>
         </section>
 
-        <!-- 7. Data Retention & Your Deletion Rights -->
-        <section>
-          <h2>7. Data Retention &amp; Your Deletion Rights</h2>
+        <!-- 4. Data Storage, Backup, and Export -->
+        <section id="data-storage-backup-export">
+          <h2>4. Data Storage, Backup, and Export</h2>
+          <ol style="list-style-type: decimal; padding-left: 24px; color: #404941; margin-top: 8px; margin-bottom: 12px;">
+            <li style="margin-bottom: 8px; line-height: 1.6;">
+              <strong>Local Data:</strong> All primary database records remain inside the application's protected sandbox directory on your Android device.
+            </li>
+            <li style="margin-bottom: 8px; line-height: 1.6;">
+              <strong>CSV &amp; PDF Exports:</strong> When you choose to export your reports or transactions to CSV or PDF, the file is generated locally and shared solely through Android's standard system Sharesheet (<code>FileProvider</code>).
+            </li>
+            <li style="margin-bottom: 8px; line-height: 1.6;">
+              <strong>Automated Android Backups:</strong> The App participates in standard Android Auto Backup (<code>dataExtractionRules</code>), which encrypts and stores app configuration data in your private Google Drive account if you have Android system backup enabled.
+            </li>
+          </ol>
+        </section>
+
+        <!-- 5. Third-Party Services and Sub-processors -->
+        <section id="third-party-services">
+          <h2>5. Third-Party Services and Sub-processors</h2>
           <p>
-            In accordance with Google Play's Account and Data Deletion Policy, you maintain complete ownership and control over your data:
+            To provide specific application capabilities, the App interacts with trusted service providers who adhere to strict data security standards:
           </p>
           <ul>
             <li>
-              <strong>In-App Data Reset:</strong> You can wipe all accounts, transactions, and categories at any time by navigating to Settings &gt; Reset App &amp; Restart Setup.
+              <strong>Google Play Services:</strong> Used for app delivery, in-app updates, and authentication services.
             </li>
             <li>
-              <strong>Account &amp; Data Deletion:</strong> You can review your account information, inspect data records, or delete your account yourself via the <a href="https://karmakar-developers.netlify.app/#data-center" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand); font-weight: 600;">Karmakar Developers Data Center Portal</a>, or submit an online request through our dedicated <a href="expense-insights-account-deletion.html" style="color: var(--color-brand); font-weight: 600;">Account &amp; Data Deletion Request Form</a>.
+              <strong>Firebase (Google LLC):</strong> May be used for Firebase Authentication and secure Firestore cloud database synchronization if you choose to enable cloud connectivity. Firebase adheres to ISO 27001, SOC 1/2/3, and GDPR compliance standards.
             </li>
             <li>
-              <strong>Email Deletion Request:</strong> You may also email <a href="mailto:developers.karmakar@gmail.com">developers.karmakar@gmail.com</a> with the subject line "Data Deletion Request". All associated authentication records and cloud-linked data will be permanently purged within 30 days.
+              <strong>Android SpeechRecognizer:</strong> Used for on-device or system-level speech transcription when voice commands are initiated.
+            </li>
+          </ul>
+          <p>
+            We do not integrate third-party ad networks, advertising trackers, or profiling SDKs.
+          </p>
+        </section>
+
+        <!-- 6. Data Retention and Deletion (Your Rights) -->
+        <section id="data-retention-deletion">
+          <h2>6. Data Retention and Deletion (Your Rights)</h2>
+          <p>
+            You have full control over your data at all times:
+          </p>
+          <ul>
+            <li>
+              <strong>In-App Data Reset:</strong> You can erase all accounts, transactions, and categories directly within the app at any time by navigating to <strong>Settings &gt; DATA &amp; BACKUP &gt; Reset App &amp; Restart Setup</strong>.
+            </li>
+            <li>
+              <strong>Account &amp; Cloud Data Deletion:</strong> If you have connected a Google Account and wish to delete your associated profile and cloud sync records from our servers, you can submit a deletion request at any time by emailing <a href="mailto:developers.karmakar@gmail.com"><strong>developers.karmakar@gmail.com</strong></a> with the subject line <em>"Data Deletion Request"</em>, or via our dedicated <a href="expense-insights-account-deletion.html" style="color: #007324; font-weight: 600;">Account &amp; Data Deletion Request Form</a>. We will verify and permanently delete all server-associated records within 30 days. You may also review account data via the <a href="https://karmakar-developers.netlify.app/#data-center" target="_blank" rel="noopener noreferrer" style="color: #007324; font-weight: 600;">Karmakar Developers Data Center Portal</a>.
+            </li>
+            <li>
+              <strong>Uninstalling the App:</strong> Uninstalling Expense Insights removes all local database files stored in the application directory on your device.
             </li>
           </ul>
         </section>
 
-        <!-- 8. Children's Privacy (COPPA Compliance) -->
-        <section>
-          <h2>8. Children's Privacy (COPPA Compliance)</h2>
+        <!-- 7. Security Measures -->
+        <section id="security-measures">
+          <h2>7. Security Measures</h2>
           <p>
-            Expense Insights is intended for general audiences aged 13 and above (or 16 and above in the European Economic Area). We do not knowingly collect, solicit, or store personal information from children under 13. If we discover that a child under 13 has provided us with personal data, we will take immediate steps to delete that data from our records.
-          </p>
-        </section>
-
-        <!-- 9. Security Measures -->
-        <section>
-          <h2>9. Security Measures</h2>
-          <p>
-            We employ comprehensive technical and organizational measures to safeguard your information:
+            We implement industry-standard administrative and technical security measures to protect your information:
           </p>
           <ul>
-            <li>Biometric lock security integration (Fingerprint and Face Unlock) via Android BiometricPrompt API.</li>
-            <li>Encrypted transport protocols (TLS/SSL) for all network endpoints.</li>
-            <li>Strict app sandboxing preventing unauthorized third-party apps on your device from reading database contents.</li>
+            <li>All network communications with cloud endpoints use Transport Layer Security (TLS/HTTPS).</li>
+            <li>Local databases are protected by Android's application sandboxing and permission model.</li>
+            <li>Optional Biometric App Lock protects against unauthorized physical access to your device.</li>
           </ul>
         </section>
 
-        <!-- 10. Changes to This Privacy Policy -->
-        <section>
-          <h2>10. Changes to This Privacy Policy</h2>
+        <!-- 8. Children's Privacy -->
+        <section id="childrens-privacy">
+          <h2>8. Children's Privacy</h2>
           <p>
-            We may update this Privacy Policy periodically to reflect changes in our legal obligations, features, or Google Play store policy updates. When changes are made, we will update the "Last Updated" date at the top of this document. We encourage you to review this Privacy Policy periodically.
+            Expense Insights is designed for general audiences (individuals managing personal, student, or household finances) and is not intended for or directed toward children under 13 years of age (or under 16 in applicable jurisdictions). We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately.
           </p>
         </section>
 
-        <!-- 11. Contact Us -->
-        <section>
-          <h2>11. Contact Us</h2>
+        <!-- 9. Changes to This Privacy Policy -->
+        <section id="changes-to-policy">
+          <h2>9. Changes to This Privacy Policy</h2>
           <p>
-            If you have any questions, suggestions, or concerns regarding this Privacy Policy, your personal data, or data deletion requests, please contact us:
+            We may update this Privacy Policy from time to time to reflect updates to the App, changes in legal obligations, or Google Play policy updates. When changes are made:
+          </p>
+          <ul>
+            <li>The "Last Updated" date at the top of this document will be updated.</li>
+            <li>Significant revisions will be highlighted within the App's About or Release Notes screen.</li>
+            <li>Continued use of the App following any update constitutes acceptance of the revised policy.</li>
+          </ul>
+        </section>
+
+        <!-- 10. Contact Us -->
+        <section id="contact-us">
+          <h2>10. Contact Us</h2>
+          <p>
+            If you have any questions, concerns, or requests regarding this Privacy Policy or our data handling practices, please contact us at:
           </p>
           <div class="info-box" style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
             <img src="../images/karmakar-developers-logo.png" alt="Karmakar Developers" style="width: 52px; height: 52px; border-radius: 12px; object-fit: cover; border: 1px solid #c4eec4; flex-shrink: 0;" />
             <div style="min-width: 0; max-width: 100%; flex: 1 1 200px; overflow-wrap: anywhere; word-break: break-word;">
-              <div><strong>Developer Name:</strong> Karmakar Developers</div>
-              <div><strong>Email:</strong> <a href="mailto:developers.karmakar@gmail.com">developers.karmakar@gmail.com</a></div>
-              <div><strong>App Name:</strong> Expense Insights</div>
+              <div><strong>Developer:</strong> Karmakar Developers</div>
+              <div><strong>Contact Email:</strong> <a href="mailto:developers.karmakar@gmail.com">developers.karmakar@gmail.com</a></div>
+              <div><strong>Official Website:</strong> <a href="https://karmakar-developers.github.io/Apps/expense-insights/index.html" target="_blank" rel="noopener noreferrer">https://karmakar-developers.github.io/Apps/expense-insights/index.html</a></div>
+              <div><strong>Privacy Policy URL:</strong> <a href="https://karmakar-developers.github.io/Apps/expense-insights/expense-insights-privacy.html">https://karmakar-developers.github.io/Apps/expense-insights/expense-insights-privacy.html</a></div>
               <div><strong>Package Name:</strong> <code>com.karmakardevelopers.expenseinsights</code></div>
             </div>
           </div>
