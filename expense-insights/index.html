@@ -375,6 +375,144 @@
       .lightbox-close-btn:hover {
         background: rgba(255, 255, 255, 0.35);
       }
+
+      /* Video Showcase Section */
+      .video-section {
+        background: #ffffff;
+        border-radius: 28px;
+        padding: 24px;
+        border: 1px solid var(--color-border);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        margin-bottom: 48px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      @media (min-width: 640px) {
+        .video-section {
+          padding: 36px 40px 40px 40px;
+        }
+      }
+
+      .video-header {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto 28px auto;
+      }
+
+      .video-header h2 {
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: -0.015em;
+        margin-top: 10px;
+        margin-bottom: 8px;
+        color: var(--color-text-main);
+      }
+
+      @media (min-width: 640px) {
+        .video-header h2 {
+          font-size: 32px;
+        }
+      }
+
+      .video-header p {
+        font-size: 15.5px;
+        color: var(--color-text-muted);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .video-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        border-radius: 20px;
+        overflow: hidden;
+        background-color: #0b1117;
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        aspect-ratio: 16 / 9;
+      }
+
+      .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .video-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        max-width: 1100px;
+        margin: 20px auto 0 auto;
+        padding: 0 4px;
+      }
+
+      .video-meta-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        color: var(--color-text-muted);
+        font-weight: 500;
+      }
+
+      .video-yt-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13.5px;
+        font-weight: 700;
+        color: #b3261e;
+        background-color: #fff5f5;
+        border: 1px solid #fecdd3;
+        padding: 8px 18px;
+        border-radius: 9999px;
+        text-decoration: none;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .video-yt-btn:hover {
+        background-color: #fee2e2;
+        border-color: #f87171;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(179, 38, 30, 0.12);
+      }
+
+      .overview-section-header {
+        text-align: center;
+        margin-bottom: 28px;
+      }
+
+      .overview-section-header h2 {
+        font-size: 26px;
+        font-weight: 800;
+        letter-spacing: -0.015em;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        color: var(--color-text-main);
+      }
+
+      @media (min-width: 640px) {
+        .overview-section-header h2 {
+          font-size: 32px;
+        }
+      }
+
+      .overview-section-header p {
+        font-size: 15px;
+        color: var(--color-text-muted);
+        max-width: 620px;
+        margin: 0 auto;
+        line-height: 1.55;
+      }
     </style>
   </head>
   <body>
@@ -420,10 +558,65 @@
           </div>
         </div>
 
-        <!-- Feature Tabs -->
-        <div class="tabs-wrapper" id="feature-tabs">
-          <!-- Populated dynamically via JS for state retention -->
-        </div>
+        <!-- Video Walkthrough Section -->
+        <section class="video-section" id="app-video-section" aria-label="Expense Insights Video Walkthrough">
+          <div class="video-header">
+            <div class="badge-pill badge-brand" style="margin-bottom: 8px;">
+              <span class="material-symbols-outlined" style="font-size: 16px;">smart_display</span>
+              <span>Video Walkthrough</span>
+            </div>
+            <h2>See Expense Insights in Action</h2>
+            <p>
+              Watch the complete video overview to see how Expense Insights helps you track expenses, analyze spending with smart visual charts, manage multiple accounts, and log transactions effortlessly.
+            </p>
+          </div>
+
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/s_mHb5fUe6I?rel=0"
+              title="Expense Insights – Track, Analyze &amp; Manage Your Expenses Smarter"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+
+          <div class="video-footer">
+            <div class="video-meta-tag">
+              <span class="material-symbols-outlined" style="font-size: 18px; color: var(--color-brand);">verified</span>
+              <span>Official Video Walkthrough by Karmakar Developers</span>
+            </div>
+            <a
+              href="https://youtu.be/s_mHb5fUe6I"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="video-yt-btn"
+              title="Open video on YouTube"
+            >
+              <span class="material-symbols-outlined" style="font-size: 18px;">open_in_new</span>
+              <span>Watch on YouTube</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- App Overview & Features Section -->
+        <section id="app-overview-section" aria-label="Application Features Overview">
+          <div class="overview-section-header">
+            <div class="badge-pill badge-neutral" style="margin-bottom: 8px;">
+              <span class="material-symbols-outlined" style="font-size: 15px; color: var(--color-brand);">view_carousel</span>
+              <span>Application Overview</span>
+            </div>
+            <h2>App Overview &amp; Features</h2>
+            <p>
+              Explore each screen in detail — switch tabs to view features or click any image to open in high-resolution full screen.
+            </p>
+          </div>
+
+          <!-- Feature Tabs -->
+          <div class="tabs-wrapper" id="feature-tabs">
+            <!-- Populated dynamically via JS for state retention -->
+          </div>
 
         <!-- Focused Image Display Card -->
         <div class="focused-card">
@@ -462,6 +655,7 @@
             <!-- Grid cards populated by JS -->
           </div>
         </div>
+        </section>
       </div>
     </main>
 
