@@ -1,89 +1,67 @@
 {
-  "githubBaseUrl": "https://karmakar-developers.github.io/Apps/",
-  "cloudflareBaseUrl": "https://admin-portal.karmakar-developers.workers.dev",
+  "APP_DIRECTORY_BASE_URL": "https://karmakar-developers.github.io/Apps/",
+  "KARMAKAR_DEVELOPERS_BASE_URL": "https://admin-portal.karmakar-developers.workers.dev",
   "googleFormAccountDeletionUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdQEqQ4nRQ7tXcyDhqXxk4dpAlyxqXTme0UOPmFvxti0QCQxw/viewform?pli=1",
   "pages": [
     {
       "title": "Expense Insights — Application Showcase & Features",
-      "url": "../expense-insights/index.html",
       "path": "expense-insights/index.html",
-      "folder": "expense-insights",
-      "folderTitle": "Expense Insights"
+      "folder": "Expense Insights"
     },
     {
       "title": "Account & Data Deletion Request — Expense Insights",
-      "url": "../expense-insights/expense-insights-account-deletion.html",
       "path": "expense-insights/expense-insights-account-deletion.html",
-      "folder": "expense-insights",
-      "folderTitle": "Expense Insights"
+      "folder": "Expense Insights"
     },
     {
       "title": "Payment & Purchase FAQ — Expense Insights",
-      "url": "../expense-insights/expense-insights-payment-faq.html",
       "path": "expense-insights/expense-insights-payment-faq.html",
-      "folder": "expense-insights",
-      "folderTitle": "Expense Insights"
+      "folder": "Expense Insights"
     },
     {
       "title": "Privacy Policy — Expense Insights",
-      "url": "../expense-insights/expense-insights-privacy.html",
       "path": "expense-insights/expense-insights-privacy.html",
-      "folder": "expense-insights",
-      "folderTitle": "Expense Insights"
+      "folder": "Expense Insights"
     },
     {
       "title": "Terms of Service — Expense Insights",
-      "url": "../expense-insights/expense-insights-terms.html",
       "path": "expense-insights/expense-insights-terms.html",
-      "folder": "expense-insights",
-      "folderTitle": "Expense Insights"
+      "folder": "Expense Insights"
     },
     {
       "title": "Karmakar Developers — Applications Directory",
-      "url": "../index.html",
       "path": "index.html",
-      "folder": "main",
-      "folderTitle": "Main Portal & Directory"
+      "folder": "Main Portal & Directory"
     },
     {
       "title": "Site Directory — Karmakar Developers",
-      "url": "./index.html",
       "path": "site-directory/index.html",
-      "folder": "main",
-      "folderTitle": "Main Portal & Directory"
+      "folder": "Main Portal & Directory"
     }
   ],
   "externalLinks": [
     {
       "title": "Karmakar Developers Home Page",
       "path": "/",
-      "type": "cloudflare",
-      "folder": "external-links",
-      "folderTitle": "External Links",
-      "isExternal": true
+      "type": "karmakar",
+      "folder": "External Links"
     },
     {
       "title": "Admin Portal",
       "path": "/admin",
-      "type": "cloudflare",
-      "folder": "external-links",
-      "folderTitle": "External Links",
-      "isExternal": true
+      "type": "karmakar",
+      "folder": "External Links"
     },
     {
       "title": "Android User Data Center",
       "path": "/data-center",
-      "type": "cloudflare",
-      "folder": "external-links",
-      "folderTitle": "External Links",
-      "isExternal": true
+      "type": "karmakar",
+      "folder": "External Links"
     },
     {
       "title": "Expense Insights Account Deletion Google Form",
       "type": "google-form",
-      "folder": "external-links",
-      "folderTitle": "External Links",
-      "isExternal": true
+      "folder": "External Links"
     }
   ]
 }

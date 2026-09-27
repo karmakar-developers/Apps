@@ -532,91 +532,69 @@
     <!-- Embedded Initial Manifest Fallback (Supports offline / file:// protocol) -->
     <script id="initial-manifest" type="application/json">
 {
-  "githubBaseUrl": "https://karmakar-developers.github.io/Apps/",
-  "cloudflareBaseUrl": "https://admin-portal.karmakar-developers.workers.dev",
+  "APP_DIRECTORY_BASE_URL": "https://karmakar-developers.github.io/Apps/",
+  "KARMAKAR_DEVELOPERS_BASE_URL": "https://admin-portal.karmakar-developers.workers.dev",
   "googleFormAccountDeletionUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdQEqQ4nRQ7tXcyDhqXxk4dpAlyxqXTme0UOPmFvxti0QCQxw/viewform?pli=1",
   "pages": [
     {
       "title": "Expense Insights — Application Showcase & Features",
-      "url": "../expense-insights/index.html",
       "path": "expense-insights/index.html",
-      "folder": "expense-insights",
-      "folderTitle": "Expense Insights"
+      "folder": "Expense Insights"
     },
     {
       "title": "Account & Data Deletion Request — Expense Insights",
-      "url": "../expense-insights/expense-insights-account-deletion.html",
       "path": "expense-insights/expense-insights-account-deletion.html",
-      "folder": "expense-insights",
-      "folderTitle": "Expense Insights"
+      "folder": "Expense Insights"
     },
     {
       "title": "Payment & Purchase FAQ — Expense Insights",
-      "url": "../expense-insights/expense-insights-payment-faq.html",
       "path": "expense-insights/expense-insights-payment-faq.html",
-      "folder": "expense-insights",
-      "folderTitle": "Expense Insights"
+      "folder": "Expense Insights"
     },
     {
       "title": "Privacy Policy — Expense Insights",
-      "url": "../expense-insights/expense-insights-privacy.html",
       "path": "expense-insights/expense-insights-privacy.html",
-      "folder": "expense-insights",
-      "folderTitle": "Expense Insights"
+      "folder": "Expense Insights"
     },
     {
       "title": "Terms of Service — Expense Insights",
-      "url": "../expense-insights/expense-insights-terms.html",
       "path": "expense-insights/expense-insights-terms.html",
-      "folder": "expense-insights",
-      "folderTitle": "Expense Insights"
+      "folder": "Expense Insights"
     },
     {
       "title": "Karmakar Developers — Applications Directory",
-      "url": "../index.html",
       "path": "index.html",
-      "folder": "main",
-      "folderTitle": "Main Portal & Directory"
+      "folder": "Main Portal & Directory"
     },
     {
       "title": "Site Directory — Karmakar Developers",
-      "url": "./index.html",
       "path": "site-directory/index.html",
-      "folder": "main",
-      "folderTitle": "Main Portal & Directory"
+      "folder": "Main Portal & Directory"
     }
   ],
   "externalLinks": [
     {
       "title": "Karmakar Developers Home Page",
       "path": "/",
-      "type": "cloudflare",
-      "folder": "external-links",
-      "folderTitle": "External Links",
-      "isExternal": true
+      "type": "karmakar",
+      "folder": "External Links"
     },
     {
       "title": "Admin Portal",
       "path": "/admin",
-      "type": "cloudflare",
-      "folder": "external-links",
-      "folderTitle": "External Links",
-      "isExternal": true
+      "type": "karmakar",
+      "folder": "External Links"
     },
     {
       "title": "Android User Data Center",
       "path": "/data-center",
-      "type": "cloudflare",
-      "folder": "external-links",
-      "folderTitle": "External Links",
-      "isExternal": true
+      "type": "karmakar",
+      "folder": "External Links"
     },
     {
       "title": "Expense Insights Account Deletion Google Form",
       "type": "google-form",
-      "folder": "external-links",
-      "folderTitle": "External Links",
-      "isExternal": true
+      "folder": "External Links"
     }
   ]
 }
@@ -624,10 +602,10 @@
 
     <script>
       (function () {
-        // Configuration loaded dynamically from manifest.json
+        // Base URL configuration loaded dynamically from manifest.json
         let manifestConfig = {
-          githubBaseUrl: 'https://karmakar-developers.github.io/Apps/',
-          cloudflareBaseUrl: 'https://admin-portal.karmakar-developers.workers.dev',
+          APP_DIRECTORY_BASE_URL: 'https://karmakar-developers.github.io/Apps/',
+          KARMAKAR_DEVELOPERS_BASE_URL: 'https://admin-portal.karmakar-developers.workers.dev',
           googleFormAccountDeletionUrl:
             'https://docs.google.com/forms/d/e/1FAIpQLSdQEqQ4nRQ7tXcyDhqXxk4dpAlyxqXTme0UOPmFvxti0QCQxw/viewform?pli=1'
         };
@@ -639,63 +617,127 @@
         const btnExpandAll = document.getElementById('btn-expand-all');
         const btnCollapseAll = document.getElementById('btn-collapse-all');
 
-        // Resolve link URL based on manifest configuration
+        // Resolve link URL directly by concatenating base URL and path
         function resolveUrl(item, config) {
-          if (item.type === 'cloudflare') {
-            const base = (config.cloudflareBaseUrl || '').replace(/\/+$/, '');
-            const p = item.path ? (item.path.startsWith('/') ? item.path : '/' + item.path) : '';
-            return `${base}${p}`;
-          }
-          if (item.type === 'google-form') {
-            return config.googleFormAccountDeletionUrl || item.url || '';
-          }
+          // Explicit full external URL
           if (item.url && (item.url.startsWith('http://') || item.url.startsWith('https://'))) {
             return item.url;
           }
-          if (item.url) return item.url;
-          if (item.path) {
-            return item.path === 'site-directory/index.html'
-              ? './index.html'
-              : '../' + item.path;
+
+          // External portal links: concatenate base URL + path
+          if (item.type === 'karmakar' || item.type === 'cloudflare') {
+            const base = (
+              config.KARMAKAR_DEVELOPERS_BASE_URL ||
+              config.karmakarDevelopersBaseUrl ||
+              config.cloudflareBaseUrl ||
+              ''
+            ).replace(/\/+$/, '');
+            const p = item.path ? (item.path.startsWith('/') ? item.path : '/' + item.path) : '';
+            return `${base}${p}`;
           }
-          return '#';
+
+          // Google Form permanent link
+          if (item.type === 'google-form') {
+            return config.googleFormAccountDeletionUrl || item.url || '';
+          }
+
+          // Internal App Directory pages:
+          // In local dev/preview environments, use relative links so preview works.
+          const isLocal =
+            window.location.hostname === 'localhost' ||
+            window.location.hostname === '127.0.0.1' ||
+            window.location.hostname.includes('run.app');
+
+          if (isLocal) {
+            if (item.path === 'site-directory/index.html') return './index.html';
+            return '../' + item.path;
+          }
+
+          // On production, concatenate APP_DIRECTORY_BASE_URL + path
+          const appBase = (
+            config.APP_DIRECTORY_BASE_URL ||
+            config.appDirectoryBaseUrl ||
+            config.githubBaseUrl ||
+            ''
+          ).replace(/\/+$/, '');
+
+          if (appBase && item.path) {
+            return `${appBase}/${item.path.replace(/^\/+/, '')}`;
+          }
+
+          return item.path === 'site-directory/index.html' ? './index.html' : '../' + item.path;
         }
 
-        // Process loaded manifest data (supports both object and array formats)
+        // Process loaded manifest data
         function processManifestData(data) {
           let pages = [];
           let externalLinks = [];
 
           if (data && typeof data === 'object' && !Array.isArray(data)) {
-            if (data.githubBaseUrl) manifestConfig.githubBaseUrl = data.githubBaseUrl;
-            if (data.cloudflareBaseUrl) manifestConfig.cloudflareBaseUrl = data.cloudflareBaseUrl;
+            if (data.APP_DIRECTORY_BASE_URL || data.appDirectoryBaseUrl || data.githubBaseUrl) {
+              manifestConfig.APP_DIRECTORY_BASE_URL =
+                data.APP_DIRECTORY_BASE_URL || data.appDirectoryBaseUrl || data.githubBaseUrl;
+            }
+            if (
+              data.KARMAKAR_DEVELOPERS_BASE_URL ||
+              data.karmakarDevelopersBaseUrl ||
+              data.cloudflareBaseUrl
+            ) {
+              manifestConfig.KARMAKAR_DEVELOPERS_BASE_URL =
+                data.KARMAKAR_DEVELOPERS_BASE_URL ||
+                data.karmakarDevelopersBaseUrl ||
+                data.cloudflareBaseUrl;
+            }
             if (data.googleFormAccountDeletionUrl) {
               manifestConfig.googleFormAccountDeletionUrl = data.googleFormAccountDeletionUrl;
             }
             pages = Array.isArray(data.pages) ? data.pages : [];
-            externalLinks = Array.isArray(data.externalLinks) ? data.externalLinks : [];
+            externalLinks = Array.isArray(data.externalLinks)
+              ? data.externalLinks.map(function (link) {
+                  return { ...link, isExternal: true, folder: link.folder || 'External Links' };
+                })
+              : [];
           } else if (Array.isArray(data)) {
             pages = data;
           }
 
-          // Combine internal GitHub pages and external links
           return [...pages, ...externalLinks];
         }
 
-        // Group pages by folder
+        // Group pages by folder (clean display name)
         function groupPagesByFolder(pages) {
           const groups = {};
           pages.forEach(function (page) {
-            const folderKey = page.folder || 'other';
-            const folderTitle = page.folderTitle || (folderKey.charAt(0).toUpperCase() + folderKey.slice(1));
-            if (!groups[folderKey]) {
-              groups[folderKey] = {
-                key: folderKey,
-                title: folderTitle,
+            let folderName = page.folder;
+            if (!folderName) {
+              if (
+                page.type === 'karmakar' ||
+                page.type === 'google-form' ||
+                page.type === 'cloudflare' ||
+                page.isExternal
+              ) {
+                folderName = 'External Links';
+              } else if (page.path && page.path.includes('/')) {
+                const slug = page.path.split('/')[0];
+                if (slug === 'expense-insights') {
+                  folderName = 'Expense Insights';
+                } else if (slug === 'site-directory') {
+                  folderName = 'Main Portal & Directory';
+                } else {
+                  folderName = slug.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+                }
+              } else {
+                folderName = 'Main Portal & Directory';
+              }
+            }
+
+            if (!groups[folderName]) {
+              groups[folderName] = {
+                title: folderName,
                 pages: []
               };
             }
-            groups[folderKey].pages.push(page);
+            groups[folderName].pages.push(page);
           });
           return groups;
         }
@@ -714,14 +756,14 @@
           const grouped = groupPagesByFolder(pages);
           const folderKeys = Object.keys(grouped);
 
-          // Folder order: Expense Insights first, other apps, Main Portal, then External Links
+          // Order folders: Expense Insights first, other apps, Main Portal, then External Links
           folderKeys.sort(function (a, b) {
-            if (a === 'expense-insights') return -1;
-            if (b === 'expense-insights') return 1;
-            if (a === 'main' && b === 'external-links') return -1;
-            if (a === 'external-links' && b === 'main') return 1;
-            if (a === 'external-links') return 1;
-            if (b === 'external-links') return -1;
+            if (a === 'Expense Insights') return -1;
+            if (b === 'Expense Insights') return 1;
+            if (a === 'Main Portal & Directory' && b === 'External Links') return -1;
+            if (a === 'External Links' && b === 'Main Portal & Directory') return 1;
+            if (a === 'External Links') return 1;
+            if (b === 'External Links') return -1;
             return a.localeCompare(b);
           });
 
@@ -746,7 +788,6 @@
             iconBox.className = 'folder-icon-box';
             const folderIcon = document.createElement('span');
             folderIcon.className = 'material-symbols-outlined';
-            // Every folder uses the exact same standard folder icon
             folderIcon.textContent = 'folder';
             iconBox.appendChild(folderIcon);
 
@@ -793,7 +834,14 @@
               linkCard.title = page.title || 'Open Link';
 
               // Open external links in a new tab safely
-              if (page.isExternal || targetUrl.startsWith('http://') || targetUrl.startsWith('https://')) {
+              const isExternal =
+                page.isExternal ||
+                page.type === 'karmakar' ||
+                page.type === 'cloudflare' ||
+                page.type === 'google-form' ||
+                (page.url && (page.url.startsWith('http://') || page.url.startsWith('https://')));
+
+              if (isExternal) {
                 linkCard.target = '_blank';
                 linkCard.rel = 'noopener noreferrer';
               }
@@ -804,7 +852,7 @@
 
               const chevronIcon = document.createElement('span');
               chevronIcon.className = 'material-symbols-outlined tree-link-chevron';
-              chevronIcon.textContent = (page.isExternal || targetUrl.startsWith('http')) ? 'open_in_new' : 'arrow_forward';
+              chevronIcon.textContent = isExternal ? 'open_in_new' : 'arrow_forward';
 
               linkCard.appendChild(titleHeading);
               linkCard.appendChild(chevronIcon);
@@ -826,7 +874,7 @@
           }
           const filtered = allPages.filter(function (page) {
             const t = (page.title || '').toLowerCase();
-            const f = (page.folderTitle || '').toLowerCase();
+            const f = (page.folder || '').toLowerCase();
             const u = resolveUrl(page, manifestConfig).toLowerCase();
             return t.includes(q) || f.includes(q) || u.includes(q);
           });
