@@ -467,7 +467,8 @@
 
         <div class="datacenter-actions">
           <a
-            href="https://karmakar-developers.netlify.app/#data-center"
+            id="launch-datacenter-link"
+            href="https://admin-portal.karmakar-developers.workers.dev/data-center"
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-primary"
@@ -748,6 +749,35 @@
           formCard.style.display = 'none';
           successCard.style.display = 'block';
           window.scrollTo({ top: successCard.offsetTop - 80, behavior: 'smooth' });
+        }
+
+        // Dynamically resolve Data Center link from manifest.json (same logic as site-directory/index.html)
+        var dataCenterBtn = document.getElementById('launch-datacenter-link');
+        if (dataCenterBtn) {
+          fetch('../site-directory/manifest.json', { cache: 'no-cache' })
+            .then(function (res) {
+              if (res.ok) return res.json();
+              throw new Error('Manifest not found');
+            })
+            .then(function (data) {
+              if (data) {
+                var base = (
+                  data.KARMAKAR_DEVELOPERS_BASE_URL ||
+                  data.karmakarDevelopersBaseUrl ||
+                  data.cloudflareBaseUrl ||
+                  'https://admin-portal.karmakar-developers.workers.dev'
+                ).replace(/\/+$/, '');
+                var linkItem = (data.externalLinks || []).find(function (item) {
+                  return item.path === '/data-center' || (item.title && item.title.toLowerCase().includes('data center'));
+                });
+                var path = linkItem && linkItem.path ? linkItem.path : '/data-center';
+                if (!path.startsWith('/')) path = '/' + path;
+                dataCenterBtn.href = base + path;
+              }
+            })
+            .catch(function () {
+              // Keeps the fallback href
+            });
         }
       })();
     </script>
