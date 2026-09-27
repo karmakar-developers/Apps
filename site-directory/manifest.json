@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Expense Insights — Application Showcase & Features",
+    "url": "../expense-insights/index.html",
+    "path": "expense-insights/index.html",
+    "folder": "expense-insights",
+    "folderTitle": "Expense Insights"
+  },
+  {
+    "title": "Account & Data Deletion Request — Expense Insights",
+    "url": "../expense-insights/expense-insights-account-deletion.html",
+    "path": "expense-insights/expense-insights-account-deletion.html",
+    "folder": "expense-insights",
+    "folderTitle": "Expense Insights"
+  },
+  {
+    "title": "Payment & Purchase FAQ — Expense Insights",
+    "url": "../expense-insights/expense-insights-payment-faq.html",
+    "path": "expense-insights/expense-insights-payment-faq.html",
+    "folder": "expense-insights",
+    "folderTitle": "Expense Insights"
+  },
+  {
+    "title": "Privacy Policy — Expense Insights",
+    "url": "../expense-insights/expense-insights-privacy.html",
+    "path": "expense-insights/expense-insights-privacy.html",
+    "folder": "expense-insights",
+    "folderTitle": "Expense Insights"
+  },
+  {
+    "title": "Terms of Service — Expense Insights",
+    "url": "../expense-insights/expense-insights-terms.html",
+    "path": "expense-insights/expense-insights-terms.html",
+    "folder": "expense-insights",
+    "folderTitle": "Expense Insights"
+  },
+  {
+    "title": "Karmakar Developers — Applications Directory",
+    "url": "../index.html",
+    "path": "index.html",
+    "folder": "main",
+    "folderTitle": "Main Portal & Directory"
+  },
+  {
+    "title": "Site Directory — Karmakar Developers",
+    "url": "./index.html",
+    "path": "site-directory/index.html",
+    "folder": "main",
+    "folderTitle": "Main Portal & Directory"
+  }
+]

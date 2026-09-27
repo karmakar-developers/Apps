@@ -1,0 +1,41 @@
+name: Update Site Directory Manifest
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - '**.html'
+      - 'scripts/generate-manifest.js'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate Site Directory Manifest
+        run: node scripts/generate-manifest.js
+
+      - name: Commit and Push if manifest changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add site-directory/manifest.json
+          if git diff --staged --quiet; then
+            echo "No changes in site-directory/manifest.json"
+          else
+            git commit -m "Auto-update site-directory/manifest.json [skip ci]"
+            git push
+          fi

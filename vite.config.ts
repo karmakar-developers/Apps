@@ -11,6 +11,8 @@ export default defineConfig(() => {
           privacy: path.resolve(__dirname, 'expense-insights/expense-insights-privacy.html'),
           terms: path.resolve(__dirname, 'expense-insights/expense-insights-terms.html'),
           deletion: path.resolve(__dirname, 'expense-insights/expense-insights-account-deletion.html'),
+          faq: path.resolve(__dirname, 'expense-insights/expense-insights-payment-faq.html'),
+          siteDirectory: path.resolve(__dirname, 'site-directory/index.html'),
         },
       },
     },

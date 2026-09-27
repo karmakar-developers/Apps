@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site Directory — Karmakar Developers</title>
+    <meta
+      name="description"
+      content="Automated virtual site directory indexing all published applications, policy pages, terms, and guides by Karmakar Developers."
+    />
+    <meta property="og:title" content="Site Directory — Karmakar Developers" />
+    <meta
+      property="og:description"
+      content="Automated virtual manifest directory for all pages on Karmakar Developers."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/png" href="../images/karmakar-developers-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <style>
+      :root {
+        --color-brand: #00450d;
+        --color-brand-hover: #003309;
+        --color-accent: #007324;
+        --color-accent-light: #dff5df;
+        --color-accent-border: #c4eec4;
+        --color-bg-page: #f8faf8;
+        --color-bg-card: #ffffff;
+        --color-bg-subtle: #f0f3f0;
+        --color-border: #dfe5df;
+        --color-border-subtle: #f0f3f0;
+        --color-text-main: #191c1b;
+        --color-text-body: #404941;
+        --color-text-muted: #596158;
+      }
+
+      body {
+        background-color: var(--color-bg-page);
+        color: var(--color-text-main);
+        font-family: var(--font-body);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .directory-page-container {
+        width: min(960px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 32px 0 72px 0;
+        flex: 1;
+      }
+
+      @media (max-width: 640px) {
+        .directory-page-container {
+          width: calc(100% - 24px);
+          padding: 20px 0 48px 0;
+        }
+      }
+
+      /* Hero Section */
+      .directory-hero {
+        background: linear-gradient(135deg, #ffffff 0%, #f4fbf5 100%);
+        border: 1px solid var(--color-accent-border);
+        border-radius: 20px;
+        padding: 24px 28px;
+        box-shadow: 0 4px 16px rgba(0, 69, 13, 0.04);
+        margin-bottom: 24px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .directory-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--color-brand) 0%, #00a838 50%, var(--color-accent) 100%);
+      }
+
+      .directory-hero h1 {
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--color-brand);
+        line-height: 1.2;
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+
+      @media (max-width: 640px) {
+        .directory-hero h1 {
+          font-size: 24px;
+        }
+        .directory-hero {
+          padding: 20px;
+        }
+      }
+
+      /* Toolbar: Search & Tree Controls (No count text) */
+      .directory-toolbar {
+        background: #ffffff;
+        border: 1px solid var(--color-border);
+        border-radius: 16px;
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 24px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+        flex-wrap: wrap;
+      }
+
+      .search-box-wrap {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #f8faf8;
+        border: 1px solid var(--color-border);
+        border-radius: 10px;
+        padding: 8px 14px;
+        flex: 1;
+        min-width: 200px;
+        transition: border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .search-box-wrap:focus-within {
+        border-color: var(--color-accent);
+        background: #ffffff;
+        box-shadow: 0 0 0 3px rgba(0, 115, 36, 0.12);
+      }
+
+      .search-box-wrap .material-symbols-outlined {
+        font-size: 20px;
+        color: var(--color-text-muted);
+      }
+
+      .search-input {
+        border: none;
+        outline: none;
+        background: transparent;
+        font-family: var(--font-body);
+        font-size: 14px;
+        color: var(--color-text-main);
+        width: 100%;
+      }
+
+      .search-input::placeholder {
+        color: #8a948c;
+      }
+
+      .toolbar-controls {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .toolbar-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 7px 14px;
+        border-radius: 8px;
+        background: #ffffff;
+        border: 1px solid var(--color-border);
+        color: var(--color-text-body);
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .toolbar-btn:hover {
+        background: #f2f7f2;
+        border-color: var(--color-accent-border);
+        color: var(--color-brand);
+      }
+
+      .toolbar-btn .material-symbols-outlined {
+        font-size: 17px;
+      }
+
+      /* Folder Tree Container */
+      .tree-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      /* Folder Group Card */
+      details.folder-group {
+        background: #ffffff;
+        border: 1px solid var(--color-border);
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      details.folder-group:hover {
+        border-color: rgba(0, 115, 36, 0.35);
+      }
+
+      details.folder-group[open] {
+        border-color: var(--color-accent-border);
+        box-shadow: 0 4px 16px rgba(0, 69, 13, 0.05);
+      }
+
+      /* Folder Summary Header */
+      summary.folder-header {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 16px 20px;
+        cursor: pointer;
+        user-select: none;
+        background-color: #ffffff;
+        transition: background-color 0.2s ease;
+      }
+
+      summary.folder-header::-webkit-details-marker {
+        display: none;
+      }
+
+      summary.folder-header:hover {
+        background-color: #f7faf7;
+      }
+
+      details.folder-group[open] summary.folder-header {
+        background-color: #f3f8f3;
+        border-bottom: 1px solid #e3ede3;
+      }
+
+      .folder-header-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex: 1;
+        min-width: 0;
+      }
+
+      .folder-icon-box {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background-color: var(--color-accent-light);
+        border: 1px solid var(--color-accent-border);
+        color: var(--color-brand);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .folder-title {
+        font-family: var(--font-heading);
+        font-size: 17px;
+        font-weight: 800;
+        color: var(--color-brand);
+        margin: 0;
+        letter-spacing: -0.015em;
+        line-height: 1.25;
+      }
+
+      .folder-header-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+
+      .folder-toggle-indicator {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: #ffffff;
+        border: 1px solid var(--color-border);
+        color: var(--color-text-muted);
+        transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+      }
+
+      summary.folder-header:hover .folder-toggle-indicator {
+        border-color: var(--color-accent);
+        color: var(--color-brand);
+      }
+
+      .folder-toggle-indicator .material-symbols-outlined {
+        font-size: 20px;
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      details.folder-group[open] .folder-toggle-indicator .material-symbols-outlined {
+        transform: rotate(180deg);
+      }
+
+      /* Folder Children Tree */
+      .folder-tree-content {
+        padding: 16px 20px 20px 20px;
+        background: #ffffff;
+      }
+
+      .tree-branch-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+        padding-left: 20px;
+        border-left: 2px solid #e1e9e1;
+        margin-left: 10px;
+      }
+
+      @media (max-width: 600px) {
+        .folder-tree-content {
+          padding: 12px 14px 16px 14px;
+        }
+        .tree-branch-container {
+          padding-left: 12px;
+          margin-left: 4px;
+        }
+      }
+
+      /* Link Item Card: Clickable row where title links directly to page (no right-hand link URL) */
+      a.tree-link-card {
+        background: #fafcfa;
+        border: 1px solid #e2e9e2;
+        border-radius: 12px;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        position: relative;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      /* Tree node horizontal connector tick */
+      a.tree-link-card::before {
+        content: "";
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        width: 18px;
+        height: 2px;
+        background-color: #e1e9e1;
+      }
+
+      @media (max-width: 600px) {
+        a.tree-link-card::before {
+          left: -12px;
+          width: 10px;
+        }
+      }
+
+      a.tree-link-card:hover {
+        background: #ffffff;
+        border-color: rgba(0, 115, 36, 0.45);
+        box-shadow: 0 4px 14px rgba(0, 69, 13, 0.06);
+        transform: translateX(3px);
+      }
+
+      .tree-link-title {
+        font-family: var(--font-heading);
+        font-size: 15.5px;
+        font-weight: 700;
+        color: var(--color-brand);
+        line-height: 1.35;
+        letter-spacing: -0.01em;
+        margin: 0;
+        transition: color 0.2s ease;
+      }
+
+      a.tree-link-card:hover .tree-link-title {
+        color: var(--color-accent);
+      }
+
+      .tree-link-chevron {
+        font-size: 18px;
+        color: var(--color-text-muted);
+        flex-shrink: 0;
+        transition: transform 0.2s ease, color 0.2s ease;
+      }
+
+      a.tree-link-card:hover .tree-link-chevron {
+        color: var(--color-brand);
+        transform: translateX(2px);
+      }
+
+      /* Empty State */
+      .empty-state {
+        text-align: center;
+        padding: 48px 24px;
+        background: #ffffff;
+        border: 1px dashed var(--color-border);
+        border-radius: 16px;
+        color: var(--color-text-muted);
+        display: none;
+      }
+
+      .empty-state .material-symbols-outlined {
+        font-size: 36px;
+        color: #94a3b8;
+        margin-bottom: 8px;
+      }
+
+      .empty-state p {
+        font-size: 14px;
+        margin: 0;
+      }
+
+      /* Header Subtitle pill */
+      .header-subtitle-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        border-radius: 9999px;
+        background: #f0f3f0;
+        color: var(--color-text-muted);
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .header-subtitle-pill:hover {
+        background: var(--color-accent-light);
+        color: var(--color-brand);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Site Header -->
+    <header class="site-header">
+      <div class="header-container">
+        <!-- Brand logo -->
+        <a href="../index.html" class="brand-link" id="site-logo" title="Karmakar Developers">
+          <img
+            src="../images/karmakar-developers-logo.png"
+            alt="Karmakar Developers Logo"
+            class="brand-logo-img"
+          />
+          <span class="brand-logo-text">Karmakar Developers</span>
+          <span class="brand-badge">Site Directory</span>
+        </a>
+
+        <!-- Header right -->
+        <div class="header-right">
+          <a href="../index.html" class="header-subtitle-pill" title="Return to All Apps Directory">
+            <span class="material-symbols-outlined" style="font-size: 16px;">arrow_back</span>
+            <span>All Apps</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <div class="directory-page-container">
+        <!-- Hero Banner: Minimal title -->
+        <div class="directory-hero">
+          <h1>Site Directory</h1>
+        </div>
+
+        <!-- Toolbar: Search & Tree Controls (Counts removed per request) -->
+        <div class="directory-toolbar">
+          <div class="search-box-wrap">
+            <span class="material-symbols-outlined">search</span>
+            <input
+              type="text"
+              id="directory-search"
+              class="search-input"
+              placeholder="Search by title..."
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="toolbar-controls">
+            <button
+              type="button"
+              class="toolbar-btn"
+              id="btn-expand-all"
+              title="Expand all folders"
+            >
+              <span class="material-symbols-outlined">unfold_more</span>
+              <span>Expand All</span>
+            </button>
+            <button
+              type="button"
+              class="toolbar-btn"
+              id="btn-collapse-all"
+              title="Minimize all folders"
+            >
+              <span class="material-symbols-outlined">unfold_less</span>
+              <span>Minimize All</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Folder Tree Links Container -->
+        <div class="tree-container" id="tree-container">
+          <!-- Dynamically populated from virtual manifest -->
+        </div>
+
+        <!-- Empty search results state -->
+        <div class="empty-state" id="empty-state">
+          <span class="material-symbols-outlined">search_off</span>
+          <p>No matching pages found.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Embedded Initial Manifest Fallback (Supports offline / file:// protocol) -->
+    <script id="initial-manifest" type="application/json">
+[
+  {
+    "title": "Expense Insights — Application Showcase & Features",
+    "url": "../expense-insights/index.html",
+    "path": "expense-insights/index.html",
+    "folder": "expense-insights",
+    "folderTitle": "Expense Insights"
+  },
+  {
+    "title": "Account & Data Deletion Request — Expense Insights",
+    "url": "../expense-insights/expense-insights-account-deletion.html",
+    "path": "expense-insights/expense-insights-account-deletion.html",
+    "folder": "expense-insights",
+    "folderTitle": "Expense Insights"
+  },
+  {
+    "title": "Payment & Purchase FAQ — Expense Insights",
+    "url": "../expense-insights/expense-insights-payment-faq.html",
+    "path": "expense-insights/expense-insights-payment-faq.html",
+    "folder": "expense-insights",
+    "folderTitle": "Expense Insights"
+  },
+  {
+    "title": "Privacy Policy — Expense Insights",
+    "url": "../expense-insights/expense-insights-privacy.html",
+    "path": "expense-insights/expense-insights-privacy.html",
+    "folder": "expense-insights",
+    "folderTitle": "Expense Insights"
+  },
+  {
+    "title": "Terms of Service — Expense Insights",
+    "url": "../expense-insights/expense-insights-terms.html",
+    "path": "expense-insights/expense-insights-terms.html",
+    "folder": "expense-insights",
+    "folderTitle": "Expense Insights"
+  },
+  {
+    "title": "Karmakar Developers — Applications Directory",
+    "url": "../index.html",
+    "path": "index.html",
+    "folder": "main",
+    "folderTitle": "Main Portal & Directory"
+  },
+  {
+    "title": "Site Directory — Karmakar Developers",
+    "url": "./index.html",
+    "path": "site-directory/index.html",
+    "folder": "main",
+    "folderTitle": "Main Portal & Directory"
+  }
+]
+    </script>
+
+    <script>
+      (function () {
+        let allPages = [];
+        const treeContainer = document.getElementById('tree-container');
+        const searchInput = document.getElementById('directory-search');
+        const emptyState = document.getElementById('empty-state');
+        const btnExpandAll = document.getElementById('btn-expand-all');
+        const btnCollapseAll = document.getElementById('btn-collapse-all');
+
+        // Resolve link path relative to site-directory/
+        function resolveUrl(item) {
+          if (item.url) return item.url;
+          if (item.path) {
+            return item.path === 'site-directory/index.html'
+              ? './index.html'
+              : '../' + item.path;
+          }
+          return '#';
+        }
+
+        // Group pages by folder
+        function groupPagesByFolder(pages) {
+          const groups = {};
+          pages.forEach(function (page) {
+            const folderKey = page.folder || 'other';
+            const folderTitle = page.folderTitle || (folderKey.charAt(0).toUpperCase() + folderKey.slice(1));
+            if (!groups[folderKey]) {
+              groups[folderKey] = {
+                key: folderKey,
+                title: folderTitle,
+                pages: []
+              };
+            }
+            groups[folderKey].pages.push(page);
+          });
+          return groups;
+        }
+
+        // Render the tree structure
+        function renderTree(pages, isSearching) {
+          treeContainer.innerHTML = '';
+
+          if (!pages || pages.length === 0) {
+            emptyState.style.display = 'block';
+            return;
+          }
+
+          emptyState.style.display = 'none';
+
+          const grouped = groupPagesByFolder(pages);
+          const folderKeys = Object.keys(grouped);
+
+          // Ensure Expense Insights comes first if present, then other apps, then main portal
+          folderKeys.sort(function (a, b) {
+            if (a === 'expense-insights') return -1;
+            if (b === 'expense-insights') return 1;
+            if (a === 'main') return 1;
+            if (b === 'main') return -1;
+            return a.localeCompare(b);
+          });
+
+          folderKeys.forEach(function (key) {
+            const folder = grouped[key];
+            const details = document.createElement('details');
+            details.className = 'folder-group';
+            details.dataset.folderKey = key;
+
+            // Default open state allows users to minimize/maximize as needed
+            details.open = true;
+
+            // Summary Header
+            const summary = document.createElement('summary');
+            summary.className = 'folder-header';
+
+            // Left side: Standard folder icon and folder title
+            const headerLeft = document.createElement('div');
+            headerLeft.className = 'folder-header-left';
+
+            const iconBox = document.createElement('div');
+            iconBox.className = 'folder-icon-box';
+            const folderIcon = document.createElement('span');
+            folderIcon.className = 'material-symbols-outlined';
+            // Every folder uses the exact same standard folder icon
+            folderIcon.textContent = 'folder';
+            iconBox.appendChild(folderIcon);
+
+            const folderTitle = document.createElement('h2');
+            folderTitle.className = 'folder-title';
+            folderTitle.textContent = folder.title;
+
+            headerLeft.appendChild(iconBox);
+            headerLeft.appendChild(folderTitle);
+
+            // Right side: Toggle chevron
+            const headerRight = document.createElement('div');
+            headerRight.className = 'folder-header-right';
+
+            const toggleIndicator = document.createElement('span');
+            toggleIndicator.className = 'folder-toggle-indicator';
+            toggleIndicator.title = 'Click to minimize / maximize folder';
+
+            const chevron = document.createElement('span');
+            chevron.className = 'material-symbols-outlined';
+            chevron.textContent = 'expand_more';
+            toggleIndicator.appendChild(chevron);
+
+            headerRight.appendChild(toggleIndicator);
+
+            summary.appendChild(headerLeft);
+            summary.appendChild(headerRight);
+            details.appendChild(summary);
+
+            // Folder Content & Tree Branch
+            const content = document.createElement('div');
+            content.className = 'folder-tree-content';
+
+            const branchContainer = document.createElement('div');
+            branchContainer.className = 'tree-branch-container';
+
+            folder.pages.forEach(function (page) {
+              const targetUrl = resolveUrl(page);
+
+              // Each row is a direct link; clicking the title navigates directly to the page
+              const linkCard = document.createElement('a');
+              linkCard.className = 'tree-link-card';
+              linkCard.href = targetUrl;
+              linkCard.title = page.title || 'Open Page';
+
+              const titleHeading = document.createElement('h3');
+              titleHeading.className = 'tree-link-title';
+              titleHeading.textContent = page.title || 'Untitled Page';
+
+              const chevronIcon = document.createElement('span');
+              chevronIcon.className = 'material-symbols-outlined tree-link-chevron';
+              chevronIcon.textContent = 'arrow_forward';
+
+              linkCard.appendChild(titleHeading);
+              linkCard.appendChild(chevronIcon);
+              branchContainer.appendChild(linkCard);
+            });
+
+            content.appendChild(branchContainer);
+            details.appendChild(content);
+            treeContainer.appendChild(details);
+          });
+        }
+
+        // Live Search Filter
+        function filterPages(query) {
+          const q = (query || '').toLowerCase().trim();
+          if (!q) {
+            renderTree(allPages, false);
+            return;
+          }
+          const filtered = allPages.filter(function (page) {
+            const t = (page.title || '').toLowerCase();
+            const f = (page.folderTitle || '').toLowerCase();
+            return t.includes(q) || f.includes(q);
+          });
+          renderTree(filtered, true);
+        }
+
+        searchInput.addEventListener('input', function (e) {
+          filterPages(e.target.value);
+        });
+
+        // Expand All
+        btnExpandAll.addEventListener('click', function () {
+          document.querySelectorAll('details.folder-group').forEach(function (d) {
+            d.open = true;
+          });
+        });
+
+        // Minimize All
+        btnCollapseAll.addEventListener('click', function () {
+          document.querySelectorAll('details.folder-group').forEach(function (d) {
+            d.open = false;
+          });
+        });
+
+        // Load virtual manifest
+        function loadManifest() {
+          fetch('./manifest.json', { cache: 'no-cache' })
+            .then(function (res) {
+              if (!res.ok) throw new Error('Manifest not found');
+              return res.json();
+            })
+            .then(function (data) {
+              if (Array.isArray(data) && data.length > 0) {
+                allPages = data;
+                renderTree(allPages, false);
+              } else {
+                throw new Error('Empty manifest');
+              }
+            })
+            .catch(function () {
+              // Fallback to embedded data
+              try {
+                const embedded = document.getElementById('initial-manifest').textContent;
+                allPages = JSON.parse(embedded);
+              } catch (e) {
+                allPages = [];
+              }
+              renderTree(allPages, false);
+            });
+        }
+
+        loadManifest();
+      })();
+    </script>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- Footer Links -->
+        <div class="footer-links">
+          <a href="../index.html" class="footer-link">All Apps</a>
+          <a href="../expense-insights/" class="footer-link">Expense Insights Showcase</a>
+          <a href="index.html" class="footer-link">Site Directory</a>
+          <a href="mailto:developers.karmakar@gmail.com" class="footer-link">Contact Developer</a>
+        </div>
+
+        <!-- Copyright -->
+        <div
+          class="footer-copyright"
+          style="display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;"
+        >
+          <img
+            src="../images/karmakar-developers-logo.png"
+            alt="Karmakar Developers"
+            class="footer-brand-logo"
+          />
+          <span class="footer-brand">Karmakar Developers</span>
+          <span style="color: #94a3b8;">•</span>
+          <span>© 2026 Karmakar Developers. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

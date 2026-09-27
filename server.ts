@@ -21,6 +21,14 @@ async function startServer() {
     next();
   });
 
+  // Redirect /site-directory to /site-directory/ for canonical directory routing
+  app.get("/site-directory", (req, res, next) => {
+    if (req.path === "/site-directory") {
+      return res.redirect(301, "/site-directory/");
+    }
+    next();
+  });
+
   // Vite middleware for development vs static serving in production
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
