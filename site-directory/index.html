@@ -531,113 +531,106 @@
 
     <!-- Embedded Initial Manifest Fallback (Supports offline / file:// protocol) -->
     <script id="initial-manifest" type="application/json">
-[
-  {
-    "title": "Expense Insights — Application Showcase & Features",
-    "url": "../expense-insights/index.html",
-    "path": "expense-insights/index.html",
-    "folder": "expense-insights",
-    "folderTitle": "Expense Insights"
-  },
-  {
-    "title": "Account & Data Deletion Request — Expense Insights",
-    "url": "../expense-insights/expense-insights-account-deletion.html",
-    "path": "expense-insights/expense-insights-account-deletion.html",
-    "folder": "expense-insights",
-    "folderTitle": "Expense Insights"
-  },
-  {
-    "title": "Payment & Purchase FAQ — Expense Insights",
-    "url": "../expense-insights/expense-insights-payment-faq.html",
-    "path": "expense-insights/expense-insights-payment-faq.html",
-    "folder": "expense-insights",
-    "folderTitle": "Expense Insights"
-  },
-  {
-    "title": "Privacy Policy — Expense Insights",
-    "url": "../expense-insights/expense-insights-privacy.html",
-    "path": "expense-insights/expense-insights-privacy.html",
-    "folder": "expense-insights",
-    "folderTitle": "Expense Insights"
-  },
-  {
-    "title": "Terms of Service — Expense Insights",
-    "url": "../expense-insights/expense-insights-terms.html",
-    "path": "expense-insights/expense-insights-terms.html",
-    "folder": "expense-insights",
-    "folderTitle": "Expense Insights"
-  },
-  {
-    "title": "Karmakar Developers — Applications Directory",
-    "url": "../index.html",
-    "path": "index.html",
-    "folder": "main",
-    "folderTitle": "Main Portal & Directory"
-  },
-  {
-    "title": "Site Directory — Karmakar Developers",
-    "url": "./index.html",
-    "path": "site-directory/index.html",
-    "folder": "main",
-    "folderTitle": "Main Portal & Directory"
-  }
-]
+{
+  "githubBaseUrl": "https://karmakar-developers.github.io/Apps/",
+  "cloudflareBaseUrl": "https://admin-portal.karmakar-developers.workers.dev",
+  "googleFormAccountDeletionUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdQEqQ4nRQ7tXcyDhqXxk4dpAlyxqXTme0UOPmFvxti0QCQxw/viewform?pli=1",
+  "pages": [
+    {
+      "title": "Expense Insights — Application Showcase & Features",
+      "url": "../expense-insights/index.html",
+      "path": "expense-insights/index.html",
+      "folder": "expense-insights",
+      "folderTitle": "Expense Insights"
+    },
+    {
+      "title": "Account & Data Deletion Request — Expense Insights",
+      "url": "../expense-insights/expense-insights-account-deletion.html",
+      "path": "expense-insights/expense-insights-account-deletion.html",
+      "folder": "expense-insights",
+      "folderTitle": "Expense Insights"
+    },
+    {
+      "title": "Payment & Purchase FAQ — Expense Insights",
+      "url": "../expense-insights/expense-insights-payment-faq.html",
+      "path": "expense-insights/expense-insights-payment-faq.html",
+      "folder": "expense-insights",
+      "folderTitle": "Expense Insights"
+    },
+    {
+      "title": "Privacy Policy — Expense Insights",
+      "url": "../expense-insights/expense-insights-privacy.html",
+      "path": "expense-insights/expense-insights-privacy.html",
+      "folder": "expense-insights",
+      "folderTitle": "Expense Insights"
+    },
+    {
+      "title": "Terms of Service — Expense Insights",
+      "url": "../expense-insights/expense-insights-terms.html",
+      "path": "expense-insights/expense-insights-terms.html",
+      "folder": "expense-insights",
+      "folderTitle": "Expense Insights"
+    },
+    {
+      "title": "Karmakar Developers — Applications Directory",
+      "url": "../index.html",
+      "path": "index.html",
+      "folder": "main",
+      "folderTitle": "Main Portal & Directory"
+    },
+    {
+      "title": "Site Directory — Karmakar Developers",
+      "url": "./index.html",
+      "path": "site-directory/index.html",
+      "folder": "main",
+      "folderTitle": "Main Portal & Directory"
+    }
+  ],
+  "externalLinks": [
+    {
+      "title": "Karmakar Developers Home Page",
+      "path": "/",
+      "type": "cloudflare",
+      "folder": "external-links",
+      "folderTitle": "External Links",
+      "isExternal": true
+    },
+    {
+      "title": "Admin Portal",
+      "path": "/admin",
+      "type": "cloudflare",
+      "folder": "external-links",
+      "folderTitle": "External Links",
+      "isExternal": true
+    },
+    {
+      "title": "Android User Data Center",
+      "path": "/data-center",
+      "type": "cloudflare",
+      "folder": "external-links",
+      "folderTitle": "External Links",
+      "isExternal": true
+    },
+    {
+      "title": "Expense Insights Account Deletion Google Form",
+      "type": "google-form",
+      "folder": "external-links",
+      "folderTitle": "External Links",
+      "isExternal": true
+    }
+  ]
+}
     </script>
 
     <script>
       (function () {
-        // =========================================================================
-        // Configuration: External Links & Centralized Home Page Base URL
-        // Maintain the Karmakar Developers Home Page base URL in one single place.
-        // Changing this single variable automatically updates all related subpages:
-        // Admin Portal (/admin) and Android User Data Center (/data-center).
-        // If hosting moves from Cloudflare to Netlify or elsewhere, only edit this line.
-        // =========================================================================
-        const KARMAKAR_DEVELOPERS_HOME_PAGE = 'https://admin-portal.karmakar-developers.workers.dev';
-
-        // Permanent static Google Form link for Account Deletion Request
-        const EXPENSE_INSIGHTS_GOOGLE_FORM_URL =
-          'https://docs.google.com/forms/d/e/1FAIpQLSdQEqQ4nRQ7tXcyDhqXxk4dpAlyxqXTme0UOPmFvxti0QCQxw/viewform?pli=1';
-
-        // Helper to construct external links using the centralized base URL
-        function getExternalLinks() {
-          const base = KARMAKAR_DEVELOPERS_HOME_PAGE.replace(/\/+$/, '');
-          return [
-            {
-              title: 'Karmakar Developers Home Page',
-              url: base,
-              folder: 'external-links',
-              folderTitle: 'External Links',
-              isExternal: true
-            },
-            {
-              title: 'Admin Portal',
-              url: `${base}/admin`,
-              folder: 'external-links',
-              folderTitle: 'External Links',
-              isExternal: true
-            },
-            {
-              title: 'Android User Data Center',
-              url: `${base}/data-center`,
-              folder: 'external-links',
-              folderTitle: 'External Links',
-              isExternal: true
-            },
-            {
-              title: 'Expense Insights Account Deletion Google Form',
-              url: EXPENSE_INSIGHTS_GOOGLE_FORM_URL,
-              folder: 'external-links',
-              folderTitle: 'External Links',
-              isExternal: true
-            }
-          ];
-        }
-
-        function combinePages(manifestPages) {
-          const external = getExternalLinks();
-          return [...manifestPages, ...external];
-        }
+        // Configuration loaded dynamically from manifest.json
+        let manifestConfig = {
+          githubBaseUrl: 'https://karmakar-developers.github.io/Apps/',
+          cloudflareBaseUrl: 'https://admin-portal.karmakar-developers.workers.dev',
+          googleFormAccountDeletionUrl:
+            'https://docs.google.com/forms/d/e/1FAIpQLSdQEqQ4nRQ7tXcyDhqXxk4dpAlyxqXTme0UOPmFvxti0QCQxw/viewform?pli=1'
+        };
 
         let allPages = [];
         const treeContainer = document.getElementById('tree-container');
@@ -646,9 +639,17 @@
         const btnExpandAll = document.getElementById('btn-expand-all');
         const btnCollapseAll = document.getElementById('btn-collapse-all');
 
-        // Resolve link path relative to site-directory/ or direct external URL
-        function resolveUrl(item) {
-          if (item.isExternal || (item.url && (item.url.startsWith('http://') || item.url.startsWith('https://')))) {
+        // Resolve link URL based on manifest configuration
+        function resolveUrl(item, config) {
+          if (item.type === 'cloudflare') {
+            const base = (config.cloudflareBaseUrl || '').replace(/\/+$/, '');
+            const p = item.path ? (item.path.startsWith('/') ? item.path : '/' + item.path) : '';
+            return `${base}${p}`;
+          }
+          if (item.type === 'google-form') {
+            return config.googleFormAccountDeletionUrl || item.url || '';
+          }
+          if (item.url && (item.url.startsWith('http://') || item.url.startsWith('https://'))) {
             return item.url;
           }
           if (item.url) return item.url;
@@ -658,6 +659,27 @@
               : '../' + item.path;
           }
           return '#';
+        }
+
+        // Process loaded manifest data (supports both object and array formats)
+        function processManifestData(data) {
+          let pages = [];
+          let externalLinks = [];
+
+          if (data && typeof data === 'object' && !Array.isArray(data)) {
+            if (data.githubBaseUrl) manifestConfig.githubBaseUrl = data.githubBaseUrl;
+            if (data.cloudflareBaseUrl) manifestConfig.cloudflareBaseUrl = data.cloudflareBaseUrl;
+            if (data.googleFormAccountDeletionUrl) {
+              manifestConfig.googleFormAccountDeletionUrl = data.googleFormAccountDeletionUrl;
+            }
+            pages = Array.isArray(data.pages) ? data.pages : [];
+            externalLinks = Array.isArray(data.externalLinks) ? data.externalLinks : [];
+          } else if (Array.isArray(data)) {
+            pages = data;
+          }
+
+          // Combine internal GitHub pages and external links
+          return [...pages, ...externalLinks];
         }
 
         // Group pages by folder
@@ -762,7 +784,7 @@
             branchContainer.className = 'tree-branch-container';
 
             folder.pages.forEach(function (page) {
-              const targetUrl = resolveUrl(page);
+              const targetUrl = resolveUrl(page, manifestConfig);
 
               // Each row is a direct link; clicking the title navigates directly to the page
               const linkCard = document.createElement('a');
@@ -805,7 +827,7 @@
           const filtered = allPages.filter(function (page) {
             const t = (page.title || '').toLowerCase();
             const f = (page.folderTitle || '').toLowerCase();
-            const u = (page.url || '').toLowerCase();
+            const u = resolveUrl(page, manifestConfig).toLowerCase();
             return t.includes(q) || f.includes(q) || u.includes(q);
           });
           renderTree(filtered, true);
@@ -829,7 +851,7 @@
           });
         });
 
-        // Load virtual manifest and combine with external links
+        // Load virtual manifest dynamically
         function loadManifest() {
           fetch('./manifest.json', { cache: 'no-cache' })
             .then(function (res) {
@@ -837,20 +859,16 @@
               return res.json();
             })
             .then(function (data) {
-              if (Array.isArray(data) && data.length > 0) {
-                allPages = combinePages(data);
-                renderTree(allPages, false);
-              } else {
-                throw new Error('Empty manifest');
-              }
+              allPages = processManifestData(data);
+              renderTree(allPages, false);
             })
             .catch(function () {
               // Fallback to embedded data
               try {
                 const embedded = document.getElementById('initial-manifest').textContent;
-                allPages = combinePages(JSON.parse(embedded));
+                allPages = processManifestData(JSON.parse(embedded));
               } catch (e) {
-                allPages = combinePages([]);
+                allPages = [];
               }
               renderTree(allPages, false);
             });

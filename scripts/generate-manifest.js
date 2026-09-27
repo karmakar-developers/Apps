@@ -66,11 +66,78 @@ function getFolderInfo(relativePath) {
   return { folder: 'main', folderTitle: 'Main Portal & Directory' };
 }
 
+// Default external configuration to maintain in manifest.json header
+const DEFAULT_CONFIG = {
+  githubBaseUrl: 'https://karmakar-developers.github.io/Apps/',
+  cloudflareBaseUrl: 'https://admin-portal.karmakar-developers.workers.dev',
+  googleFormAccountDeletionUrl:
+    'https://docs.google.com/forms/d/e/1FAIpQLSdQEqQ4nRQ7tXcyDhqXxk4dpAlyxqXTme0UOPmFvxti0QCQxw/viewform?pli=1',
+  externalLinks: [
+    {
+      title: 'Karmakar Developers Home Page',
+      path: '/',
+      type: 'cloudflare',
+      folder: 'external-links',
+      folderTitle: 'External Links',
+      isExternal: true
+    },
+    {
+      title: 'Admin Portal',
+      path: '/admin',
+      type: 'cloudflare',
+      folder: 'external-links',
+      folderTitle: 'External Links',
+      isExternal: true
+    },
+    {
+      title: 'Android User Data Center',
+      path: '/data-center',
+      type: 'cloudflare',
+      folder: 'external-links',
+      folderTitle: 'External Links',
+      isExternal: true
+    },
+    {
+      title: 'Expense Insights Account Deletion Google Form',
+      type: 'google-form',
+      folder: 'external-links',
+      folderTitle: 'External Links',
+      isExternal: true
+    }
+  ]
+};
+
 // Generate the manifest
 function generateManifest() {
   console.log('Generating site directory manifest...');
+  const outputDir = path.join(rootDir, 'site-directory');
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+  const manifestPath = path.join(outputDir, 'manifest.json');
+
+  // Read existing manifest if present to preserve user edits to baseUrl and externalLinks
+  let existingData = {};
+  if (fs.existsSync(manifestPath)) {
+    try {
+      const raw = fs.readFileSync(manifestPath, 'utf-8');
+      const parsed = JSON.parse(raw);
+      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+        existingData = parsed;
+      }
+    } catch (e) {
+      console.warn('Could not parse existing manifest, using defaults');
+    }
+  }
+
+  const githubBaseUrl = existingData.githubBaseUrl || DEFAULT_CONFIG.githubBaseUrl;
+  const cloudflareBaseUrl = existingData.cloudflareBaseUrl || DEFAULT_CONFIG.cloudflareBaseUrl;
+  const googleFormAccountDeletionUrl =
+    existingData.googleFormAccountDeletionUrl || DEFAULT_CONFIG.googleFormAccountDeletionUrl;
+  const externalLinks = existingData.externalLinks || DEFAULT_CONFIG.externalLinks;
+
   const htmlFiles = getHtmlFiles(rootDir);
-  const manifest = [];
+  const pages = [];
 
   for (const filePath of htmlFiles) {
     const relativeToRoot = path.relative(rootDir, filePath).split(path.sep).join('/');
@@ -85,7 +152,7 @@ function generateManifest() {
       relativeUrl = './' + relativeUrl;
     }
 
-    manifest.push({
+    pages.push({
       title: title,
       url: relativeUrl,
       path: relativeToRoot,
@@ -95,13 +162,13 @@ function generateManifest() {
   }
 
   // Sort logically within folders: main showcase/index first, then other pages alphabetically
-  manifest.sort((a, b) => {
-    // Keep 'main' folder first or 'expense-insights'
+  pages.sort((a, b) => {
+    // Keep 'expense-insights' first, then 'main'
     if (a.folder !== b.folder) {
       if (a.folder === 'expense-insights') return -1;
       if (b.folder === 'expense-insights') return 1;
-      if (a.folder === 'main') return 1;
-      if (b.folder === 'main') return -1;
+      if (a.folder === 'main') return -1;
+      if (b.folder === 'main') return 1;
       return a.folderTitle.localeCompare(b.folderTitle);
     }
     // Within same folder
@@ -110,14 +177,18 @@ function generateManifest() {
     return a.title.localeCompare(b.title);
   });
 
-  const outputDir = path.join(rootDir, 'site-directory');
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
-  }
+  const manifestData = {
+    githubBaseUrl,
+    cloudflareBaseUrl,
+    googleFormAccountDeletionUrl,
+    pages,
+    externalLinks
+  };
 
-  const manifestPath = path.join(outputDir, 'manifest.json');
-  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n', 'utf-8');
-  console.log(`Manifest created at ${manifestPath} with ${manifest.length} pages.`);
+  fs.writeFileSync(manifestPath, JSON.stringify(manifestData, null, 2) + '\n', 'utf-8');
+  console.log(
+    `Manifest created at ${manifestPath} with ${pages.length} pages and ${externalLinks.length} external links.`
+  );
 
   // Also write to dist/site-directory/manifest.json if dist directory exists
   const distSiteDir = path.join(rootDir, 'dist', 'site-directory');
@@ -125,11 +196,11 @@ function generateManifest() {
     if (!fs.existsSync(distSiteDir)) {
       fs.mkdirSync(distSiteDir, { recursive: true });
     }
-    fs.writeFileSync(path.join(distSiteDir, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n', 'utf-8');
+    fs.writeFileSync(path.join(distSiteDir, 'manifest.json'), JSON.stringify(manifestData, null, 2) + '\n', 'utf-8');
     console.log(`Synced manifest to dist/site-directory/manifest.json`);
   }
 
-  return manifest;
+  return manifestData;
 }
 
 generateManifest();
