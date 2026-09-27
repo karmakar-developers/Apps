@@ -1,0 +1,1263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment &amp; Purchase FAQ — Expense Insights</title>
+    <meta
+      name="description"
+      content="Frequently asked questions about payments, purchases, Google Play billing, pending transactions, purchase restoration, and refunds for Expense Insights Pro."
+    />
+    <link rel="icon" type="image/png" href="../images/karmakar-developers-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <style>
+      :root {
+        --color-brand: #00450d;
+        --color-brand-hover: #003309;
+        --color-accent: #007324;
+        --color-accent-light: #dff5df;
+        --color-accent-border: #c4eec4;
+        --color-bg-page: #f8faf8;
+        --color-bg-card: #ffffff;
+        --color-bg-subtle: #f0f3f0;
+        --color-border: #dfe5df;
+        --color-border-subtle: #f0f3f0;
+        --color-text-main: #191c1b;
+        --color-text-body: #404941;
+        --color-text-muted: #596158;
+      }
+
+      body {
+        background-color: var(--color-bg-page);
+        color: var(--color-text-main);
+        font-family: var(--font-body);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .faq-page-container {
+        width: min(940px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 40px 0 72px 0;
+        flex: 1;
+      }
+
+      /* Hero Section */
+      .faq-hero {
+        background: linear-gradient(135deg, #ffffff 0%, #f4fbf5 100%);
+        border: 1px solid var(--color-accent-border);
+        border-radius: 24px;
+        padding: 40px 36px 36px 36px;
+        box-shadow: 0 4px 20px rgba(0, 69, 13, 0.05);
+        margin-bottom: 32px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .faq-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--color-brand) 0%, #00a838 50%, var(--color-accent) 100%);
+      }
+
+      .hero-badge-wrap {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
+      }
+
+      .badge-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 12px;
+        border-radius: 9999px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .badge-brand {
+        background-color: var(--color-accent-light);
+        color: var(--color-brand);
+        border: 1px solid var(--color-accent-border);
+      }
+
+      .badge-neutral {
+        background-color: #ffffff;
+        color: var(--color-text-body);
+        border: 1px solid var(--color-border);
+      }
+
+      .faq-hero h1 {
+        font-family: var(--font-heading);
+        font-size: 36px;
+        font-weight: 800;
+        color: var(--color-brand);
+        letter-spacing: -0.025em;
+        line-height: 1.2;
+        margin-bottom: 12px;
+      }
+
+      @media (max-width: 640px) {
+        .faq-hero h1 {
+          font-size: 28px;
+        }
+        .faq-hero {
+          padding: 28px 20px;
+        }
+        .faq-page-container {
+          width: calc(100% - 24px);
+          padding: 24px 0 48px 0;
+        }
+      }
+
+      .faq-hero p {
+        color: var(--color-text-body);
+        font-size: 16px;
+        line-height: 1.6;
+        max-width: 720px;
+        margin-bottom: 24px;
+      }
+
+      /* Highlight Badges Grid */
+      .hero-highlights-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 14px;
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(0, 69, 13, 0.1);
+      }
+
+      .highlight-card {
+        background: #ffffff;
+        border: 1px solid #dfe7e0;
+        border-radius: 14px;
+        padding: 14px 16px;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+      }
+
+      .highlight-icon-wrap {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background-color: var(--color-accent-light);
+        color: var(--color-brand);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .highlight-content h3 {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--color-brand);
+        margin-bottom: 2px;
+      }
+
+      .highlight-content p {
+        font-size: 12px;
+        color: var(--color-text-muted);
+        line-height: 1.45;
+        margin-bottom: 0;
+      }
+
+      /* Search & Filter Toolbar */
+      .faq-toolbar {
+        background: #ffffff;
+        border: 1px solid var(--color-border);
+        border-radius: 20px;
+        padding: 18px 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+        margin-bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .search-box-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .search-input-wrap {
+        position: relative;
+        flex: 1;
+      }
+
+      .search-input-wrap .search-icon {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--color-text-muted);
+        pointer-events: none;
+      }
+
+      .faq-search-input {
+        width: 100%;
+        padding: 11px 40px 11px 44px;
+        border-radius: 12px;
+        border: 1px solid var(--color-border);
+        background-color: var(--color-bg-page);
+        font-family: var(--font-body);
+        font-size: 14px;
+        color: var(--color-text-main);
+        outline: none;
+        transition: all 0.2s ease;
+      }
+
+      .faq-search-input:focus {
+        border-color: var(--color-accent);
+        background-color: #ffffff;
+        box-shadow: 0 0 0 3px rgba(0, 115, 36, 0.12);
+      }
+
+      .clear-search-btn {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: var(--color-text-muted);
+        cursor: pointer;
+        padding: 4px;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+      }
+
+      .clear-search-btn:hover {
+        background: #e2e8e2;
+        color: var(--color-text-main);
+      }
+
+      .toggle-all-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 16px;
+        border-radius: 12px;
+        border: 1px solid var(--color-border);
+        background-color: #ffffff;
+        color: var(--color-text-main);
+        font-family: var(--font-body);
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .toggle-all-btn:hover {
+        background-color: var(--color-bg-subtle);
+        border-color: #cfd8cf;
+        color: var(--color-brand);
+      }
+
+      /* Filter Pills */
+      .category-pills {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .category-pill-btn {
+        padding: 6px 14px;
+        border-radius: 9999px;
+        border: 1px solid var(--color-border);
+        background-color: #ffffff;
+        color: var(--color-text-body);
+        font-family: var(--font-body);
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.18s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .category-pill-btn:hover {
+        background-color: var(--color-bg-subtle);
+        border-color: #cfd8cf;
+      }
+
+      .category-pill-btn.active {
+        background-color: var(--color-brand);
+        color: #ffffff;
+        border-color: var(--color-brand);
+      }
+
+      .category-pill-count {
+        font-size: 11px;
+        opacity: 0.85;
+      }
+
+      /* Category Section Card */
+      .faq-category-card {
+        background: #ffffff;
+        border: 1px solid var(--color-border);
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+        margin-bottom: 28px;
+        transition: opacity 0.2s ease;
+      }
+
+      @media (max-width: 640px) {
+        .faq-category-card {
+          padding: 24px 18px;
+          border-radius: 20px;
+        }
+      }
+
+      .category-card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        padding-bottom: 18px;
+        border-bottom: 1.5px solid var(--color-border-subtle);
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .category-title-group {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .category-icon-box {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background-color: var(--color-accent-light);
+        border: 1px solid var(--color-accent-border);
+        color: var(--color-brand);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .category-title-text h2 {
+        font-family: var(--font-heading);
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--color-brand);
+        letter-spacing: -0.015em;
+        margin: 0;
+        line-height: 1.3;
+      }
+
+      .category-title-text p {
+        font-size: 13px;
+        color: var(--color-text-muted);
+        margin: 0;
+      }
+
+      /* FAQ Accordion List */
+      .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      details.faq-item {
+        border: 1px solid #e3e8e3;
+        border-radius: 16px;
+        background-color: #fafbfa;
+        overflow: hidden;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      }
+
+      details.faq-item:hover {
+        border-color: #c8d5c8;
+        background-color: #ffffff;
+      }
+
+      details.faq-item[open] {
+        border-color: var(--color-accent-border);
+        background-color: #ffffff;
+        box-shadow: 0 4px 14px rgba(0, 69, 13, 0.05);
+      }
+
+      summary.faq-question-btn {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px 20px;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      summary.faq-question-btn::-webkit-details-marker {
+        display: none;
+      }
+
+      .faq-question-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex: 1;
+      }
+
+      .faq-number-badge {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        background-color: var(--color-accent-light);
+        color: var(--color-brand);
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        border: 1px solid var(--color-accent-border);
+      }
+
+      .faq-question-title {
+        font-family: var(--font-heading);
+        font-size: 15.5px;
+        font-weight: 700;
+        color: var(--color-text-main);
+        letter-spacing: -0.01em;
+        line-height: 1.4;
+      }
+
+      .faq-chevron {
+        color: var(--color-text-muted);
+        transition: transform 0.25s ease, color 0.2s ease;
+        flex-shrink: 0;
+      }
+
+      details.faq-item[open] .faq-chevron {
+        transform: rotate(180deg);
+        color: var(--color-brand);
+      }
+
+      .faq-answer-content {
+        padding: 0 20px 20px 60px;
+        color: var(--color-text-body);
+        font-size: 14.5px;
+        line-height: 1.65;
+        border-top: 1px solid #f2f5f2;
+        padding-top: 14px;
+      }
+
+      @media (max-width: 640px) {
+        .faq-answer-content {
+          padding: 12px 16px 16px 16px;
+        }
+        summary.faq-question-btn {
+          padding: 14px 16px;
+        }
+      }
+
+      .faq-answer-content p {
+        margin: 0;
+      }
+
+      /* No Results Box */
+      .no-results-box {
+        text-align: center;
+        padding: 48px 24px;
+        display: none;
+      }
+
+      .no-results-box .material-symbols-outlined {
+        font-size: 48px;
+        color: var(--color-text-muted);
+        margin-bottom: 12px;
+      }
+
+      .no-results-box h3 {
+        font-size: 18px;
+        color: var(--color-text-main);
+        margin-bottom: 6px;
+      }
+
+      .no-results-box p {
+        font-size: 14px;
+        color: var(--color-text-muted);
+      }
+
+      /* Help & Support Contact Card */
+      .support-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f7fbf7 100%);
+        border: 1px solid var(--color-accent-border);
+        border-radius: 20px;
+        padding: 28px 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin-top: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+        flex-wrap: wrap;
+      }
+
+      .support-card-left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .support-avatar {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        object-fit: cover;
+        border: 1.5px solid var(--color-accent-border);
+        background-color: #ffffff;
+      }
+
+      .support-info h3 {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--color-brand);
+        margin-bottom: 3px;
+      }
+
+      .support-info p {
+        font-size: 13.5px;
+        color: var(--color-text-muted);
+        margin: 0;
+      }
+
+      .support-action-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border-radius: 9999px;
+        background-color: var(--color-brand);
+        color: #ffffff;
+        font-size: 13.5px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 6px rgba(0, 69, 13, 0.2);
+        white-space: nowrap;
+      }
+
+      .support-action-btn:hover {
+        background-color: var(--color-brand-hover);
+        color: #ffffff;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 69, 13, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Header -->
+    <header class="site-header">
+      <div class="header-container">
+        <a href="index.html" class="brand-link" title="Expense Insights Showcase">
+          <img
+            src="../images/karmakar-developers-logo.png"
+            alt="Karmakar Developers"
+            class="brand-logo-img"
+          />
+          <span class="brand-logo-text">Expense Insights</span>
+          <span class="brand-badge">Payment FAQ</span>
+        </a>
+
+        <div class="header-right">
+          <span class="header-subtitle">Help &amp; Billing Center</span>
+          <a href="index.html" class="nav-pill-link" title="Return to App Showcase">
+            <span class="material-symbols-outlined" style="font-size: 16px;">arrow_back</span>
+            <span>Back to Showcase</span>
+          </a>
+          <button
+            type="button"
+            class="nav-pill-link"
+            onclick="window.print()"
+            title="Print or save FAQ as PDF"
+          >
+            <span class="material-symbols-outlined" style="font-size: 16px;">print</span>
+            <span>Print</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <div class="faq-page-container">
+        <!-- Hero Section -->
+        <section class="faq-hero">
+          <div class="hero-badge-wrap">
+            <span class="badge-pill badge-brand">
+              <span class="material-symbols-outlined" style="font-size: 15px;">verified</span>
+              <span>Karmakar Developers Official</span>
+            </span>
+            <span class="badge-pill badge-neutral">
+              <span class="material-symbols-outlined" style="font-size: 15px; color: var(--color-accent);">shopping_bag</span>
+              <span>Google Play In-App Billing</span>
+            </span>
+            <span class="badge-pill badge-neutral">
+              <span class="material-symbols-outlined" style="font-size: 15px; color: var(--color-accent);">all_inclusive</span>
+              <span>Lifetime Purchase</span>
+            </span>
+          </div>
+
+          <h1>Payment &amp; Purchase FAQ</h1>
+          <p>
+            Welcome to the official billing and payment knowledge base for <strong>Expense Insights</strong>. Here you will find comprehensive, verified answers regarding Expense Insights Pro Lifetime, Google Play billing, pending transactions, purchase restoration, and refunds.
+          </p>
+
+          <!-- 3 Value Proposition Cards -->
+          <div class="hero-highlights-grid">
+            <div class="highlight-card">
+              <div class="highlight-icon-wrap">
+                <span class="material-symbols-outlined" style="font-size: 20px;">all_inclusive</span>
+              </div>
+              <div class="highlight-content">
+                <h3>One-Time Lifetime Access</h3>
+                <p>No recurring charges, hidden fees, or subscriptions. Pay once, keep Pro forever.</p>
+              </div>
+            </div>
+
+            <div class="highlight-card">
+              <div class="highlight-icon-wrap">
+                <span class="material-symbols-outlined" style="font-size: 20px;">lock</span>
+              </div>
+              <div class="highlight-content">
+                <h3>Google Play Billing</h3>
+                <p>Processed securely by Google Play. We never handle or store your financial cards.</p>
+              </div>
+            </div>
+
+            <div class="highlight-card">
+              <div class="highlight-icon-wrap">
+                <span class="material-symbols-outlined" style="font-size: 20px;">sync</span>
+              </div>
+              <div class="highlight-content">
+                <h3>Seamless Restoration</h3>
+                <p>Changing phones or reinstalling? Restore Pro instantly using your Google account.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Search, Filter & Controls Toolbar -->
+        <div class="faq-toolbar">
+          <div class="search-box-row">
+            <div class="search-input-wrap">
+              <span class="material-symbols-outlined search-icon" style="font-size: 20px;">search</span>
+              <input
+                type="text"
+                id="faq-search-input"
+                class="faq-search-input"
+                placeholder="Search questions or keywords (e.g. pending, restore, refund, lifetime)..."
+                aria-label="Search frequently asked questions"
+              />
+              <button
+                type="button"
+                id="clear-search-btn"
+                class="clear-search-btn"
+                title="Clear search"
+                aria-label="Clear search query"
+              >
+                <span class="material-symbols-outlined" style="font-size: 18px;">close</span>
+              </button>
+            </div>
+
+            <button
+              type="button"
+              id="toggle-all-btn"
+              class="toggle-all-btn"
+              title="Expand or collapse all questions"
+            >
+              <span class="material-symbols-outlined" id="toggle-all-icon" style="font-size: 18px;">unfold_more</span>
+              <span id="toggle-all-text">Expand All</span>
+            </button>
+          </div>
+
+          <div class="category-pills">
+            <button
+              type="button"
+              class="category-pill-btn active"
+              data-category="all"
+            >
+              <span>All Questions</span>
+              <span class="category-pill-count">(21)</span>
+            </button>
+            <button
+              type="button"
+              class="category-pill-btn"
+              data-category="payment-purchase"
+            >
+              <span class="material-symbols-outlined" style="font-size: 15px;">payments</span>
+              <span>Payment &amp; Purchase</span>
+              <span class="category-pill-count">(15)</span>
+            </button>
+            <button
+              type="button"
+              class="category-pill-btn"
+              data-category="refunds-chargebacks"
+            >
+              <span class="material-symbols-outlined" style="font-size: 15px;">currency_exchange</span>
+              <span>Refunds &amp; Chargebacks</span>
+              <span class="category-pill-count">(3)</span>
+            </button>
+            <button
+              type="button"
+              class="category-pill-btn"
+              data-category="google-account"
+            >
+              <span class="material-symbols-outlined" style="font-size: 15px;">account_circle</span>
+              <span>Google Account &amp; Purchase</span>
+              <span class="category-pill-count">(3)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- No Results Fallback -->
+        <div class="no-results-box" id="no-results-box">
+          <span class="material-symbols-outlined">search_off</span>
+          <h3>No matching questions found</h3>
+          <p>Try searching for different terms or reset your filter to view all questions.</p>
+        </div>
+
+        <!-- SECTION 1: Payment & Purchase (Questions 1 - 15) -->
+        <section
+          class="faq-category-card"
+          id="sec-payment-purchase"
+          data-category-section="payment-purchase"
+        >
+          <div class="category-card-header">
+            <div class="category-title-group">
+              <div class="category-icon-box">
+                <span class="material-symbols-outlined" style="font-size: 24px;">payments</span>
+              </div>
+              <div class="category-title-text">
+                <h2>Payment &amp; Purchase</h2>
+                <p>Lifetime product details, Google Play billing, pending orders, and status verification</p>
+              </div>
+            </div>
+            <span class="badge-pill badge-neutral">15 Questions</span>
+          </div>
+
+          <div class="faq-list">
+            <!-- Q1 -->
+            <details class="faq-item" data-question-num="1" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">1</span>
+                  <span class="faq-question-title">What am I purchasing?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>You are purchasing Expense Insights Pro Lifetime. It provides lifetime access to the Pro features included with the purchase. There is no recurring subscription for this product.</p>
+              </div>
+            </details>
+
+            <!-- Q2 -->
+            <details class="faq-item" data-question-num="2" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">2</span>
+                  <span class="faq-question-title">How is my payment processed?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>Payments are securely processed through Google Play Billing. Expense Insights does not directly process or store your payment card or banking details.</p>
+              </div>
+            </details>
+
+            <!-- Q3 -->
+            <details class="faq-item" data-question-num="3" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">3</span>
+                  <span class="faq-question-title">When will my Pro access become active?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>Your Pro access becomes active after Google Play confirms that your purchase has been successfully completed.</p>
+              </div>
+            </details>
+
+            <!-- Q4 -->
+            <details class="faq-item" data-question-num="4" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">4</span>
+                  <span class="faq-question-title">My payment is showing as Pending. What does this mean?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>A pending payment means Google Play has not yet completed the purchase. Pro access will remain inactive until Google Play confirms the purchase as completed.</p>
+              </div>
+            </details>
+
+            <!-- Q5 -->
+            <details class="faq-item" data-question-num="5" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">5</span>
+                  <span class="faq-question-title">What should I do if my payment is pending?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>Please wait for Google Play to complete the payment. You can use the Check Pending Payment option in the Expense Insights Pro screen to check the status again.</p>
+              </div>
+            </details>
+
+            <!-- Q6 -->
+            <details class="faq-item" data-question-num="6">
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">6</span>
+                  <span class="faq-question-title">Can I use Pro features while my payment is pending?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>No. Pro access remains inactive while the payment is pending. Once Google Play confirms the purchase, your Pro access can be activated.</p>
+              </div>
+            </details>
+
+            <!-- Q7 -->
+            <details class="faq-item" data-question-num="7">
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">7</span>
+                  <span class="faq-question-title">I was charged, but Pro access is not showing. What should I do?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>First, make sure you are signed in with the same Google account/email associated with your Expense Insights purchase. Then use the Restore option or Check Pending Payment option where applicable. The app checks your purchase information and Google Play purchase status to restore access.</p>
+              </div>
+            </details>
+
+            <!-- Q8 -->
+            <details class="faq-item" data-question-num="8">
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">8</span>
+                  <span class="faq-question-title">What happens if I reinstall the app or change my device?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>Your purchase can be restored when you sign in with the account associated with your purchase. The app checks the available purchase and entitlement information to restore eligible Pro access.</p>
+              </div>
+            </details>
+
+            <!-- Q9 -->
+            <details class="faq-item" data-question-num="9">
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">9</span>
+                  <span class="faq-question-title">Do I need to purchase Pro again after reinstalling the app?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>If you already purchased the lifetime Pro product, you should not need to purchase it again. Use the Restore option after signing in with the relevant account.</p>
+              </div>
+            </details>
+
+            <!-- Q10 -->
+            <details class="faq-item" data-question-num="10">
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">10</span>
+                  <span class="faq-question-title">Is Expense Insights Pro a subscription?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>No. The product is a lifetime purchase. The purchase flow treats the product as lifetime access rather than an expiring subscription.</p>
+              </div>
+            </details>
+
+            <!-- Q11 -->
+            <details class="faq-item" data-question-num="11">
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">11</span>
+                  <span class="faq-question-title">Will my Pro access expire?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>The Pro product is configured as a lifetime purchase, so there is no regular subscription expiration date associated with it.</p>
+              </div>
+            </details>
+
+            <!-- Q12 -->
+            <details class="faq-item" data-question-num="12">
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">12</span>
+                  <span class="faq-question-title">What happens if my payment fails or is cancelled?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>If Google Play does not report the purchase as completed or pending, Pro access remains inactive and the purchase screen allows you to try again.</p>
+              </div>
+            </details>
+
+            <!-- Q13 -->
+            <details class="faq-item" data-question-num="13">
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">13</span>
+                  <span class="faq-question-title">Can I buy Pro again if a previous payment failed?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>Yes. If the previous purchase was not completed, the Buy Now option remains available so you can initiate another purchase.</p>
+              </div>
+            </details>
+
+            <!-- Q14 -->
+            <details class="faq-item" data-question-num="14">
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">14</span>
+                  <span class="faq-question-title">How can I check whether my purchase was successful?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>After a successful Google Play purchase, Expense Insights activates Pro access. You can also use the restore or pending-payment checking options when applicable.</p>
+              </div>
+            </details>
+
+            <!-- Q15 -->
+            <details class="faq-item" data-question-num="15">
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">15</span>
+                  <span class="faq-question-title">Does Expense Insights store my card or bank details?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>No. Payment processing is handled through Google Play. Expense Insights uses purchase information returned by Google Play to verify the purchase and provide access.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- SECTION 2: Refunds & Chargebacks (Questions 16 - 18) -->
+        <section
+          class="faq-category-card"
+          id="sec-refunds-chargebacks"
+          data-category-section="refunds-chargebacks"
+        >
+          <div class="category-card-header">
+            <div class="category-title-group">
+              <div class="category-icon-box">
+                <span class="material-symbols-outlined" style="font-size: 24px;">currency_exchange</span>
+              </div>
+              <div class="category-title-text">
+                <h2>Refunds &amp; Chargebacks</h2>
+                <p>Google Play refund requests, chargeback handling, and administrative entitlements</p>
+              </div>
+            </div>
+            <span class="badge-pill badge-neutral">3 Questions</span>
+          </div>
+
+          <div class="faq-list">
+            <!-- Q16 -->
+            <details class="faq-item" data-question-num="16" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">16</span>
+                  <span class="faq-question-title">How do I request a refund?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>Refunds are handled through Google Play's purchase and refund process. Please use the Google Play purchase associated with your transaction to check the available refund options.</p>
+              </div>
+            </details>
+
+            <!-- Q17 -->
+            <details class="faq-item" data-question-num="17" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">17</span>
+                  <span class="faq-question-title">What happens if a payment is refunded or charged back?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>Refund and chargeback situations are handled through the app's administrative purchase-management process. Access may be updated based on the resulting purchase status.</p>
+              </div>
+            </details>
+
+            <!-- Q18 -->
+            <details class="faq-item" data-question-num="18" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">18</span>
+                  <span class="faq-question-title">Can Expense Insights manually provide or remove Pro access?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>Access can also be granted administratively in certain cases. The app recognizes an administrative entitlement in the same access-checking flow.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- SECTION 3: Google Account & Purchase (Questions 19 - 21) -->
+        <section
+          class="faq-category-card"
+          id="sec-google-account"
+          data-category-section="google-account"
+        >
+          <div class="category-card-header">
+            <div class="category-title-group">
+              <div class="category-icon-box">
+                <span class="material-symbols-outlined" style="font-size: 24px;">account_circle</span>
+              </div>
+              <div class="category-title-text">
+                <h2>Google Account &amp; Purchase</h2>
+                <p>Account matching, device migration, email identity, and multi-account sign-in</p>
+              </div>
+            </div>
+            <span class="badge-pill badge-neutral">3 Questions</span>
+          </div>
+
+          <div class="faq-list">
+            <!-- Q19 -->
+            <details class="faq-item" data-question-num="19" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">19</span>
+                  <span class="faq-question-title">Which account should I use when purchasing?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>Use the Google account that you want associated with your Google Play purchase and Expense Insights access.</p>
+              </div>
+            </details>
+
+            <!-- Q20 -->
+            <details class="faq-item" data-question-num="20" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">20</span>
+                  <span class="faq-question-title">I signed in with a different account. Can I still restore my purchase?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>The purchase restoration process checks the signed-in user's account information against the purchase records. If the purchase belongs to another account, sign in with the account associated with that purchase.</p>
+              </div>
+            </details>
+
+            <!-- Q21 -->
+            <details class="faq-item" data-question-num="21" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">21</span>
+                  <span class="faq-question-title">Why does the app need my email address?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>Your signed-in email is used to associate your Expense Insights purchase with your account so that your Pro entitlement can be identified and restored.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- Still Need Help Support Card -->
+        <div class="support-card">
+          <div class="support-card-left">
+            <img
+              src="../images/karmakar-developers-logo.png"
+              alt="Karmakar Developers"
+              class="support-avatar"
+            />
+            <div class="support-info">
+              <h3>Still need assistance with your payment?</h3>
+              <p>Contact our support team directly. We are happy to help verify your purchase or resolve entitlement questions.</p>
+            </div>
+          </div>
+          <a
+            href="mailto:developers.karmakar@gmail.com?subject=Expense%20Insights%20Payment%20Support"
+            class="support-action-btn"
+          >
+            <span class="material-symbols-outlined" style="font-size: 18px;">mail</span>
+            <span>Contact Support</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- Navigation Links -->
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Expense Insights Showcase</a>
+          <a href="expense-insights-privacy.html" class="footer-link">Expense Insights Privacy Policy</a>
+          <a href="expense-insights-terms.html" class="footer-link">Expense Insights Terms of Service</a>
+          <a href="expense-insights-payment-faq.html" class="footer-link" style="color: var(--color-brand); font-weight: 700;">Payment FAQ</a>
+          <a href="expense-insights-account-deletion.html" class="footer-link" style="color: #b3261e; font-weight: 600;">Account Deletion</a>
+          <a href="../index.html" class="footer-link">All Apps Directory</a>
+        </div>
+
+        <!-- Brand & Copyright -->
+        <div class="footer-copyright" style="display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
+          <img src="../images/karmakar-developers-logo.png" alt="Karmakar Developers" class="footer-brand-logo" />
+          <span class="footer-brand">Karmakar Developers</span>
+          <span style="color: #94a3b8;">•</span>
+          <span>© 2026 Karmakar Developers. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Interactive Script: Live Search, Category Filter, Expand/Collapse All -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('faq-search-input');
+        const clearSearchBtn = document.getElementById('clear-search-btn');
+        const toggleAllBtn = document.getElementById('toggle-all-btn');
+        const toggleAllIcon = document.getElementById('toggle-all-icon');
+        const toggleAllText = document.getElementById('toggle-all-text');
+        const filterBtns = document.querySelectorAll('.category-pill-btn');
+        const categoryCards = document.querySelectorAll('[data-category-section]');
+        const faqItems = document.querySelectorAll('.faq-item');
+        const noResultsBox = document.getElementById('no-results-box');
+
+        let activeCategory = 'all';
+        let isAllExpanded = true;
+
+        // Search and Filter function
+        function applyFilters() {
+          const query = searchInput.value.trim().toLowerCase();
+          clearSearchBtn.style.display = query ? 'flex' : 'none';
+
+          let totalVisible = 0;
+
+          categoryCards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category-section');
+            const matchesCategory = (activeCategory === 'all' || activeCategory === cardCategory);
+
+            if (!matchesCategory) {
+              card.style.display = 'none';
+              return;
+            }
+
+            let cardVisibleCount = 0;
+            const itemsInCard = card.querySelectorAll('.faq-item');
+
+            itemsInCard.forEach(item => {
+              const question = item.querySelector('.faq-question-title').textContent.toLowerCase();
+              const answer = item.querySelector('.faq-answer-content').textContent.toLowerCase();
+              const matchesSearch = !query || question.includes(query) || answer.includes(query);
+
+              if (matchesSearch) {
+                item.style.display = '';
+                cardVisibleCount++;
+                totalVisible++;
+                if (query) {
+                  item.open = true; // Auto-open matching items when searching
+                }
+              } else {
+                item.style.display = 'none';
+              }
+            });
+
+            card.style.display = cardVisibleCount > 0 ? '' : 'none';
+          });
+
+          noResultsBox.style.display = totalVisible === 0 ? 'block' : 'none';
+        }
+
+        // Live Search Input Event
+        searchInput.addEventListener('input', applyFilters);
+
+        // Clear Search
+        clearSearchBtn.addEventListener('click', () => {
+          searchInput.value = '';
+          applyFilters();
+          searchInput.focus();
+        });
+
+        // Category Pills Filter
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeCategory = btn.getAttribute('data-category');
+            applyFilters();
+          });
+        });
+
+        // Toggle Expand/Collapse All
+        toggleAllBtn.addEventListener('click', () => {
+          isAllExpanded = !isAllExpanded;
+          faqItems.forEach(item => {
+            if (item.style.display !== 'none') {
+              item.open = isAllExpanded;
+            }
+          });
+
+          if (isAllExpanded) {
+            toggleAllIcon.textContent = 'unfold_less';
+            toggleAllText.textContent = 'Collapse All';
+          } else {
+            toggleAllIcon.textContent = 'unfold_more';
+            toggleAllText.textContent = 'Expand All';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
