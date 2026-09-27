@@ -200,6 +200,16 @@
         margin-bottom: 12px;
       }
 
+      h3 {
+        font-family: 'Hanken Grotesk', sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        color: #00450d;
+        letter-spacing: -0.01em;
+        margin-top: 20px;
+        margin-bottom: 8px;
+      }
+
       p {
         color: #404941;
         margin-bottom: 12px;
@@ -211,6 +221,14 @@
 
       ul {
         list-style-type: disc;
+        padding-left: 24px;
+        margin-top: 8px;
+        margin-bottom: 12px;
+        color: #404941;
+      }
+
+      ol {
+        list-style-type: decimal;
         padding-left: 24px;
         margin-top: 8px;
         margin-bottom: 12px;
@@ -232,6 +250,37 @@
         padding: 16px;
         margin-top: 12px;
         font-size: 14px;
+      }
+
+      .security-warning-box {
+        background-color: #fff9f9;
+        border: 1px solid #f2dede;
+        border-left: 4px solid #b3261e;
+        border-radius: 12px;
+        padding: 16px 18px;
+        margin-top: 12px;
+        margin-bottom: 16px;
+        font-size: 14px;
+      }
+
+      .security-warning-box p {
+        color: #601410;
+        margin-bottom: 8px;
+      }
+
+      .security-warning-box ul {
+        color: #601410;
+        margin-top: 4px;
+        margin-bottom: 8px;
+      }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 13px;
+        background-color: #f0f3f0;
+        padding: 2px 6px;
+        border-radius: 6px;
+        color: #00450d;
       }
 
       .info-box div {
@@ -377,13 +426,13 @@
       <!-- Document Header Card -->
       <div class="card">
         <h1>Terms of Service</h1>
-        <div class="last-updated">Last Updated: September 5, 2026</div>
+        <div class="last-updated">Last Updated: September 28, 2026</div>
         <div class="intro-text">
           <p>
-            These Terms of Service ("Terms") govern your use of the Expense Insights mobile application ("App") provided by Karmakar Developers ("we", "us", or "our").
+            These Terms of Service ("Terms") govern your use of the Expense Insights mobile application ("App") provided by Karmakar Developers ("we", "us", or "our"), including all features, in-app purchases, payment processing, and access conditions for Expense Insights Pro.
           </p>
           <p>
-            By downloading, accessing, or using Expense Insights, you agree to these Terms. If you do not agree with these Terms, please do not use the App.
+            By downloading, accessing, or using Expense Insights, or completing any in-app purchase, you agree to these Terms. If you do not agree with these Terms, please do not use the App or purchase its services.
           </p>
         </div>
       </div>
@@ -504,9 +553,124 @@
           </p>
         </section>
 
-        <!-- 8. App Availability and Changes -->
+        <!-- 8. Payments, Purchases & Expense Insights Pro -->
+        <section id="payments-and-purchases">
+          <h2>8. Payments, Purchases &amp; Expense Insights Pro</h2>
+          <p>
+            This section explains the terms, payment handling, and access conditions for in-app purchases within Expense Insights, specifically <strong>Expense Insights Pro</strong>.
+          </p>
+
+          <h3>8.1 Expense Insights Pro</h3>
+          <p>
+            Expense Insights Pro is offered as a <strong>one-time lifetime purchase</strong> (non-consumable product). A successful purchase unlocks Pro features within the App without any recurring subscription charges.
+          </p>
+          <p>
+            All in-app purchases are processed securely through <strong>Google Play Billing</strong>.
+          </p>
+
+          <h3>8.2 Account Binding &amp; Email Policy</h3>
+          <p>
+            An Expense Insights Pro purchase is bound to the <strong>Expense Insights user account (email ID)</strong> that is signed in at the time the transaction is completed.
+          </p>
+          <ul>
+            <li><strong>Account Requirement:</strong> To receive Pro access, you must be signed in to an Expense Insights account.</li>
+            <li><strong>Non-Transferable Across Accounts:</strong> Pro entitlements associated with one email ID do not automatically apply to other email IDs, even if used by the same person on the same device.</li>
+            <li><strong>Google Play Account vs. App Account:</strong> Payment is processed via your device's active <strong>Google Play Store account</strong>, but the resulting Pro entitlement is permanently linked to your signed-in <strong>Expense Insights account email</strong>.</li>
+          </ul>
+          <p>
+            If you wish to use Expense Insights Pro on multiple separate Expense Insights user accounts, a separate purchase is required for each account.
+          </p>
+
+          <h3>8.3 Payment Processing</h3>
+          <p>
+            All monetary transactions for Expense Insights Pro are handled entirely by Google Play. Expense Insights and Karmakar Developers do not collect, process, or store your credit/debit card numbers, UPI credentials, bank details, or passwords.
+          </p>
+          <p>
+            All payments are subject to Google Play’s Terms of Service and applicable local taxes.
+          </p>
+
+          <h3>8.4 Activation of Pro Access</h3>
+          <p>
+            Pro access is activated automatically once Google Play confirms that your payment has been successfully completed and acknowledged.
+          </p>
+          <p>
+            A payment in a <strong>Pending</strong> or <strong>Processing</strong> state will not grant immediate Pro access until Google Play approves the charge.
+          </p>
+
+          <h3>8.5 Pending Payments</h3>
+          <p>
+            Certain payment methods (such as UPI, Net Banking, or cash options in Google Play) may take time to process.
+          </p>
+          <p>During a pending payment state:</p>
+          <ul>
+            <li>Pro access remains inactive.</li>
+            <li>You can use the <strong>Check Pending Payment</strong> option in the app to check transaction status.</li>
+            <li>Do not initiate a duplicate purchase while a transaction is pending. Please allow Google Play time to complete processing or return a final status.</li>
+          </ul>
+
+          <h3>8.6 Restoring Purchases</h3>
+          <p>
+            If you reinstall Expense Insights or switch to a new Android device, you can restore your lifetime purchase:
+          </p>
+          <ol>
+            <li>Sign in to Expense Insights using the <strong>exact email ID</strong> used when purchasing Pro.</li>
+            <li>Ensure your Android device is signed in to the Google Play Store account used for the original purchase.</li>
+            <li>Tap the <strong>Restore</strong> button in the <strong>Google Drive Sync</strong> screen under the <strong>Settings</strong> tab.</li>
+          </ol>
+          <p>
+            Purchases cannot be restored under a different Expense Insights account email ID.
+          </p>
+
+          <h3>8.7 Failed, Cancelled, or Uncompleted Payments</h3>
+          <p>
+            If a payment fails, is cancelled, or is declined by your payment provider or Google Play, Pro access will not be activated. Once the failed or pending status clears, you may attempt the purchase again using <strong>Buy Now</strong>.
+          </p>
+
+          <h3>8.8 Refunds and Chargebacks</h3>
+          <ul>
+            <li><strong>Within 48 Hours:</strong> Refund requests initiated within 48 hours of purchase are handled directly by Google Play according to <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener noreferrer" style="color: #00450d; font-weight: 600; text-decoration: underline;">Google Play Refund Policies</a>.</li>
+            <li><strong>After 48 Hours:</strong> Requests made after 48 hours are subject to review by Karmakar Developers. Refunds are granted at our sole discretion unless required by applicable law.</li>
+            <li><strong>Revocation of Access:</strong> If a purchase is refunded or charged back, associated Pro access will be revoked immediately.</li>
+          </ul>
+
+          <h3>8.9 Administrative Access</h3>
+          <p>
+            Karmakar Developers may grant administrative or promotional Pro access (e.g., promo codes, testing, or customer support resolution). Administrative access is managed separately from Google Play billing and does not represent a Google Play transaction.
+          </p>
+
+          <h3>8.10 Security Warning</h3>
+          <div class="security-warning-box">
+            <p>
+              Karmakar Developers and Expense Insights support will <strong>never</strong> ask you for sensitive financial information, including:
+            </p>
+            <ul>
+              <li>Credit/debit card numbers or CVV</li>
+              <li>Bank account passwords or UPI PINs</li>
+              <li>One-Time Passwords (OTPs)</li>
+              <li>Your Expense Insights or Google account password</li>
+            </ul>
+            <p style="margin-bottom: 0; font-weight: 600; color: #931b14;">
+              Do not share this information with anyone claiming to represent Expense Insights.
+            </p>
+          </div>
+
+          <h3>8.11 Purchase Support &amp; Contact</h3>
+          <p>
+            If you experience issues with purchase activation or restoration, please follow these steps:
+          </p>
+          <ol>
+            <li>Verify you are logged into the correct Expense Insights email ID.</li>
+            <li>Confirm your device's Google Play Store account matches the purchasing account.</li>
+            <li>Use the <strong>Restore</strong> button in the <strong>Google Drive Sync</strong> screen under the <strong>Settings</strong> tab, or the <strong>Check Pending Payment</strong> option in the app.</li>
+          </ol>
+          <p>
+            For further assistance, contact official support at <a href="mailto:developers.karmakar@gmail.com" style="color: #00450d; font-weight: 600;">developers.karmakar@gmail.com</a> with your Google Play Order ID (e.g., <code>GPA.XXXX-XXXX-XXXX-XXXXX</code>).
+          </p>
+        </section>
+
+        <!-- 9. App Availability and Changes -->
         <section>
-          <h2>8. App Availability and Changes</h2>
+          <h2>9. App Availability and Changes</h2>
           <p>
             We may modify, update, suspend, or discontinue all or part of the App at any time.
           </p>
@@ -518,9 +682,9 @@
           </p>
         </section>
 
-        <!-- 9. Third-Party Services -->
+        <!-- 10. Third-Party Services -->
         <section>
-          <h2>9. Third-Party Services</h2>
+          <h2>10. Third-Party Services</h2>
           <p>
             The App may rely on third-party services to provide certain functionality, including authentication, cloud storage, analytics, or other infrastructure.
           </p>
@@ -532,9 +696,9 @@
           </p>
         </section>
 
-        <!-- 10. Intellectual Property -->
+        <!-- 11. Intellectual Property -->
         <section>
-          <h2>10. Intellectual Property</h2>
+          <h2>11. Intellectual Property</h2>
           <p>
             Expense Insights, including its software, design, user interface, graphics, logos, branding, and original content, is owned by or licensed to Karmakar Developers and is protected by applicable intellectual property laws.
           </p>
@@ -546,9 +710,9 @@
           </p>
         </section>
 
-        <!-- 11. Prohibited Use -->
+        <!-- 12. Prohibited Use -->
         <section>
-          <h2>11. Prohibited Use</h2>
+          <h2>12. Prohibited Use</h2>
           <p>You must not:</p>
           <ul>
             <li>Use the App for unlawful activities.</li>
@@ -561,9 +725,9 @@
           </ul>
         </section>
 
-        <!-- 12. Disclaimer -->
+        <!-- 13. Disclaimer -->
         <section>
-          <h2>12. Disclaimer</h2>
+          <h2>13. Disclaimer</h2>
           <p>
             The App is provided for personal financial record-keeping and informational purposes.
           </p>
@@ -578,9 +742,9 @@
           </p>
         </section>
 
-        <!-- 13. Limitation of Liability -->
+        <!-- 14. Limitation of Liability -->
         <section>
-          <h2>13. Limitation of Liability</h2>
+          <h2>14. Limitation of Liability</h2>
           <p>
             To the maximum extent permitted by applicable law, Karmakar Developers will not be liable for indirect, incidental, special, consequential, or similar losses arising from or related to your use of the App.
           </p>
@@ -592,9 +756,9 @@
           </p>
         </section>
 
-        <!-- 14. Termination -->
+        <!-- 15. Termination -->
         <section>
-          <h2>14. Termination</h2>
+          <h2>15. Termination</h2>
           <p>
             You may stop using the App at any time.
           </p>
@@ -606,23 +770,23 @@
           </p>
         </section>
 
-        <!-- 15. Updates to These Terms -->
+        <!-- 16. Updates to These Terms and Policies -->
         <section>
-          <h2>15. Updates to These Terms</h2>
+          <h2>16. Updates to These Terms and Policies</h2>
           <p>
-            We may update these Terms from time to time to reflect changes to the App, applicable laws, or our practices.
+            We may update these Terms and our payment and purchase terms periodically to reflect app updates, technical changes, revised Google Play developer policies, applicable laws, or our practices.
           </p>
           <p>
-            When we make significant changes, we may provide appropriate notice through the App or our website.
+            The latest version will always be published on the official Expense Insights website and accessible within the App. When we make significant changes, we may also provide appropriate notice through the App or our website.
           </p>
           <p>
-            The updated Terms will become effective on the date specified at the beginning of the updated document.
+            The updated Terms and policies become effective on the date specified at the beginning of this document.
           </p>
         </section>
 
-        <!-- 16. Privacy -->
+        <!-- 17. Privacy -->
         <section>
-          <h2>16. Privacy</h2>
+          <h2>17. Privacy</h2>
           <p>
             Your privacy is important to us.
           </p>
@@ -634,9 +798,9 @@
           </p>
         </section>
 
-        <!-- 17. Governing Law -->
+        <!-- 18. Governing Law -->
         <section>
-          <h2>17. Governing Law</h2>
+          <h2>18. Governing Law</h2>
           <p>
             These Terms will be governed by and interpreted in accordance with the applicable laws of India, without regard to conflict-of-law principles.
           </p>
@@ -645,11 +809,11 @@
           </p>
         </section>
 
-        <!-- 18. Contact Us -->
+        <!-- 19. Contact Us -->
         <section>
-          <h2>18. Contact Us</h2>
+          <h2>19. Contact Us</h2>
           <p>
-            If you have questions, concerns, or feedback regarding these Terms or Expense Insights, you may contact us through the contact information provided on our official website.
+            If you have questions, concerns, or feedback regarding these Terms, purchases, or Expense Insights, you may contact us through the contact information provided on our official website.
           </p>
           <div class="info-box" style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
             <img src="../images/karmakar-developers-logo.png" alt="Karmakar Developers" style="width: 52px; height: 52px; border-radius: 12px; object-fit: cover; border: 1px solid #c4eec4;" />
@@ -673,6 +837,7 @@
       <div style="margin-bottom: 8px;">
         <a href="index.html" style="color: #4c554e; margin: 0 10px; font-weight: 500; text-decoration: none;">Expense Insights Showcase</a> • 
         <a href="expense-insights-privacy.html" style="color: #4c554e; margin: 0 10px; font-weight: 500; text-decoration: none;">Expense Insights Privacy Policy</a> • 
+        <a href="expense-insights-payment-faq.html" style="color: #4c554e; margin: 0 10px; font-weight: 500; text-decoration: none;">Payment &amp; Purchase FAQ</a> • 
         <a href="expense-insights-account-deletion.html" style="color: #b3261e; margin: 0 10px; font-weight: 500; text-decoration: none;">Account Deletion</a> • 
         <a href="../index.html" style="color: #4c554e; margin: 0 10px; font-weight: 500; text-decoration: none;">All Apps Directory</a>
       </div>
