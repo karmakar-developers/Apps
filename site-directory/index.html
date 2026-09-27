@@ -586,6 +586,59 @@
 
     <script>
       (function () {
+        // =========================================================================
+        // Configuration: External Links & Centralized Home Page Base URL
+        // Maintain the Karmakar Developers Home Page base URL in one single place.
+        // Changing this single variable automatically updates all related subpages:
+        // Admin Portal (/admin) and Android User Data Center (/data-center).
+        // If hosting moves from Cloudflare to Netlify or elsewhere, only edit this line.
+        // =========================================================================
+        const KARMAKAR_DEVELOPERS_HOME_PAGE = 'https://admin-portal.karmakar-developers.workers.dev';
+
+        // Permanent static Google Form link for Account Deletion Request
+        const EXPENSE_INSIGHTS_GOOGLE_FORM_URL =
+          'https://docs.google.com/forms/d/e/1FAIpQLSdQEqQ4nRQ7tXcyDhqXxk4dpAlyxqXTme0UOPmFvxti0QCQxw/viewform?pli=1';
+
+        // Helper to construct external links using the centralized base URL
+        function getExternalLinks() {
+          const base = KARMAKAR_DEVELOPERS_HOME_PAGE.replace(/\/+$/, '');
+          return [
+            {
+              title: 'Karmakar Developers Home Page',
+              url: base,
+              folder: 'external-links',
+              folderTitle: 'External Links',
+              isExternal: true
+            },
+            {
+              title: 'Admin Portal',
+              url: `${base}/admin`,
+              folder: 'external-links',
+              folderTitle: 'External Links',
+              isExternal: true
+            },
+            {
+              title: 'Android User Data Center',
+              url: `${base}/data-center`,
+              folder: 'external-links',
+              folderTitle: 'External Links',
+              isExternal: true
+            },
+            {
+              title: 'Expense Insights Account Deletion Google Form',
+              url: EXPENSE_INSIGHTS_GOOGLE_FORM_URL,
+              folder: 'external-links',
+              folderTitle: 'External Links',
+              isExternal: true
+            }
+          ];
+        }
+
+        function combinePages(manifestPages) {
+          const external = getExternalLinks();
+          return [...manifestPages, ...external];
+        }
+
         let allPages = [];
         const treeContainer = document.getElementById('tree-container');
         const searchInput = document.getElementById('directory-search');
@@ -593,8 +646,11 @@
         const btnExpandAll = document.getElementById('btn-expand-all');
         const btnCollapseAll = document.getElementById('btn-collapse-all');
 
-        // Resolve link path relative to site-directory/
+        // Resolve link path relative to site-directory/ or direct external URL
         function resolveUrl(item) {
+          if (item.isExternal || (item.url && (item.url.startsWith('http://') || item.url.startsWith('https://')))) {
+            return item.url;
+          }
           if (item.url) return item.url;
           if (item.path) {
             return item.path === 'site-directory/index.html'
@@ -636,12 +692,14 @@
           const grouped = groupPagesByFolder(pages);
           const folderKeys = Object.keys(grouped);
 
-          // Ensure Expense Insights comes first if present, then other apps, then main portal
+          // Folder order: Expense Insights first, other apps, Main Portal, then External Links
           folderKeys.sort(function (a, b) {
             if (a === 'expense-insights') return -1;
             if (b === 'expense-insights') return 1;
-            if (a === 'main') return 1;
-            if (b === 'main') return -1;
+            if (a === 'main' && b === 'external-links') return -1;
+            if (a === 'external-links' && b === 'main') return 1;
+            if (a === 'external-links') return 1;
+            if (b === 'external-links') return -1;
             return a.localeCompare(b);
           });
 
@@ -710,7 +768,13 @@
               const linkCard = document.createElement('a');
               linkCard.className = 'tree-link-card';
               linkCard.href = targetUrl;
-              linkCard.title = page.title || 'Open Page';
+              linkCard.title = page.title || 'Open Link';
+
+              // Open external links in a new tab safely
+              if (page.isExternal || targetUrl.startsWith('http://') || targetUrl.startsWith('https://')) {
+                linkCard.target = '_blank';
+                linkCard.rel = 'noopener noreferrer';
+              }
 
               const titleHeading = document.createElement('h3');
               titleHeading.className = 'tree-link-title';
@@ -718,7 +782,7 @@
 
               const chevronIcon = document.createElement('span');
               chevronIcon.className = 'material-symbols-outlined tree-link-chevron';
-              chevronIcon.textContent = 'arrow_forward';
+              chevronIcon.textContent = (page.isExternal || targetUrl.startsWith('http')) ? 'open_in_new' : 'arrow_forward';
 
               linkCard.appendChild(titleHeading);
               linkCard.appendChild(chevronIcon);
@@ -741,7 +805,8 @@
           const filtered = allPages.filter(function (page) {
             const t = (page.title || '').toLowerCase();
             const f = (page.folderTitle || '').toLowerCase();
-            return t.includes(q) || f.includes(q);
+            const u = (page.url || '').toLowerCase();
+            return t.includes(q) || f.includes(q) || u.includes(q);
           });
           renderTree(filtered, true);
         }
@@ -764,7 +829,7 @@
           });
         });
 
-        // Load virtual manifest
+        // Load virtual manifest and combine with external links
         function loadManifest() {
           fetch('./manifest.json', { cache: 'no-cache' })
             .then(function (res) {
@@ -773,7 +838,7 @@
             })
             .then(function (data) {
               if (Array.isArray(data) && data.length > 0) {
-                allPages = data;
+                allPages = combinePages(data);
                 renderTree(allPages, false);
               } else {
                 throw new Error('Empty manifest');
@@ -783,9 +848,9 @@
               // Fallback to embedded data
               try {
                 const embedded = document.getElementById('initial-manifest').textContent;
-                allPages = JSON.parse(embedded);
+                allPages = combinePages(JSON.parse(embedded));
               } catch (e) {
-                allPages = [];
+                allPages = combinePages([]);
               }
               renderTree(allPages, false);
             });
