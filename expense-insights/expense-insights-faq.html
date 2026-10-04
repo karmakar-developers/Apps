@@ -492,6 +492,18 @@
         margin: 0;
       }
 
+      .faq-answer-content ul {
+        margin: 0;
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .faq-answer-content li {
+        color: var(--color-text-body);
+      }
+
       /* No Results Box */
       .no-results-box {
         text-align: center;
@@ -716,7 +728,7 @@
               data-category="all"
             >
               <span>All Questions</span>
-              <span class="category-pill-count">(21)</span>
+              <span class="category-pill-count">(31)</span>
             </button>
             <button
               type="button"
@@ -744,6 +756,15 @@
               <span class="material-symbols-outlined" style="font-size: 15px;">account_circle</span>
               <span>Google Account &amp; Purchase</span>
               <span class="category-pill-count">(3)</span>
+            </button>
+            <button
+              type="button"
+              class="category-pill-btn"
+              data-category="referral-program"
+            >
+              <span class="material-symbols-outlined" style="font-size: 15px;">card_giftcard</span>
+              <span>Referral Program</span>
+              <span class="category-pill-count">(10)</span>
             </button>
           </div>
         </div>
@@ -1110,6 +1131,173 @@
               </summary>
               <div class="faq-answer-content">
                 <p>Your signed-in email is used to associate your Expense Insights purchase with your account so that your Pro entitlement can be identified and restored.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- SECTION 4: Referral Program (Questions 22 - 31) -->
+        <section
+          class="faq-category-card"
+          id="sec-referral-program"
+          data-category-section="referral-program"
+        >
+          <div class="category-card-header">
+            <div class="category-title-group">
+              <div class="category-icon-box">
+                <span class="material-symbols-outlined" style="font-size: 24px;">card_giftcard</span>
+              </div>
+              <div class="category-title-text">
+                <h2>Referral Program</h2>
+                <p>Sharing referral codes, milestone rewards, and activating Premium access</p>
+              </div>
+            </div>
+            <span class="badge-pill badge-neutral">10 Questions</span>
+          </div>
+
+          <div class="faq-list">
+            <!-- Q22 -->
+            <details class="faq-item" data-question-num="22" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">22</span>
+                  <span class="faq-question-title">How does the Referral Program work?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>Share Expense Insights and your referral code with friends. When your friends install the app and successfully add your referral code, they count as successful referrals.</p>
+              </div>
+            </details>
+
+            <!-- Q23 -->
+            <details class="faq-item" data-question-num="23" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">23</span>
+                  <span class="faq-question-title">Where does my friend enter my referral code?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>Your friend can enter your referral code from Settings → Refer &amp; Unlock Premium.</p>
+              </div>
+            </details>
+
+            <!-- Q24 -->
+            <details class="faq-item" data-question-num="24" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">24</span>
+                  <span class="faq-question-title">When is a referral counted?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>A referral is counted after your friend installs Expense Insights and successfully adds your referral code.</p>
+              </div>
+            </details>
+
+            <!-- Q25 -->
+            <details class="faq-item" data-question-num="25" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">25</span>
+                  <span class="faq-question-title">How do I activate my Premium reward?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>Once you reach a reward milestone, open Refer &amp; Unlock Premium and tap Check &amp; Activate Premium.</p>
+              </div>
+            </details>
+
+            <!-- Q26 -->
+            <details class="faq-item" data-question-num="26" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">26</span>
+                  <span class="faq-question-title">What Premium rewards can I unlock?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <ul>
+                  <li>5 Friends → 1 Month Premium</li>
+                  <li>10 Friends → 6 Months Premium</li>
+                  <li>15 Friends → 1 Year Premium</li>
+                  <li>20 Friends → Lifetime Premium</li>
+                </ul>
+              </div>
+            </details>
+
+            <!-- Q27 -->
+            <details class="faq-item" data-question-num="27" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">27</span>
+                  <span class="faq-question-title">Are the rewards cumulative?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>No. Your reward is based on the highest referral milestone you have reached.</p>
+              </div>
+            </details>
+
+            <!-- Q28 -->
+            <details class="faq-item" data-question-num="28" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">28</span>
+                  <span class="faq-question-title">Can I use my own referral code?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>No. Self-referrals are not allowed.</p>
+              </div>
+            </details>
+
+            <!-- Q29 -->
+            <details class="faq-item" data-question-num="29" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">29</span>
+                  <span class="faq-question-title">Can the same friend be counted more than once?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>No. Each friend/account can contribute only one successful referral.</p>
+              </div>
+            </details>
+
+            <!-- Q30 -->
+            <details class="faq-item" data-question-num="30" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">30</span>
+                  <span class="faq-question-title">Can I change my referral code after adding one?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>No. Once a referral code has been successfully added to an account, it cannot be changed.</p>
+              </div>
+            </details>
+
+            <!-- Q31 -->
+            <details class="faq-item" data-question-num="31" open>
+              <summary class="faq-question-btn">
+                <div class="faq-question-left">
+                  <span class="faq-number-badge">31</span>
+                  <span class="faq-question-title">When will my Premium be activated?</span>
+                </div>
+                <span class="material-symbols-outlined faq-chevron">expand_more</span>
+              </summary>
+              <div class="faq-answer-content">
+                <p>After reaching an eligible milestone, tap Check &amp; Activate Premium. If the referral requirements are met, the applicable Premium reward will be activated on your account.</p>
               </div>
             </details>
           </div>
