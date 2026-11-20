@@ -13,6 +13,7 @@ export default defineConfig(() => {
           deletion: path.resolve(__dirname, 'expense-insights/expense-insights-account-deletion.html'),
           faq: path.resolve(__dirname, 'expense-insights/expense-insights-faq.html'),
           chessMasters: path.resolve(__dirname, 'chess-masters/index.html'),
+          chessMastersDeletion: path.resolve(__dirname, 'chess-masters/chess-masters-account-deletion.html'),
           chessMastersPrivacy: path.resolve(__dirname, 'chess-masters/chess-masters-privacy.html'),
           chessMastersTerms: path.resolve(__dirname, 'chess-masters/chess-masters-terms.html'),
           siteDirectory: path.resolve(__dirname, 'site-directory/index.html'),

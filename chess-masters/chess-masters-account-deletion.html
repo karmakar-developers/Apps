@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account &amp; Data Deletion Request — Chess Masters</title>
+    <meta
+      name="description"
+      content="Submit an account and data deletion request for Chess Masters or applications developed by Karmakar Developers."
+    />
+    <link rel="icon" type="image/png" href="../images/karmakar-developers-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <style>
+      :root {
+        --color-danger: #b3261e;
+        --color-danger-surface: #fceeee;
+        --color-danger-border: #f8c8c5;
+      }
+
+      html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+        width: 100%;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--color-neutral-bg);
+        color: var(--color-text-primary);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .deletion-container {
+        width: 100%;
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 32px 20px 64px 20px;
+        flex: 1;
+        box-sizing: border-box;
+      }
+
+      .deletion-card {
+        background: #ffffff;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--color-border);
+        box-shadow: var(--shadow-sm);
+        padding: 36px 32px;
+        margin-top: 24px;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .self-service-box {
+        background: linear-gradient(135deg, #ffffff 0%, #f4fbf5 100%);
+        border: 1.5px solid var(--color-accent-border);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 4px 18px rgba(0, 69, 13, 0.08);
+        padding: 24px;
+        margin-top: 24px;
+        margin-bottom: 28px;
+        position: relative;
+        overflow: hidden;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .self-service-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--color-brand) 0%, var(--color-accent) 100%);
+      }
+
+      .datacenter-header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 14px;
+      }
+
+      .datacenter-logo-wrap {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: #ffffff;
+        border: 1.5px solid var(--color-accent-border);
+        box-shadow: 0 2px 8px rgba(0, 69, 13, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+
+      .datacenter-logo-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .datacenter-title-wrap {
+        flex: 1;
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .datacenter-title {
+        font-family: var(--font-heading);
+        font-size: 16px;
+        font-weight: 800;
+        color: var(--color-brand);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        word-break: break-word;
+      }
+
+      .datacenter-badge {
+        font-size: 10.5px;
+        font-weight: 700;
+        background-color: var(--color-accent-light);
+        color: var(--color-brand);
+        border: 1px solid var(--color-accent-border);
+        padding: 2px 8px;
+        border-radius: 9999px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        white-space: nowrap;
+      }
+
+      .datacenter-subtitle {
+        font-size: 13px;
+        color: var(--color-text-muted);
+        margin-top: 2px;
+        word-break: break-word;
+      }
+
+      .datacenter-features {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin: 14px 0 16px 0;
+      }
+
+      @media (min-width: 600px) {
+        .datacenter-features {
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+      }
+
+      .datacenter-feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(0, 69, 13, 0.1);
+        border-radius: var(--radius-md);
+        padding: 10px 12px;
+      }
+
+      .datacenter-feature-icon {
+        color: var(--color-brand);
+        font-size: 18px;
+        margin-top: 1px;
+        flex-shrink: 0;
+      }
+
+      .datacenter-feature-text {
+        font-size: 13px;
+        line-height: 1.45;
+        color: var(--color-text-main);
+      }
+
+      .datacenter-note {
+        font-size: 12.5px;
+        color: var(--color-text-muted);
+        line-height: 1.5;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .datacenter-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .form-group {
+        margin-bottom: 24px;
+      }
+
+      .form-label {
+        display: block;
+        font-family: var(--font-heading);
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin-bottom: 8px;
+      }
+
+      .form-label .required-star {
+        color: var(--color-danger);
+        margin-left: 4px;
+      }
+
+      .form-hint {
+        font-size: 13px;
+        color: var(--color-text-muted);
+        margin-top: 4px;
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
+
+      .form-input,
+      .form-select,
+      .form-textarea {
+        width: 100%;
+        padding: 12px 16px;
+        font-family: var(--font-body);
+        font-size: 15px;
+        border: 1.5px solid var(--color-border);
+        border-radius: var(--radius-md);
+        background-color: #ffffff;
+        color: var(--color-text-primary);
+        transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+        box-sizing: border-box;
+      }
+
+      .form-input:focus,
+      .form-select:focus,
+      .form-textarea:focus {
+        outline: none;
+        border-color: var(--color-brand);
+        box-shadow: 0 0 0 3px rgba(0, 69, 13, 0.12);
+      }
+
+      .form-textarea {
+        min-height: 110px;
+        resize: vertical;
+      }
+
+      .radio-option-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 14px 16px;
+        border: 1.5px solid var(--color-border);
+        border-radius: var(--radius-md);
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: border-color var(--transition-fast), background-color var(--transition-fast);
+      }
+
+      .radio-option-card:hover {
+        border-color: var(--color-brand-light);
+        background-color: #fbfdfb;
+      }
+
+      .radio-option-card input[type="radio"] {
+        margin-top: 3px;
+        accent-color: var(--color-brand);
+        width: 17px;
+        height: 17px;
+        cursor: pointer;
+      }
+
+      .checkbox-container {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px;
+        background-color: var(--color-danger-surface);
+        border: 1px solid var(--color-danger-border);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        margin-top: 12px;
+      }
+
+      .checkbox-container input[type="checkbox"] {
+        margin-top: 3px;
+        accent-color: var(--color-danger);
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      .btn-submit-delete {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 24px;
+        font-family: var(--font-heading);
+        font-size: 16px;
+        font-weight: 700;
+        background-color: var(--color-danger);
+        color: #ffffff;
+        border: none;
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+        box-shadow: 0 2px 6px rgba(179, 38, 30, 0.25);
+      }
+
+      .btn-submit-delete:hover {
+        background-color: #921f18;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(179, 38, 30, 0.35);
+      }
+
+      .btn-submit-delete:disabled {
+        opacity: 0.65;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* Success confirmation box */
+      .success-card {
+        display: none;
+        background: #ffffff;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--color-accent-border);
+        box-shadow: var(--shadow-md);
+        padding: 40px 32px;
+        text-align: center;
+        margin-top: 24px;
+      }
+
+      .success-icon-wrap {
+        width: 72px;
+        height: 72px;
+        background-color: var(--color-brand-surface);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px auto;
+        border: 2px solid var(--color-accent-border);
+      }
+
+      @media (max-width: 640px) {
+        .deletion-container {
+          padding: 20px 14px 48px 14px;
+        }
+        .deletion-card {
+          padding: 20px 14px;
+          border-radius: var(--radius-md);
+        }
+        .self-service-box {
+          padding: 18px 14px;
+          border-radius: var(--radius-md);
+          margin-top: 18px;
+          margin-bottom: 22px;
+        }
+        .datacenter-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+        .btn-submit-delete {
+          font-size: 15px;
+          padding: 12px 18px;
+        }
+        .radio-option-card {
+          padding: 12px 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Site Header -->
+    <header class="site-header">
+      <div class="header-container">
+        <!-- Brand logo & Back link -->
+        <a href="index.html" class="brand-link" id="brand-logo" title="Back to Chess Masters Showcase">
+          <span class="material-symbols-outlined" style="color: var(--color-brand); font-size: 20px;">arrow_back</span>
+          <img src="../images/karmakar-developers-logo.png" alt="Karmakar Developers Logo" class="brand-logo-img" />
+          <span class="brand-logo-text">Chess Masters</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="deletion-container">
+      <!-- Breadcrumb / Tag -->
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; max-width: 100%;">
+        <span class="badge-pill badge-danger" style="background-color: var(--color-danger-surface); color: var(--color-danger); border: 1px solid var(--color-danger-border); white-space: normal; line-height: 1.4; max-width: 100%;">
+          <span class="material-symbols-outlined" style="font-size: 15px; flex-shrink: 0;">delete_forever</span>
+          <span>Google Play Compliance • Data Deletion</span>
+        </span>
+      </div>
+
+      <h1 style="font-family: var(--font-heading); font-size: clamp(22px, 5vw, 34px); font-weight: 800; line-height: 1.25; margin-bottom: 10px; word-break: break-word;">
+        Account &amp; Data Deletion Request
+      </h1>
+      <p style="color: var(--color-text-secondary); font-size: 15px; line-height: 1.6; word-break: break-word;">
+        Submit a request to permanently delete your account and associated data for <strong>Chess Masters</strong>.
+      </p>
+
+      <!-- Data Center Self-Service Portal Notice -->
+      <div class="self-service-box">
+        <div class="datacenter-header">
+          <div class="datacenter-logo-wrap">
+            <img src="../images/karmakar-developers-logo.png" alt="Karmakar Developers Logo" />
+          </div>
+          <div class="datacenter-title-wrap">
+            <div class="datacenter-title">
+              <span>Karmakar Developers Data Center</span>
+              <span class="datacenter-badge">
+                <span class="material-symbols-outlined" style="font-size: 13px;">bolt</span>
+                Instant &amp; Recommended
+              </span>
+            </div>
+            <div class="datacenter-subtitle">
+              Official self-service privacy &amp; instant account deletion portal
+            </div>
+          </div>
+        </div>
+
+        <div class="datacenter-features">
+          <div class="datacenter-feature-item">
+            <span class="material-symbols-outlined datacenter-feature-icon">visibility</span>
+            <div class="datacenter-feature-text">
+              <strong>See Collected Data:</strong> Inspect account details and records collected by the app.
+            </div>
+          </div>
+          <div class="datacenter-feature-item">
+            <span class="material-symbols-outlined datacenter-feature-icon">delete_forever</span>
+            <div class="datacenter-feature-text">
+              <strong>Instant Deletion:</strong> Delete your own data yourself in real-time without waiting.
+            </div>
+          </div>
+        </div>
+
+        <div class="datacenter-note">
+          <span class="material-symbols-outlined" style="font-size: 16px; color: var(--color-brand); margin-top: 1px; flex-shrink: 0;">lightbulb</span>
+          <span><strong>Recommendation:</strong> Try the Data Center portal first for immediate deletion. If you encounter any issue, submit the request form below.</span>
+        </div>
+
+        <div class="datacenter-actions">
+          <a
+            id="launch-datacenter-link"
+            href="https://admin-portal.karmakar-developers.workers.dev/data-center"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+            style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700; padding: 10px 22px; font-size: 14px; text-decoration: none; box-shadow: 0 2px 10px rgba(0, 69, 13, 0.22);"
+          >
+            <span>Launch Data Center</span>
+            <span class="material-symbols-outlined" style="font-size: 17px;">open_in_new</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Static HTML Form that posts to Google Form backend -->
+      <div class="deletion-card" id="form-card">
+        <!-- Hidden iframe to capture the Google Form response silently -->
+        <iframe
+          name="hidden_iframe"
+          id="hidden_iframe"
+          style="display: none;"
+          title="Google Form submission target"
+        ></iframe>
+
+        <form
+          id="deletion-form"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSdQEqQ4nRQ7tXcyDhqXxk4dpAlyxqXTme0UOPmFvxti0QCQxw/formResponse"
+          method="POST"
+          target="hidden_iframe"
+          novalidate
+        >
+          <!-- Hidden Google Form Metadata & Pre-Configured Application Parameters -->
+          <input type="hidden" name="fvv" value="1" />
+          <input type="hidden" name="pageHistory" value="0,1,2,3,4" />
+          <input type="hidden" name="entry.498496194" value="Data from a specific app" />
+          <input type="hidden" name="entry.1841398095" value="Chess Masters" />
+
+          <!-- Target Application Context Badge -->
+          <div style="background-color: var(--color-bg-page); border: 1.5px solid var(--color-border); border-radius: var(--radius-md); padding: 12px 14px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; max-width: 100%;">
+            <div style="width: 40px; height: 40px; border-radius: var(--radius-sm); background-color: var(--color-accent-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <span class="material-symbols-outlined" style="color: var(--color-brand); font-size: 22px;">sports_esports</span>
+            </div>
+            <div style="flex: 1; min-width: 0; word-break: break-word;">
+              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted);">
+                Application
+              </div>
+              <div style="font-size: 15px; font-weight: 700; color: var(--color-text-primary); word-break: break-word;">
+                Chess Masters <span style="font-size: 12.5px; font-weight: normal; color: var(--color-text-muted); word-break: break-all; display: inline-block;">(com.karmakardevelopers.chess)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Field 1: Email Address (entry.1376920632) -->
+          <div class="form-group">
+            <label class="form-label" for="user-email">
+              Account Email
+              <span class="required-star">*</span>
+            </label>
+            <div class="form-hint">
+              Enter the email address associated with your Chess Masters account.
+            </div>
+            <input
+              type="email"
+              id="user-email"
+              name="entry.1376920632"
+              class="form-input"
+              placeholder="e.g. yourname@gmail.com"
+              required
+              autocomplete="email"
+            />
+            <div id="email-error" style="color: var(--color-danger); font-size: 13px; margin-top: 4px; display: none;">
+              Please enter a valid email address.
+            </div>
+          </div>
+
+          <!-- Field 2: Reason for Deletion (entry.1809672499) -->
+          <div class="form-group">
+            <label class="form-label" for="deletion-reason">
+              Reason for Deletion
+              <span class="required-star">*</span>
+            </label>
+            <div class="form-hint">
+              Briefly describe why you are requesting deletion (minimum 10 characters).
+            </div>
+            <textarea
+              id="deletion-reason"
+              name="entry.1809672499"
+              class="form-textarea"
+              placeholder="Please provide your reason..."
+              minlength="10"
+              required
+            ></textarea>
+            <div id="reason-error" style="color: var(--color-danger); font-size: 13px; margin-top: 4px; display: none;">
+              Please provide at least 10 characters explaining your request.
+            </div>
+          </div>
+
+          <!-- Field 3: Legal Confirmation Checkbox (entry.54173755) -->
+          <div class="form-group">
+            <label class="checkbox-container">
+              <input
+                type="checkbox"
+                id="legal-confirm"
+                name="entry.54173755"
+                value="I confirm that I am requesting deletion of the data described above and understand that deleted data may not be recoverable."
+                required
+              />
+              <span style="font-size: 13.5px; line-height: 1.5; color: var(--color-text-primary); word-break: break-word; flex: 1; min-width: 0;">
+                I confirm this deletion request and understand that deleted data cannot be recovered.
+                <span class="required-star">*</span>
+              </span>
+            </label>
+            <div id="confirm-error" style="color: var(--color-danger); font-size: 13px; margin-top: 4px; display: none;">
+              Please confirm the statement above to proceed.
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn-submit-delete" id="submit-btn">
+            <span class="material-symbols-outlined" style="font-size: 20px;">delete_forever</span>
+            <span id="btn-text">Submit Request</span>
+          </button>
+
+          <!-- Alternative / Fallback direct Google Form link -->
+          <div style="margin-top: 18px; text-align: center; font-size: 13px; color: var(--color-text-muted); word-break: break-word;">
+            Alternatively, you can
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdQEqQ4nRQ7tXcyDhqXxk4dpAlyxqXTme0UOPmFvxti0QCQxw/viewform?usp=pp_url&entry.498496194=Data+from+a+specific+app&entry.1841398095=Chess+Masters"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="color: var(--color-brand); font-weight: 600; text-decoration: underline; margin-left: 2px;"
+            >
+              open the Google Form directly
+              <span class="material-symbols-outlined" style="font-size: 14px; vertical-align: middle;">open_in_new</span>
+            </a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Success Confirmation State (Displayed after form submission) -->
+      <div class="success-card" id="success-card">
+        <div class="success-icon-wrap">
+          <span class="material-symbols-outlined" style="color: var(--color-brand); font-size: 42px;">check_circle</span>
+        </div>
+        <h2 style="font-family: var(--font-heading); font-size: 24px; font-weight: 800; color: var(--color-brand); margin-bottom: 8px;">
+          Deletion Request Submitted
+        </h2>
+        <p style="color: var(--color-text-secondary); font-size: 15px; line-height: 1.6; max-width: 520px; margin: 0 auto 24px auto;">
+          Your request has been securely recorded and dispatched to <strong>Karmakar Developers</strong>.
+        </p>
+
+        <div style="background-color: var(--color-neutral-bg); border-radius: var(--radius-md); padding: 18px; text-align: left; max-width: 480px; margin: 0 auto 28px auto; border: 1px solid var(--color-border); font-size: 14px; line-height: 1.6; word-break: break-word;">
+          <div><strong>Application:</strong> Chess Masters <span style="word-break: break-all;">(com.karmakardevelopers.chess)</span></div>
+          <div style="margin-top: 6px;"><strong>Target Account:</strong> <span id="submitted-email" style="color: var(--color-brand); font-weight: 600; word-break: break-all;"></span></div>
+          <div style="margin-top: 6px;"><strong>Processing SLA:</strong> Within 30 calendar days</div>
+          <div style="margin-top: 6px;"><strong>Status:</strong> Pending deletion &amp; data wipe</div>
+          <div style="margin-top: 6px; font-size: 13px; color: var(--color-text-muted);">
+            A confirmation will be logged in our system. You may also email <a href="mailto:developers.karmakar@gmail.com" style="color: var(--color-brand); font-weight: 600;">developers.karmakar@gmail.com</a> if you have urgent questions.
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a href="index.html" class="btn btn-primary">
+            <span class="material-symbols-outlined" style="font-size: 18px;">arrow_back</span>
+            <span>Return to Chess Masters</span>
+          </a>
+          <a href="../index.html" class="btn btn-secondary">
+            <span class="material-symbols-outlined" style="font-size: 18px;">apps</span>
+            <span>All Apps Directory</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- Links -->
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Chess Masters Showcase</a>
+          <a href="chess-masters-privacy.html" class="footer-link">Chess Masters Privacy Policy</a>
+          <a href="chess-masters-terms.html" class="footer-link">Chess Masters Terms of Service</a>
+          <a href="../index.html" class="footer-link">All Apps Directory</a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-copyright" style="display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
+          <img src="../images/karmakar-developers-logo.png" alt="Karmakar Developers" class="footer-brand-logo" />
+          <span class="footer-brand">Karmakar Developers</span>
+          <span style="color: #94a3b8;">•</span>
+          <span>© 2026 Karmakar Developers. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Form Handler Script -->
+    <script>
+      (function () {
+        var form = document.getElementById('deletion-form');
+        var emailInput = document.getElementById('user-email');
+        var reasonInput = document.getElementById('deletion-reason');
+        var confirmCheckbox = document.getElementById('legal-confirm');
+        var submitBtn = document.getElementById('submit-btn');
+        var btnText = document.getElementById('btn-text');
+        var iframe = document.getElementById('hidden_iframe');
+        var formCard = document.getElementById('form-card');
+        var successCard = document.getElementById('success-card');
+        var submittedEmail = document.getElementById('submitted-email');
+
+        var emailError = document.getElementById('email-error');
+        var reasonError = document.getElementById('reason-error');
+        var confirmError = document.getElementById('confirm-error');
+
+        var isSubmitting = false;
+
+        function validateForm() {
+          var isValid = true;
+
+          // Email validation
+          var emailVal = emailInput.value.trim();
+          var emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+          if (!emailVal || !emailRegex.test(emailVal)) {
+            emailError.style.display = 'block';
+            isValid = false;
+          } else {
+            emailError.style.display = 'none';
+          }
+
+          // Reason validation (Google Form enforces minimum 10 characters)
+          var reasonVal = reasonInput.value.trim();
+          if (!reasonVal || reasonVal.length < 10) {
+            reasonError.style.display = 'block';
+            isValid = false;
+          } else {
+            reasonError.style.display = 'none';
+          }
+
+          // Confirmation checkbox
+          if (!confirmCheckbox.checked) {
+            confirmError.style.display = 'block';
+            isValid = false;
+          } else {
+            confirmError.style.display = 'none';
+          }
+
+          return isValid;
+        }
+
+        form.addEventListener('submit', function (e) {
+          if (!validateForm()) {
+            e.preventDefault();
+            return false;
+          }
+
+          if (isSubmitting) {
+            e.preventDefault();
+            return false;
+          }
+
+          // Mark submitting and disable submit button to prevent double submission
+          isSubmitting = true;
+          submitBtn.disabled = true;
+          btnText.textContent = 'Submitting deletion request...';
+
+          // The form submits exactly ONCE via native HTML post to hidden_iframe.
+          // Show success state on iframe response or via timeout fallback.
+          setTimeout(function () {
+            showSuccessState();
+          }, 1500);
+        });
+
+        // Also trigger on iframe load if it loads earlier
+        iframe.addEventListener('load', function () {
+          if (isSubmitting) {
+            showSuccessState();
+          }
+        });
+
+        function showSuccessState() {
+          submittedEmail.textContent = emailInput.value.trim();
+          formCard.style.display = 'none';
+          successCard.style.display = 'block';
+          window.scrollTo({ top: successCard.offsetTop - 80, behavior: 'smooth' });
+        }
+
+        // Dynamically resolve Data Center link from manifest.json (same logic as site-directory/index.html)
+        var dataCenterBtn = document.getElementById('launch-datacenter-link');
+        if (dataCenterBtn) {
+          fetch('../site-directory/manifest.json', { cache: 'no-cache' })
+            .then(function (res) {
+              if (res.ok) return res.json();
+              throw new Error('Manifest not found');
+            })
+            .then(function (data) {
+              if (data) {
+                var base = (
+                  data.KARMAKAR_DEVELOPERS_BASE_URL ||
+                  data.karmakarDevelopersBaseUrl ||
+                  data.cloudflareBaseUrl ||
+                  'https://admin-portal.karmakar-developers.workers.dev'
+                ).replace(/\/+$/, '');
+                var linkItem = (data.externalLinks || []).find(function (item) {
+                  return item.path === '/data-center' || (item.title && item.title.toLowerCase().includes('data center'));
+                });
+                var path = linkItem && linkItem.path ? linkItem.path : '/data-center';
+                if (!path.startsWith('/')) path = '/' + path;
+                dataCenterBtn.href = base + path;
+              }
+            })
+            .catch(function () {
+              // Keeps the fallback href
+            });
+        }
+      })();
+    </script>
+  </body>
+</html>
