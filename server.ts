@@ -21,6 +21,14 @@ async function startServer() {
     next();
   });
 
+  // Redirect /chess-masters to /chess-masters/ for canonical directory routing
+  app.get("/chess-masters", (req, res, next) => {
+    if (req.path === "/chess-masters") {
+      return res.redirect(301, "/chess-masters/");
+    }
+    next();
+  });
+
   // Redirect /site-directory to /site-directory/ for canonical directory routing
   app.get("/site-directory", (req, res, next) => {
     if (req.path === "/site-directory") {

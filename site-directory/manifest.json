@@ -29,6 +29,21 @@
       "folder": "Expense Insights"
     },
     {
+      "title": "Application Showcase & Features",
+      "path": "chess-masters/index.html",
+      "folder": "Chess Masters"
+    },
+    {
+      "title": "Privacy Policy",
+      "path": "chess-masters/chess-masters-privacy.html",
+      "folder": "Chess Masters"
+    },
+    {
+      "title": "Terms of Service",
+      "path": "chess-masters/chess-masters-terms.html",
+      "folder": "Chess Masters"
+    },
+    {
       "title": "Applications Directory",
       "path": "index.html",
       "folder": "Main Portal & Directory"
