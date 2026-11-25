@@ -503,13 +503,13 @@
           <span class="meta-divider">•</span>
           <span class="meta-item"><strong>Package:</strong> <code>com.karmakardevelopers.chess</code></span>
           <span class="meta-divider">•</span>
-          <span class="meta-item"><strong>Effective Date:</strong> November 20, 2026</span>
+          <span class="meta-item"><strong>Effective Date:</strong> November 25, 2026</span>
           <span class="meta-divider">•</span>
-          <span class="meta-item"><strong>Last Updated:</strong> November 20, 2026</span>
+          <span class="meta-item"><strong>Last Updated:</strong> November 25, 2026</span>
         </div>
 
         <div class="privacy-commitment">
-          <strong>Privacy Commitment:</strong> Welcome to <strong>Chess Masters</strong>, developed and published by <strong>Karmakar Developers</strong> ("we", "our", or "us"). Chess Masters is playable without an account, stores match histories and progress locally on your device, contains no third-party advertising SDKs, and never sells your personal information. This Privacy Policy explains how we collect, use, store, share, and protect information when you use Chess Masters on Android.
+          <strong>Privacy Commitment:</strong> Welcome to <strong>Chess Masters</strong>, developed and published by <strong>Karmakar Developers</strong> ("we", "our", or "us"). Chess Masters is playable without an account, does <strong>not</strong> collect or store your email address, stores match histories and progress locally on your device, contains no third-party advertising SDKs, and never sells your personal information. This Privacy Policy explains how we collect, use, store, share, and protect information when you use Chess Masters on Android.
         </div>
       </div>
 
@@ -522,7 +522,7 @@
             Welcome to <strong>Chess Masters</strong>, developed and published by <strong>Karmakar Developers</strong> ("we", "our", or "us"). This Privacy Policy explains how we collect, use, store, share, and protect information when you use the Chess Masters mobile application on Android (the "App").
           </p>
           <p>
-            By downloading, installing, or using Chess Masters, you agree to the collection and handling of information as described in this Privacy Policy. If you do not agree with this Policy, please do not use the App.
+            By downloading, installing, or using Chess Masters, you agree to the handling of information as described in this Privacy Policy. If you do not agree with this Policy, please do not use the App.
           </p>
         </section>
 
@@ -530,9 +530,10 @@
         <section id="summary-key-practices">
           <h2>2. Summary of Key Privacy Practices</h2>
           <ul>
-            <li><strong>Playable Without an Account:</strong> You can use Chess Masters as a <strong>Guest User</strong> for offline chess matches, engine analysis, puzzles, and interactive lessons without signing in.</li>
+            <li><strong>Playable Without an Account:</strong> You can use Chess Masters as a <strong>Guest User</strong> for offline chess matches, engine analysis, tactical puzzles, coach mode, and interactive lessons without signing in.</li>
+            <li><strong>No Email Collection:</strong> Chess Masters does <strong>not</strong> use Firebase Authentication and does <strong>not</strong> collect or store your email address.</li>
             <li><strong>No Advertising SDKs &amp; No Data Selling:</strong> Chess Masters does <strong>not</strong> display third-party advertisements and does <strong>not</strong> sell, rent, or trade your personal information to third parties.</li>
-            <li><strong>On-Device Storage First:</strong> Match histories, puzzle progress, statistics, app preferences, and free daily usage limits are stored locally on your device.</li>
+            <li><strong>On-Device Storage First:</strong> Match histories, puzzle progress, statistics, app preferences, and free daily usage counters are stored locally on your device.</li>
             <li><strong>Minimal Permissions:</strong> Chess Masters does not request access to your camera, microphone, contacts, SMS, call logs, precise location, or external photo/media storage.</li>
           </ul>
         </section>
@@ -541,19 +542,19 @@
         <section id="information-we-collect">
           <h2>3. Information We Collect and Process</h2>
 
-          <h3>A. Information You Provide via Optional Google Sign-In</h3>
+          <h3>A. Optional Google Play Games Services v2 Sign-In &amp; Leaderboards</h3>
           <p>
-            You may optionally choose to sign in using <strong>Google Sign-In</strong> (powered by Android Credential Manager and <strong>Firebase Authentication</strong>). When you sign in, Google shares the following basic profile information with Firebase Authentication and the App:
+            You may optionally choose to sign in using <strong>Google Play Games Services (PGS v2)</strong>. When you sign in, Google Play Games Services provides the App with your gaming profile information:
           </p>
           <ul>
-            <li><strong>User Identifier:</strong> Firebase Unique User ID (UID)</li>
-            <li><strong>Name:</strong> Your Google account display name</li>
-            <li><strong>Email Address:</strong> Your Google account email address</li>
-            <li><strong>Profile Photo URL:</strong> Used to display your profile avatar inside the App</li>
+            <li><strong>Player Identifier:</strong> Your Google Play Games Player ID</li>
+            <li><strong>Gamer Name:</strong> Your Google Play Games display name</li>
+            <li><strong>Player Avatar Image URI:</strong> Used to display and locally cache your gamer avatar inside the App</li>
+            <li><strong>Leaderboard Score (Chess Elo Rating):</strong> When signed in, your Elo rating may be submitted to and displayed on the <strong>Chess Masters</strong> Google Play Games Leaderboard</li>
           </ul>
           <p>
-            <strong>Purpose:</strong> To identify your signed-in session and personalize your player profile badge across game and settings screens.<br>
-            <strong>Optionality:</strong> Signing in is completely optional; you may use the App in Guest mode at any time.
+            <strong>Purpose:</strong> To personalize your player badge, synchronize your Chess Elo rating, and display rankings on the public/in-app Leaderboard.<br>
+            <strong>Optionality:</strong> Signing in is completely optional; you may use the App in Guest mode at any time without submitting leaderboard scores. When you view the Leaderboard, public leaderboard entries (display names, avatars, ranks, and Elo scores of ranked players) are retrieved from Google Play Games Services.
           </p>
 
           <h3>B. In-App Purchases &amp; Subscription Information</h3>
@@ -567,12 +568,13 @@
 
           <h3>C. Locally Stored Game, Learning, and Usage Data (On-Device Only)</h3>
           <p>
-            The following data is created and stored <strong>strictly on your device</strong> (using Android Room SQLite database, SharedPreferences, and Jetpack DataStore) and is not uploaded to a developer-hosted game server:
+            The following data is created and stored <strong>strictly on your device</strong> (using Android Room SQLite database, <code>SharedPreferences</code>, and Jetpack DataStore) and is not uploaded to a developer-hosted game server:
           </p>
           <ul>
             <li>Saved and completed chess game records, move histories, and match results</li>
-            <li>Puzzle ratings, solved/attempted puzzle progress, and chess statistics</li>
-            <li>Appearance, board theme, 2D/3D style, sound, vibration, and auto-update preferences</li>
+            <li>Puzzle ratings, solved/attempted puzzle progress, learning guide progress, and chess statistics</li>
+            <li>Appearance, board theme, 2D/3D style, sound, vibration, coach voice, and auto-update preferences</li>
+            <li>Cached Google Play Games avatar thumbnails for smooth offline/UI rendering</li>
             <li>Daily free-tier usage counters (Game Reviews, Chess Puzzles, Play with Coach sessions, and Assistance actions) used to enforce daily limits and reset locally each day</li>
           </ul>
 
@@ -586,7 +588,7 @@
 
           <h3>E. Automatically Processed Technical &amp; Security Data</h3>
           <p>
-            When features requiring network connectivity are used (Google Sign-In, purchase verification/restoration, loading your Google profile image, or checking Google Play In-App Updates), standard network metadata (such as IP address, app version, OS version, and device/instance identifiers) may be processed temporarily by our infrastructure providers (Google LLC / Firebase and RevenueCat) to fulfill the request, maintain security, prevent fraud, and verify app integrity.
+            When features requiring network connectivity are used (Google Play Games sign-in/leaderboards, purchase verification/restoration, or checking Google Play In-App Updates), standard network and platform metadata (such as IP address, app version, OS version, and service instance identifiers) may be processed temporarily by our infrastructure providers (<strong>Google LLC</strong> and <strong>RevenueCat</strong>) to fulfill the request, maintain security, prevent fraud, and verify app integrity.
           </p>
         </section>
 
@@ -607,11 +609,11 @@
               <tbody>
                 <tr>
                   <td><code>android.permission.INTERNET</code></td>
-                  <td>Required for optional Google Sign-In, Google Play Billing / RevenueCat subscription verification, Google Play In-App Updates, and loading your Google profile photo.</td>
+                  <td>Required for optional Google Play Games Services sign-in and Leaderboards, Google Play Billing / RevenueCat purchase verification, and Google Play In-App Updates.</td>
                 </tr>
                 <tr>
                   <td><code>android.permission.ACCESS_NETWORK_STATE</code></td>
-                  <td>Used to detect offline/online status cleanly before purchase checks or network-backed voice selection.</td>
+                  <td>Used to detect offline/online connectivity cleanly before leaderboard sync, purchase checks, or network-backed TTS voice checks.</td>
                 </tr>
                 <tr>
                   <td><code>android.permission.VIBRATE</code></td>
@@ -629,14 +631,14 @@
         <!-- 5. How We Use Information -->
         <section id="how-we-use-information">
           <h2>5. How We Use Information</h2>
-          <p>We use the data described above strictly to:</p>
+          <p>We use the information described above strictly to:</p>
           <ol>
             <li>Provide, operate, and maintain core offline and online features of Chess Masters.</li>
-            <li>Authenticate optional Google Sign-In sessions and display your chosen player profile details.</li>
+            <li>Authenticate optional Google Play Games Services v2 sessions, display your gamer profile badge, and synchronize Elo leaderboard standings.</li>
             <li>Process, verify, unlock, and restore <strong>Chess Masters Pro</strong> subscriptions and Lifetime purchases.</li>
             <li>Enforce daily free usage quotas locally on your device.</li>
-            <li>Check for official App updates via Google Play In-App Updates (optional toggle in Settings).</li>
-            <li>Prevent fraudulent transactions, unauthorized access, and abuse, and comply with legal obligations.</li>
+            <li>Check for official App updates via Google Play In-App Updates (configurable in Settings).</li>
+            <li>Prevent fraudulent transactions, unauthorized access, and leaderboard/purchase abuse, and comply with legal obligations.</li>
           </ol>
         </section>
 
@@ -644,7 +646,7 @@
         <section id="third-party-services">
           <h2>6. Third-Party Services &amp; Data Sharing</h2>
           <p>
-            We do <strong>not</strong> sell your personal data. We share necessary data only with trusted service providers acting on our behalf to deliver the App's functionality:
+            We do <strong>not</strong> sell your personal data. We rely only on trusted platform and billing service providers to deliver optional online and purchase functionality:
           </p>
           <div class="table-wrapper">
             <table>
@@ -658,16 +660,16 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Google Play Services &amp; Google Play Billing</strong></td>
-                  <td>Purchase status, billing/update checks, device/account tokens</td>
-                  <td>Payment processing, license/update verification, Credential Manager sign-in</td>
+                  <td><strong>Google Play Games Services (Google LLC)</strong></td>
+                  <td>Play Games Player ID, Gamer Name, Avatar image URI, Elo leaderboard scores</td>
+                  <td>Optional gaming identity, profile badge, and global Elo Leaderboard</td>
                   <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></td>
                 </tr>
                 <tr>
-                  <td><strong>Firebase Authentication (Google LLC)</strong></td>
-                  <td>Google UID, display name, email, profile photo URL, auth tokens</td>
-                  <td>Optional user authentication</td>
-                  <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase Privacy &amp; Security</a></td>
+                  <td><strong>Google Play Billing &amp; In-App Updates (Google LLC)</strong></td>
+                  <td>Purchase tokens/status, update availability checks, device/Play Store app metadata</td>
+                  <td>Payment processing, license verification, and official Play Store app updates</td>
+                  <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></td>
                 </tr>
                 <tr>
                   <td><strong>RevenueCat</strong></td>
@@ -684,8 +686,8 @@
         <section id="data-security">
           <h2>7. Data Security &amp; Encryption</h2>
           <ul>
-            <li><strong>In Transit:</strong> All network communications between Chess Masters and Firebase Authentication, Google Play Services, RevenueCat, and image endpoints are encrypted using industry-standard <strong>HTTPS / TLS</strong>.</li>
-            <li><strong>At Rest:</strong> Local chess records, preferences, and usage counters reside within Android's application sandbox storage. Cloud authentication and billing records are protected by Google Cloud / Firebase and RevenueCat security controls.</li>
+            <li><strong>In Transit:</strong> All network communications with Google Play Games Services, Google Play Billing, Google Play In-App Updates, and RevenueCat are encrypted using industry-standard <strong>HTTPS / TLS</strong>.</li>
+            <li><strong>At Rest:</strong> Local chess records, preferences, cached avatars, and usage counters reside within Android's application sandbox storage. Gaming identity and billing records are protected by Google Play and RevenueCat security controls.</li>
             <li>While we implement reasonable administrative and technical safeguards, no method of electronic transmission or storage is 100% secure.</li>
           </ul>
         </section>
@@ -696,22 +698,22 @@
 
           <h3>A. Deleting Local App Data</h3>
           <ul>
-            <li>Uninstalling <strong>Chess Masters</strong> or selecting <strong>Clear Storage / Clear Data</strong> in Android Settings immediately deletes all locally stored game histories, puzzle progress, preferences, and daily usage counters from your device.</li>
+            <li>Uninstalling <strong>Chess Masters</strong> or selecting <strong>Clear Storage / Clear Data</strong> in Android Settings immediately deletes all locally stored game histories, puzzle progress, cached avatars, preferences, and daily usage counters from your device.</li>
             <li>Active Google Play purchases remain tied to your Google Play account and can be restored via <strong>Restore</strong> on the Pro screen after reinstalling.</li>
           </ul>
 
-          <h3>B. Signing Out &amp; Deleting Account Data</h3>
+          <h3>B. Signing Out &amp; Managing Play Games / Cloud Records</h3>
           <ul>
-            <li>You can sign out of Google Sign-In at any time in <strong>Settings</strong> inside the App, and revoke Chess Masters' access in your Google Account settings (<a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer"><code>myaccount.google.com/permissions</code></a>).</li>
+            <li>You can sign out of Google Play Games inside <strong>Settings</strong> / <strong>Leaderboard</strong> in the App, and manage or delete your Play Games profile and game data directly in the <strong>Google Play Games</strong> app or your Google Account settings (<code>myaccount.google.com</code>).</li>
             <li>
-              <strong>Requesting Account &amp; Cloud Record Deletion:</strong> Because Firebase Authentication retains basic sign-in account metadata and RevenueCat retains anonymous entitlement/purchase records until deleted, you may request permanent deletion of your account and associated cloud identifiers without needing to reinstall the App by contacting us:
+              <strong>Requesting Deletion of Billing/Support Records:</strong> Because RevenueCat retains anonymous entitlement/purchase records linked to your RevenueCat anonymous App User ID, you may request deletion of associated RevenueCat customer records (to the extent permitted by law) by contacting us:
               <ul>
                 <li><strong>Email:</strong> <a href="mailto:developers.karmakar@gmail.com">developers.karmakar@gmail.com</a></li>
-                <li><strong>Subject Line:</strong> <code>Data &amp; Account Deletion Request – Chess Masters</code></li>
-                <li><strong>Details to Include:</strong> The email address associated with your Google Sign-In account (and, if applicable, your Google Play order ID or RevenueCat user reference).</li>
+                <li><strong>Subject Line:</strong> <code>Data Deletion Request – Chess Masters</code></li>
+                <li><strong>Details to Include:</strong> Your Google Play order ID (if applicable) or Google Play Games Gamer Name / Player ID.</li>
               </ul>
             </li>
-            <li>Upon verifying your request, we will delete your Firebase Authentication account record and submit deletion for associated RevenueCat customer records within <strong>30 days</strong>, except where retention of transaction records is required for tax, accounting, or fraud-prevention legal compliance.</li>
+            <li>Upon verifying your request, we will submit deletion for associated RevenueCat customer records within <strong>30 days</strong>, except where retention of transaction records is required for tax, accounting, or fraud-prevention legal compliance.</li>
           </ul>
         </section>
 
@@ -722,7 +724,7 @@
             Chess Masters is intended for a general audience and is <strong>not</strong> directed to children under the age of <strong>13</strong> (or the equivalent minimum age of digital consent in your jurisdiction, such as 16 in certain EEA countries). We do not knowingly collect personal information from children under 13 without verifiable parental consent.
           </p>
           <p>
-            If you are a parent or legal guardian and believe your child has provided personal information (such as through Google Sign-In) without your consent, please contact us at <a href="mailto:developers.karmakar@gmail.com">developers.karmakar@gmail.com</a>, and we will promptly remove that information.
+            If you are a parent or legal guardian and believe your child has submitted personal data through optional online services without your consent, please contact us at <a href="mailto:developers.karmakar@gmail.com">developers.karmakar@gmail.com</a>, and we will promptly address your request.
           </p>
         </section>
 
@@ -733,10 +735,10 @@
             Depending on your region, you may have the following rights regarding your personal data:
           </p>
           <ul>
-            <li><strong>Access &amp; Portability:</strong> Request a copy of personal data we hold about you.</li>
-            <li><strong>Correction:</strong> Request correction of inaccurate account profile details.</li>
-            <li><strong>Deletion / Erasure:</strong> Request deletion of your account data (see Section 8).</li>
-            <li><strong>Withdrawal of Consent &amp; Restriction:</strong> Sign out of Google Sign-In, disable vibration/coach voice/auto-update in Settings, or discontinue using online features at any time.</li>
+            <li><strong>Access &amp; Portability:</strong> Request information about personal data processed via our service providers.</li>
+            <li><strong>Correction:</strong> Update your Gamer Name or avatar through your Google Play Games profile.</li>
+            <li><strong>Deletion / Erasure:</strong> Delete local app data on your device, manage/remove your Play Games profile data via Google, or request RevenueCat record deletion (see Section 8).</li>
+            <li><strong>Withdrawal of Consent &amp; Restriction:</strong> Sign out of Google Play Games, disable vibration/coach voice/auto-update in Settings, or use the App purely offline in Guest mode at any time.</li>
             <li><strong>CCPA/CPRA Notice (California Residents):</strong> We do not sell or share personal information for cross-context behavioral advertising.</li>
             <li><strong>EEA/UK Supervisory Authority:</strong> You have the right to lodge a complaint with your local data protection authority if you believe your rights have been infringed.</li>
           </ul>
@@ -749,7 +751,7 @@
         <section id="international-transfers">
           <h2>11. International Data Transfers</h2>
           <p>
-            Our third-party infrastructure providers (Google LLC / Firebase and RevenueCat) may process authentication or purchase verification metadata on servers located in the United States or other jurisdictions outside your country of residence. Where applicable, such transfers are governed by standard contractual safeguards and adequacy mechanisms provided by those vendors.
+            Our third-party infrastructure providers (<strong>Google LLC</strong> and <strong>RevenueCat</strong>) may process Play Games, update, or purchase verification metadata on servers located in the United States or other jurisdictions outside your country of residence. Where applicable, such transfers are governed by standard contractual safeguards and adequacy mechanisms provided by those vendors.
           </p>
         </section>
 
@@ -781,7 +783,7 @@
         <section id="data-safety-reference">
           <h2>Appendix: Google Play Console Data Safety Reference</h2>
           <p>
-            <em>(Reference summary for the <strong>Data Safety</strong> section in Google Play Console.)</em>
+            <em>(Use this reference summary when completing or auditing the <strong>Data Safety</strong> section in Google Play Console.)</em>
           </p>
           <div class="table-wrapper">
             <table>
@@ -796,42 +798,42 @@
                 <tr>
                   <td><strong>Does your app collect or share any required user data types?</strong></td>
                   <td><strong>Yes</strong></td>
-                  <td>Optional Google Sign-In + Purchase History / App User IDs for Pro subscriptions.</td>
+                  <td>Optional Google Play Games Services v2 profile/leaderboard + Purchase History / App User IDs for Pro upgrades.</td>
                 </tr>
                 <tr>
                   <td><strong>Is all data encrypted in transit?</strong></td>
                   <td><strong>Yes</strong></td>
-                  <td>HTTPS/TLS for Firebase Auth, RevenueCat, Coil, and Google Play Billing.</td>
+                  <td>HTTPS/TLS for Google Play Games Services, Google Play Billing, In-App Updates, and RevenueCat.</td>
                 </tr>
                 <tr>
                   <td><strong>Do you provide a way for users to request that their data is deleted?</strong></td>
                   <td><strong>Yes</strong></td>
-                  <td>Via email deletion request (<code>developers.karmakar@gmail.com</code>) + local clear/uninstall + sign-out/Google permissions revocation.</td>
+                  <td>Via email deletion request (<code>developers.karmakar@gmail.com</code>), Google Play Games data controls, and local Clear Storage / uninstall.</td>
                 </tr>
                 <tr>
                   <td><strong>Personal Info — Name</strong></td>
-                  <td>Collected (Optional) • Not Shared • App Functionality &amp; Account Management</td>
-                  <td>Collected only if user chooses Google Sign-In.</td>
+                  <td>Collected (Optional) • App Functionality &amp; Personalization</td>
+                  <td>Google Play Games Gamer Name (collected only if user signs into Play Games).</td>
                 </tr>
                 <tr>
                   <td><strong>Personal Info — Email Address</strong></td>
-                  <td>Collected (Optional) • Not Shared • App Functionality &amp; Account Management</td>
-                  <td>Collected only if user chooses Google Sign-In.</td>
+                  <td><strong>Not Collected</strong></td>
+                  <td>Firebase Auth was removed; app does not request or access user email.</td>
                 </tr>
                 <tr>
                   <td><strong>Personal Info — User IDs</strong></td>
-                  <td>Collected (Optional / Required for Pro) • Shared with RevenueCat (for purchases) • App Functionality, Fraud Prevention &amp; Account Management</td>
-                  <td>Firebase UID (on sign-in) and RevenueCat anonymous App User ID (for Pro entitlements).</td>
+                  <td>Collected (Optional / Required for Pro) • Shared with RevenueCat (for purchases) &amp; Google Play Games • App Functionality, Fraud Prevention &amp; Account Management</td>
+                  <td>Play Games Player ID (on optional sign-in) and RevenueCat anonymous App User ID (for Pro entitlements).</td>
+                </tr>
+                <tr>
+                  <td><strong>App Activity / Other User-Generated or Game Content</strong></td>
+                  <td>Collected (Optional) • App Functionality</td>
+                  <td>Chess Elo score submitted to Google Play Games Leaderboard when signed in. Local games/puzzles stay on device only.</td>
                 </tr>
                 <tr>
                   <td><strong>Financial Info — Purchase History</strong></td>
                   <td>Collected (Optional, if Pro purchased) • Shared with RevenueCat / Google Play • App Functionality &amp; Fraud Prevention</td>
                   <td>Subscription/one-time entitlement verification &amp; purchase restoration. No raw card/bank info collected.</td>
-                </tr>
-                <tr>
-                  <td><strong>App Activity / Game &amp; Puzzle Data</strong></td>
-                  <td>Stored locally on device only (not transmitted off device)</td>
-                  <td>Room DB &amp; DataStore Preferences remain on device.</td>
                 </tr>
                 <tr>
                   <td><strong>Ads</strong></td>
